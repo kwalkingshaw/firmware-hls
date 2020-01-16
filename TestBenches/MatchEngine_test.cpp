@@ -53,10 +53,11 @@ int main() {
     writeMemFromFile<VMStubMEMemory<BARRELPS> >(inputvmstubs, fin_vmstub, ievt);
 
     //set bunch crossing
-    BXType bx=ievt&0x7;
+    BXType bx=ievt;
+    BXType bx_out;
 
     // Unit Under Test
-    MatchEngineTopL1(bx,&inputvmstubs,&inputvmprojs,&outputcandmatches);
+    MatchEngineTopL1(bx,bx_out,&inputvmstubs,&inputvmprojs,&outputcandmatches);
 
     // compare the computed outputs with the expected ones for the candidate 
     // matches

@@ -351,7 +351,7 @@ void ProjectionRouter(BXType bx,
         nvmprojout7 ++;
         break;
       case 7:
-        vmprojout8->write_mem(bx, vmproj, nvmprojout8);
+        vmprojout8->write_mem(bx, vmproj, nvmprojout8); //bx: page, vmproj:data, nvmprojout8:address 
         nvmprojout8 ++;
         break;
       }
