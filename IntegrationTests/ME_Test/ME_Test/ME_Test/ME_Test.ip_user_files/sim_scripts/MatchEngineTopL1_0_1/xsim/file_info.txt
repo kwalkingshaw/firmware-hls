@@ -1,0 +1,7 @@
+MatchEngine_1_0_s.v,verilog,xil_defaultlib,../../../ipstatic/hdl/verilog/MatchEngine_1_0_s.v,
+MatchEngine_1_0_sbkb.v,verilog,xil_defaultlib,../../../ipstatic/hdl/verilog/MatchEngine_1_0_sbkb.v,
+MatchEngineTopL1_cud.v,verilog,xil_defaultlib,../../../ipstatic/hdl/verilog/MatchEngineTopL1_cud.v,
+MatchEngineTopL1_dEe.v,verilog,xil_defaultlib,../../../ipstatic/hdl/verilog/MatchEngineTopL1_dEe.v,
+MatchEngineTopL1.v,verilog,xil_defaultlib,../../../ipstatic/hdl/verilog/MatchEngineTopL1.v,
+MatchEngineTopL1_0.v,verilog,xil_defaultlib,../../../../ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/sim/MatchEngineTopL1_0.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

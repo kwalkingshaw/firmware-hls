@@ -1,0 +1,749 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Jan 21 15:56:24 2020
+# Process ID: 31367
+# Current directory: /mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.runs/MatchEngineTopL1_0_synth_1
+# Command line: vivado -log MatchEngineTopL1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MatchEngineTopL1_0.tcl
+# Log file: /mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.runs/MatchEngineTopL1_0_synth_1/MatchEngineTopL1_0.vds
+# Journal file: /mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.runs/MatchEngineTopL1_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source MatchEngineTopL1_0.tcl -notrace
+Command: synth_design -top MatchEngineTopL1_0 -part xcvu7p-flvb2104-2-i -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu7p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu7p'
+INFO: [Common 17-1540] The version limit for your license is '2019.08' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 31581 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1782.539 ; gain = 0.004 ; free physical = 8507 ; free virtual = 144457
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'MatchEngineTopL1_0' [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/synth/MatchEngineTopL1_0.v:58]
+INFO: [Synth 8-6157] synthesizing module 'MatchEngineTopL1' [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngineTopL1.v:12]
+	Parameter ap_ST_fsm_state1 bound to: 3'b001 
+	Parameter ap_ST_fsm_state2 bound to: 3'b010 
+	Parameter ap_ST_fsm_state3 bound to: 3'b100 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngineTopL1.v:140]
+INFO: [Synth 8-6157] synthesizing module 'MatchEngine_1_0_s' [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:10]
+	Parameter ap_ST_fsm_state1 bound to: 4'b0001 
+	Parameter ap_ST_fsm_pp0_stage0 bound to: 4'b0010 
+	Parameter ap_ST_fsm_pp0_stage1 bound to: 4'b0100 
+	Parameter ap_ST_fsm_state9 bound to: 4'b1000 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:138]
+INFO: [Synth 8-6157] synthesizing module 'MatchEngine_1_0_sbkb' [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_sbkb.v:43]
+	Parameter DataWidth bound to: 1 - type: integer 
+	Parameter AddressRange bound to: 256 - type: integer 
+	Parameter AddressWidth bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'MatchEngine_1_0_sbkb_rom' [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_sbkb.v:9]
+	Parameter DWIDTH bound to: 1 - type: integer 
+	Parameter AWIDTH bound to: 8 - type: integer 
+	Parameter MEM_SIZE bound to: 256 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_sbkb.v:21]
+INFO: [Synth 8-3876] $readmem data file './MatchEngine_1_0_sbkb_rom.dat' is read successfully [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_sbkb.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'MatchEngine_1_0_sbkb_rom' (1#1) [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_sbkb.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'MatchEngine_1_0_sbkb' (2#1) [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_sbkb.v:43]
+INFO: [Synth 8-6157] synthesizing module 'MatchEngineTopL1_cud' [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngineTopL1_cud.v:11]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 30 - type: integer 
+	Parameter din1_WIDTH bound to: 30 - type: integer 
+	Parameter din2_WIDTH bound to: 30 - type: integer 
+	Parameter din3_WIDTH bound to: 30 - type: integer 
+	Parameter din4_WIDTH bound to: 30 - type: integer 
+	Parameter din5_WIDTH bound to: 30 - type: integer 
+	Parameter din6_WIDTH bound to: 30 - type: integer 
+	Parameter din7_WIDTH bound to: 30 - type: integer 
+	Parameter din8_WIDTH bound to: 3 - type: integer 
+	Parameter dout_WIDTH bound to: 30 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'MatchEngineTopL1_cud' (3#1) [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngineTopL1_cud.v:11]
+INFO: [Synth 8-6157] synthesizing module 'MatchEngineTopL1_dEe' [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngineTopL1_dEe.v:11]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 5 - type: integer 
+	Parameter din1_WIDTH bound to: 5 - type: integer 
+	Parameter din2_WIDTH bound to: 5 - type: integer 
+	Parameter din3_WIDTH bound to: 5 - type: integer 
+	Parameter din4_WIDTH bound to: 5 - type: integer 
+	Parameter din5_WIDTH bound to: 5 - type: integer 
+	Parameter din6_WIDTH bound to: 5 - type: integer 
+	Parameter din7_WIDTH bound to: 5 - type: integer 
+	Parameter din8_WIDTH bound to: 5 - type: integer 
+	Parameter din9_WIDTH bound to: 5 - type: integer 
+	Parameter din10_WIDTH bound to: 5 - type: integer 
+	Parameter din11_WIDTH bound to: 5 - type: integer 
+	Parameter din12_WIDTH bound to: 5 - type: integer 
+	Parameter din13_WIDTH bound to: 5 - type: integer 
+	Parameter din14_WIDTH bound to: 5 - type: integer 
+	Parameter din15_WIDTH bound to: 5 - type: integer 
+	Parameter din16_WIDTH bound to: 5 - type: integer 
+	Parameter din17_WIDTH bound to: 5 - type: integer 
+	Parameter din18_WIDTH bound to: 5 - type: integer 
+	Parameter din19_WIDTH bound to: 5 - type: integer 
+	Parameter din20_WIDTH bound to: 5 - type: integer 
+	Parameter din21_WIDTH bound to: 5 - type: integer 
+	Parameter din22_WIDTH bound to: 5 - type: integer 
+	Parameter din23_WIDTH bound to: 5 - type: integer 
+	Parameter din24_WIDTH bound to: 5 - type: integer 
+	Parameter din25_WIDTH bound to: 5 - type: integer 
+	Parameter din26_WIDTH bound to: 5 - type: integer 
+	Parameter din27_WIDTH bound to: 5 - type: integer 
+	Parameter din28_WIDTH bound to: 5 - type: integer 
+	Parameter din29_WIDTH bound to: 5 - type: integer 
+	Parameter din30_WIDTH bound to: 5 - type: integer 
+	Parameter din31_WIDTH bound to: 5 - type: integer 
+	Parameter din32_WIDTH bound to: 6 - type: integer 
+	Parameter dout_WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'MatchEngineTopL1_dEe' (4#1) [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngineTopL1_dEe.v:11]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1209]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1221]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1229]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1231]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1239]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1253]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1255]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1267]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1271]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1273]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1275]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1277]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1279]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1281]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1283]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1285]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1287]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1289]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1291]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1293]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1295]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1297]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1299]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1301]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1303]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1305]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1307]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1309]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1311]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1313]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1315]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1317]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1319]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1321]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1323]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1325]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1327]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1329]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1331]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1333]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1335]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1337]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1339]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1341]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1343]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1345]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1347]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1349]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1351]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1353]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1355]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1357]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1359]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1361]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1363]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1365]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1367]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1369]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1371]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1373]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1375]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1377]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1379]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1381]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1383]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1385]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1387]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1389]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1391]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1393]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1395]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1397]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1399]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1401]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1403]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1405]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1407]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1409]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1411]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1413]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1415]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1417]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1419]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1421]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1423]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1425]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1431]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1433]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1435]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1437]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1439]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1441]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1443]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1445]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1447]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1449]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1451]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1453]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1455]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:1457]
+INFO: [Common 17-14] Message 'Synth 8-589' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6155] done synthesizing module 'MatchEngine_1_0_s' (5#1) [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngine_1_0_s.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'MatchEngineTopL1' (6#1) [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/hdl/verilog/MatchEngineTopL1.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'MatchEngineTopL1_0' (7#1) [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/synth/MatchEngineTopL1_0.v:58]
+WARNING: [Synth 8-3331] design MatchEngineTopL1_dEe has unconnected port din32[5]
+WARNING: [Synth 8-3331] design MatchEngine_1_0_sbkb has unconnected port reset
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1782.551 ; gain = 0.016 ; free physical = 8487 ; free virtual = 144438
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1782.551 ; gain = 0.016 ; free physical = 8514 ; free virtual = 144465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1782.551 ; gain = 0.016 ; free physical = 8514 ; free virtual = 144465
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xcvu7p-flvb2104-2-i
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/constraints/MatchEngineTopL1_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/constraints/MatchEngineTopL1_ooc.xdc] for cell 'inst'
+Parsing XDC File [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.runs/MatchEngineTopL1_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.runs/MatchEngineTopL1_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2450.648 ; gain = 0.000 ; free physical = 7710 ; free virtual = 143661
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:51 . Memory (MB): peak = 2450.648 ; gain = 668.113 ; free physical = 7781 ; free virtual = 143732
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvu7p-flvb2104-2-i
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:51 . Memory (MB): peak = 2450.648 ; gain = 668.113 ; free physical = 7781 ; free virtual = 143732
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for inst. (constraint file  /mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.runs/MatchEngineTopL1_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:51 . Memory (MB): peak = 2450.648 ; gain = 668.113 ; free physical = 7780 ; free virtual = 143731
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5542] Attribute ram_style/rom_style = distributed specified for ROM  "ram". This will be implemented in logic
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5546] ROM "tmp_17_fu_724_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_8_fu_700_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "tmp_6_fu_1149_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "tmp_7_fu_1239_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp1_fu_1081_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp5_fu_1015_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp7_fu_1021_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp8_fu_1033_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp9_fu_1027_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp_fu_1009_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp4_fu_1323_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp2_fu_1310_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "tmp_17_fu_724_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_8_fu_700_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "tmp_6_fu_1149_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "tmp_7_fu_1239_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp1_fu_1081_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp5_fu_1015_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp7_fu_1021_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp8_fu_1033_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp9_fu_1027_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp_fu_1009_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp4_fu_1323_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp2_fu_1310_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "istub_V_fu_304" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "istub_V_fu_304" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "projbuffer_7_V_178_reg_3020" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:52 . Memory (MB): peak = 2450.648 ; gain = 668.113 ; free physical = 7773 ; free virtual = 143725
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 2     
+	   3 Input      6 Bit       Adders := 1     
+	   3 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 4     
++---XORs : 
+	   2 Input      4 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               30 Bit    Registers := 15    
+	                8 Bit    Registers := 3     
+	                7 Bit    Registers := 7     
+	                5 Bit    Registers := 36    
+	                4 Bit    Registers := 4     
+	                3 Bit    Registers := 8     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 28    
++---Muxes : 
+	   2 Input     30 Bit        Muxes := 121   
+	   5 Input     30 Bit        Muxes := 1     
+	   6 Input     30 Bit        Muxes := 1     
+	   7 Input     30 Bit        Muxes := 1     
+	   8 Input     30 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 6     
+	   2 Input      5 Bit        Muxes := 63    
+	   7 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 5     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 46    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module MatchEngine_1_0_sbkb_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module MatchEngineTopL1_cud 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     30 Bit        Muxes := 7     
+Module MatchEngineTopL1_dEe 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      5 Bit        Muxes := 31    
+Module MatchEngine_1_0_s 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 2     
+	   3 Input      6 Bit       Adders := 1     
+	   3 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 4     
++---XORs : 
+	   2 Input      4 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               30 Bit    Registers := 15    
+	                8 Bit    Registers := 3     
+	                7 Bit    Registers := 7     
+	                5 Bit    Registers := 36    
+	                4 Bit    Registers := 4     
+	                3 Bit    Registers := 6     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 25    
++---Muxes : 
+	   2 Input     30 Bit        Muxes := 114   
+	   5 Input     30 Bit        Muxes := 1     
+	   6 Input     30 Bit        Muxes := 1     
+	   7 Input     30 Bit        Muxes := 1     
+	   8 Input     30 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 6     
+	   2 Input      5 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 5     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 45    
+Module MatchEngineTopL1 
+Detailed RTL Component Info : 
++---Registers : 
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 4560 (col length:120)
+BRAMs: 2880 (col length: RAMB18 240 RAMB36 120)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5544] ROM "tmp_7_fu_1239_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "tmp_6_fu_1149_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp8_fu_1033_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp1_fu_1081_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp4_fu_1323_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp2_fu_1310_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp9_fu_1027_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp7_fu_1021_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp5_fu_1015_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp_fu_1009_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "tmp_8_fu_700_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_17_fu_724_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "sel_tmp1_fu_1081_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp8_fu_1033_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp4_fu_1323_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp2_fu_1310_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5542] Attribute ram_style/rom_style = distributed specified for ROM  "p_0_out". This will be implemented in logic
+INFO: [Synth 8-5546] ROM "tmp_8_fu_700_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_17_fu_724_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[8]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[8]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[6]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[6]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[7]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[9]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[9]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[4]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[4]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[10]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[10]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[11]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[11]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[12]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[12]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/\grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[0] )
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[0]' (FDR) to 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[13]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[13]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[18]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[18]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[19]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[19]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[20]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[20]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[21]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[21]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[22]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[22]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[23]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[23]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[24]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[24]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[15]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[15]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[16]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[16]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[17]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[17]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[0]' (FDR) to 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[1]' (FDR) to 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[2]' (FDR) to 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[3]' (FDR) to 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[4]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[4]' (FDR) to 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[5]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[5]' (FDR) to 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[6]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[6] )
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[7]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_3_reg_2636_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_3_reg_2636_reg[0]' (FDE) to 'inst/grp_MatchEngine_1_0_s_fu_128/tmp_4_reg_2653_reg[0]'
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[9]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/tmp_20_cast_reg_2660_reg[8]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_178_reg_3020_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[0]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_179_reg_3109_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_40_fu_232_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_40_fu_232_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_40_fu_232_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_40_fu_232_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_40_fu_232_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_40_fu_232_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_l_reg_2884_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_l_reg_2884_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_l_reg_2884_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_l_reg_2884_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_l_reg_2884_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_l_reg_2884_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_fu_236_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_fu_236_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_fu_236_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_fu_236_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_fu_236_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_35_fu_236_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_l_reg_2892_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_l_reg_2892_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_l_reg_2892_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_l_reg_2892_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_l_reg_2892_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_l_reg_2892_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_fu_240_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_fu_240_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_fu_240_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_fu_240_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_fu_240_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_29_fu_240_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_l_reg_2901_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_l_reg_2901_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_l_reg_2901_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_l_reg_2901_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_l_reg_2901_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_l_reg_2901_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_fu_244_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_fu_244_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_fu_244_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_fu_244_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_fu_244_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_22_fu_244_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_lo_reg_2911_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_lo_reg_2911_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_lo_reg_2911_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_lo_reg_2911_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_lo_reg_2911_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_lo_reg_2911_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_fu_248_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_fu_248_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_fu_248_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_fu_248_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_fu_248_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_8_fu_248_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_l_reg_2922_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_l_reg_2922_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_l_reg_2922_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_l_reg_2922_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_l_reg_2922_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_l_reg_2922_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_fu_252_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_fu_252_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_fu_252_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_fu_252_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_fu_252_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_44_fu_252_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_l_reg_2934_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_l_reg_2934_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_l_reg_2934_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_l_reg_2934_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_l_reg_2934_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_l_reg_2934_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_fu_256_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_fu_256_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_fu_256_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_fu_256_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_fu_256_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_45_fu_256_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_load_reg_2947_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_load_reg_2947_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_load_reg_2947_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_load_reg_2947_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_load_reg_2947_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_load_reg_2947_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_fu_260_reg[25]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_fu_260_reg[17]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_fu_260_reg[16]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_fu_260_reg[15]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_fu_260_reg[14]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projbuffer_7_V_fu_260_reg[5]) is unused and will be removed from module MatchEngineTopL1.
+WARNING: [Synth 8-3332] Sequential element (grp_MatchEngine_1_0_s_fu_128/projrinv_V_reg_3164_reg[0]) is unused and will be removed from module MatchEngineTopL1.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:59 . Memory (MB): peak = 2450.648 ; gain = 668.113 ; free physical = 7744 ; free virtual = 143700
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-------------------------+------------+---------------+----------------+
+|Module Name              | RTL Object | Depth x Width | Implemented As | 
++-------------------------+------------+---------------+----------------+
+|MatchEngine_1_0_sbkb_rom | p_0_out    | 256x1         | LUT            | 
+|MatchEngine_1_0_s        | p_0_out    | 256x1         | LUT            | 
++-------------------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:59 ; elapsed = 00:02:18 . Memory (MB): peak = 2684.988 ; gain = 902.453 ; free physical = 7332 ; free virtual = 143287
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:03 ; elapsed = 00:02:23 . Memory (MB): peak = 2808.895 ; gain = 1026.359 ; free physical = 7253 ; free virtual = 143209
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:04 ; elapsed = 00:02:23 . Memory (MB): peak = 2808.895 ; gain = 1026.359 ; free physical = 7254 ; free virtual = 143209
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:04 ; elapsed = 00:02:24 . Memory (MB): peak = 2808.898 ; gain = 1026.363 ; free physical = 7254 ; free virtual = 143210
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:04 ; elapsed = 00:02:24 . Memory (MB): peak = 2808.898 ; gain = 1026.363 ; free physical = 7254 ; free virtual = 143210
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:04 ; elapsed = 00:02:24 . Memory (MB): peak = 2808.898 ; gain = 1026.363 ; free physical = 7254 ; free virtual = 143210
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:04 ; elapsed = 00:02:24 . Memory (MB): peak = 2808.898 ; gain = 1026.363 ; free physical = 7254 ; free virtual = 143210
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:04 ; elapsed = 00:02:24 . Memory (MB): peak = 2808.898 ; gain = 1026.363 ; free physical = 7254 ; free virtual = 143210
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:04 ; elapsed = 00:02:24 . Memory (MB): peak = 2808.898 ; gain = 1026.363 ; free physical = 7254 ; free virtual = 143210
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY8 |     7|
+|2     |LUT1   |     6|
+|3     |LUT2   |    52|
+|4     |LUT3   |    69|
+|5     |LUT4   |   135|
+|6     |LUT5   |   130|
+|7     |LUT6   |   355|
+|8     |MUXF7  |    47|
+|9     |MUXF8  |     3|
+|10    |FDRE   |   739|
+|11    |FDSE   |     3|
++------+-------+------+
+
+Report Instance Areas: 
++------+-----------------------------------+-------------------------+------+
+|      |Instance                           |Module                   |Cells |
++------+-----------------------------------+-------------------------+------+
+|1     |top                                |                         |  1546|
+|2     |  inst                             |MatchEngineTopL1         |  1546|
+|3     |    grp_MatchEngine_1_0_s_fu_128   |MatchEngine_1_0_s        |  1536|
+|4     |      table1_U                     |MatchEngine_1_0_sbkb     |     8|
+|5     |        MatchEngine_1_0_sbkb_rom_U |MatchEngine_1_0_sbkb_rom |     8|
++------+-----------------------------------+-------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:04 ; elapsed = 00:02:24 . Memory (MB): peak = 2808.898 ; gain = 1026.363 ; free physical = 7254 ; free virtual = 143210
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 102 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:47 ; elapsed = 00:01:42 . Memory (MB): peak = 2808.898 ; gain = 358.266 ; free physical = 7283 ; free virtual = 143239
+Synthesis Optimization Complete : Time (s): cpu = 00:01:04 ; elapsed = 00:02:24 . Memory (MB): peak = 2808.902 ; gain = 1026.363 ; free physical = 7292 ; free virtual = 143248
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 57 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'MatchEngineTopL1_0' is not ideal for floorplanning, since the cellview 'MatchEngine_1_0_s' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+117 Infos, 203 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:07 ; elapsed = 00:02:27 . Memory (MB): peak = 2863.547 ; gain = 1093.137 ; free physical = 7331 ; free virtual = 143287
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.runs/MatchEngineTopL1_0_synth_1/MatchEngineTopL1_0.dcp' has been generated.
+INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP /mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.srcs/sources_1/ip/MatchEngineTopL1_0_1/MatchEngineTopL1_0.xci
+INFO: [Coretcl 2-1174] Renamed 4 cell refs.
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/mnt/scratch/rz393/firmware-hls/IntegrationTests/ME_Test_1/ME_Test/ME_Test/ME_Test.runs/MatchEngineTopL1_0_synth_1/MatchEngineTopL1_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file MatchEngineTopL1_0_utilization_synth.rpt -pb MatchEngineTopL1_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2887.562 ; gain = 0.000 ; free physical = 7326 ; free virtual = 143283
+INFO: [Common 17-206] Exiting Vivado at Tue Jan 21 15:59:26 2020...
