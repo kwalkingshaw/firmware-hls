@@ -106,11 +106,12 @@ void MatchEngine(BXType bx, BXType& bx_o,
   //circular, and the projection reading will stop if buffer is full and continue 
   //after the buffer is drained
 
-  constexpr unsigned int kNBitsBuffer=3;  
+  constexpr unsigned int kNBitsBuffer=3;
+  constexpr int kNBits_ProjBuffer =kNBits_MemAddrBinned + VMProjectionBase<BARREL>::kVMProjectionSize + 1 +kNBits_z +1;
 
   ap_uint<kNBitsBuffer> writeindex=0;
   ap_uint<kNBitsBuffer> readindex=0;
-  ap_uint<30> projbuffer[1<<kNBitsBuffer];  //FIXME How to replace 30 with const? 
+  ap_uint<kNBits_ProjBuffer> projbuffer[1<<kNBitsBuffer];  //projbuffer = nstub+projdata+finez
 #pragma HLS ARRAY_PARTITION variable=projbuffer complete dim=0
 
   //The next projection to read, the number of projections and flag if we have
