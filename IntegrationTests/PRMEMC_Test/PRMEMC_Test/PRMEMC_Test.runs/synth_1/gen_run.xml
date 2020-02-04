@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xcvu7p-flvb2104-1-e" LaunchTime="1580855854">
+  <File Type="VDS-TIMING-PB" Name="SectorProcessor_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="SectorProcessor_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="SectorProcessor.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="SectorProcessor_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="SectorProcessor_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="SectorProcessor_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="SectorProcessor.vds"/>
+  <File Type="REPORTS-TCL" Name="SectorProcessor_reports.tcl"/>
+  <File Type="PA-TCL" Name="SectorProcessor.tcl"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../../../TrackletAlgorithm/Memory.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../sourceFiles/SectorProcessor.v">
+      <FileInfo SFType="SVerilog">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../TrackletAlgorithm/MemoryBinned.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="SectorProcessor"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="PR_L3PHIC"/>
+  <BlockFileSet Type="BlockSrcs" Name="MatchEngineTopL3_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MC_L3PHIC"/>
+</GenRun>

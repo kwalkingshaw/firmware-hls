@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="MC_L3PHIC_synth_1" LaunchPart="xcvu7p-flvb2104-1-e" LaunchTime="1580854461">
+  <File Type="VDS-TIMING-PB" Name="MC_L3PHIC_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="MC_L3PHIC_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="MC_L3PHIC.dcp"/>
+  <File Type="REPORTS-TCL" Name="MC_L3PHIC_reports.tcl"/>
+  <File Type="PA-TCL" Name="MC_L3PHIC.tcl"/>
+  <File Type="RDS-RDS" Name="MC_L3PHIC.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="MC_L3PHIC_drc_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="MC_L3PHIC_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="MC_L3PHIC_utilization_synth.pb"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/MC_L3PHIC">
+    <File Path="$PSRCDIR/sources_1/ip/MC_L3PHIC/MC_L3PHIC.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="MC_L3PHIC"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/MC_L3PHIC">
+    <File Path="$PSRCDIR/sources_1/ip/MC_L3PHIC/MC_L3PHIC.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="MC_L3PHIC"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

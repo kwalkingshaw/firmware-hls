@@ -1,0 +1,4 @@
+NumberHits:0
+Timestamp: Tue Feb 04 22:17:37 UTC 2020
+VLNV: xilinx.com:hls:MatchCalculatorTop:1.0
+SynthRuntime: 180

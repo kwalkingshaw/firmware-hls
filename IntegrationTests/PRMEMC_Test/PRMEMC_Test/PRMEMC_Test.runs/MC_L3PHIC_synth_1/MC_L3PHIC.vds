@@ -1,0 +1,927 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Feb  4 17:14:23 2020
+# Process ID: 18808
+# Current directory: /mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.runs/MC_L3PHIC_synth_1
+# Command line: vivado -log MC_L3PHIC.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MC_L3PHIC.tcl
+# Log file: /mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.runs/MC_L3PHIC_synth_1/MC_L3PHIC.vds
+# Journal file: /mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.runs/MC_L3PHIC_synth_1/vivado.jou
+#-----------------------------------------------------------
+source MC_L3PHIC.tcl -notrace
+Command: synth_design -top MC_L3PHIC -part xcvu7p-flvb2104-1-e -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu7p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu7p'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 19406 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1782.539 ; gain = 0.004 ; free physical = 7060 ; free virtual = 144467
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'MC_L3PHIC' [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/synth/MC_L3PHIC.v:58]
+INFO: [Synth 8-6157] synthesizing module 'MatchCalculatorTop' [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculatorTop.v:12]
+	Parameter ap_ST_fsm_state1 bound to: 3'b001 
+	Parameter ap_ST_fsm_state2 bound to: 3'b010 
+	Parameter ap_ST_fsm_state3 bound to: 3'b100 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculatorTop.v:278]
+INFO: [Synth 8-6157] synthesizing module 'MatchCalculator' [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:10]
+	Parameter ap_ST_fsm_state1 bound to: 3'b001 
+	Parameter ap_ST_fsm_pp0_stage0 bound to: 3'b010 
+	Parameter ap_ST_fsm_state11 bound to: 3'b100 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:297]
+INFO: [Synth 8-6157] synthesizing module 'MatchCalculator_Lbkb' [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lbkb.v:39]
+	Parameter DataWidth bound to: 7 - type: integer 
+	Parameter AddressRange bound to: 7 - type: integer 
+	Parameter AddressWidth bound to: 3 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'MatchCalculator_Lbkb_rom' [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lbkb.v:6]
+	Parameter DWIDTH bound to: 7 - type: integer 
+	Parameter AWIDTH bound to: 3 - type: integer 
+	Parameter MEM_SIZE bound to: 7 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lbkb.v:18]
+INFO: [Synth 8-3876] $readmem data file './MatchCalculator_Lbkb_rom.dat' is read successfully [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lbkb.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'MatchCalculator_Lbkb_rom' (1#1) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lbkb.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MatchCalculator_Lbkb' (2#1) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lbkb.v:39]
+INFO: [Synth 8-6157] synthesizing module 'MatchCalculator_Lcud' [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lcud.v:39]
+	Parameter DataWidth bound to: 8 - type: integer 
+	Parameter AddressRange bound to: 7 - type: integer 
+	Parameter AddressWidth bound to: 3 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'MatchCalculator_Lcud_rom' [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lcud.v:6]
+	Parameter DWIDTH bound to: 8 - type: integer 
+	Parameter AWIDTH bound to: 3 - type: integer 
+	Parameter MEM_SIZE bound to: 7 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lcud.v:18]
+INFO: [Synth 8-3876] $readmem data file './MatchCalculator_Lcud_rom.dat' is read successfully [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lcud.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'MatchCalculator_Lcud_rom' (3#1) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lcud.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MatchCalculator_Lcud' (4#1) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator_Lcud.v:39]
+INFO: [Synth 8-6157] synthesizing module 'MatchCalculatorTodEe' [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculatorTodEe.v:30]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 7 - type: integer 
+	Parameter din1_WIDTH bound to: 10 - type: integer 
+	Parameter din2_WIDTH bound to: 7 - type: integer 
+	Parameter dout_WIDTH bound to: 15 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'MatchCalculatorTodEe_DSP48_0' [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculatorTodEe.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'MatchCalculatorTodEe_DSP48_0' (5#1) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculatorTodEe.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'MatchCalculatorTodEe' (6#1) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculatorTodEe.v:30]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:3840]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:3842]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:3872]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:3878]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:3884]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:3890]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4114]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4116]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4118]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4124]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4126]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4128]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4130]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4132]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4134]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4136]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4138]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4140]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4142]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4144]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4146]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4148]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4150]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4152]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4154]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4156]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4158]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4160]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4162]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4164]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4166]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4168]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4170]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4172]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4174]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4176]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4178]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4180]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4182]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4184]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4436]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4438]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4440]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4442]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4444]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4446]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4448]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4450]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4774]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4776]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4778]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4780]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4782]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4784]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4786]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4788]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4798]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4842]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4852]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4862]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4872]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4882]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4892]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4902]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4912]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4922]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4932]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4942]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4952]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4962]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4972]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4976]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4978]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4980]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4982]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4984]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4986]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4988]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4990]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4992]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4994]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4996]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:4998]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5000]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5002]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5004]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5006]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5008]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5010]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5012]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5014]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5016]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5018]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5020]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5022]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5024]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5026]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5028]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5030]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:5032]
+INFO: [Common 17-14] Message 'Synth 8-589' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6155] done synthesizing module 'MatchCalculator' (7#1) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'MatchCalculatorTop' (8#1) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculatorTop.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'MC_L3PHIC' (9#1) [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/synth/MC_L3PHIC.v:58]
+WARNING: [Synth 8-3331] design MatchCalculator_Lcud has unconnected port reset
+WARNING: [Synth 8-3331] design MatchCalculator_Lbkb has unconnected port reset
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match1_nentries_0_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match1_nentries_1_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match2_nentries_0_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match2_nentries_1_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match3_nentries_0_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match3_nentries_1_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match4_nentries_0_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match4_nentries_1_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match5_nentries_0_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match5_nentries_1_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match6_nentries_0_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match6_nentries_1_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match7_nentries_0_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match7_nentries_1_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match8_nentries_0_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port match8_nentries_1_V_read[7]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port allstub_dataarray_data_V_q0[28]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port allstub_dataarray_data_V_q0[27]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port allstub_dataarray_data_V_q0[26]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port allstub_dataarray_data_V_q0[2]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port allstub_dataarray_data_V_q0[1]
+WARNING: [Synth 8-3331] design MatchCalculator has unconnected port allstub_dataarray_data_V_q0[0]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_0_V[7]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_0_V[6]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_0_V[5]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_0_V[4]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_0_V[3]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_0_V[2]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_0_V[1]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_0_V[0]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_1_V[7]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_1_V[6]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_1_V[5]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_1_V[4]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_1_V[3]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_1_V[2]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_1_V[1]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_1_V[0]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_2_V[7]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_2_V[6]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_2_V[5]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_2_V[4]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_2_V[3]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_2_V[2]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_2_V[1]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_2_V[0]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_3_V[7]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_3_V[6]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_3_V[5]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_3_V[4]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_3_V[3]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_3_V[2]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_3_V[1]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_3_V[0]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_4_V[7]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_4_V[6]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_4_V[5]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_4_V[4]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_4_V[3]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_4_V[2]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_4_V[1]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_4_V[0]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_5_V[7]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_5_V[6]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_5_V[5]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_5_V[4]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_5_V[3]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_5_V[2]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_5_V[1]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_5_V[0]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_6_V[7]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_6_V[6]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_6_V[5]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_6_V[4]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_6_V[3]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_6_V[2]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_6_V[1]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_6_V[0]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_7_V[7]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_7_V[6]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_7_V[5]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_7_V[4]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_7_V[3]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_7_V[2]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_7_V[1]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allstub_nentries_7_V[0]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_0_V[7]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_0_V[6]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_0_V[5]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_0_V[4]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_0_V[3]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_0_V[2]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_0_V[1]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_0_V[0]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_1_V[7]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_1_V[6]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_1_V[5]
+WARNING: [Synth 8-3331] design MatchCalculatorTop has unconnected port allproj_nentries_1_V[4]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1782.551 ; gain = 0.016 ; free physical = 6939 ; free virtual = 144347
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1782.551 ; gain = 0.016 ; free physical = 6956 ; free virtual = 144364
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1782.551 ; gain = 0.016 ; free physical = 6956 ; free virtual = 144364
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xcvu7p-flvb2104-1-e
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/constraints/MatchCalculatorTop_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/constraints/MatchCalculatorTop_ooc.xdc] for cell 'inst'
+Parsing XDC File [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.runs/MC_L3PHIC_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.runs/MC_L3PHIC_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2463.648 ; gain = 2.000 ; free physical = 5558 ; free virtual = 142968
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:58 . Memory (MB): peak = 2463.648 ; gain = 681.113 ; free physical = 5186 ; free virtual = 142596
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvu7p-flvb2104-1-e
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:58 . Memory (MB): peak = 2463.648 ; gain = 681.113 ; free physical = 5185 ; free virtual = 142595
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for inst. (constraint file  /mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.runs/MC_L3PHIC_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:58 . Memory (MB): peak = 2463.648 ; gain = 681.113 ; free physical = 5185 ; free virtual = 142595
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5542] Attribute ram_style/rom_style = distributed specified for ROM  "ram". This will be implemented in logic
+INFO: [Synth 8-5542] Attribute ram_style/rom_style = distributed specified for ROM  "ram". This will be implemented in logic
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5544] ROM "icmp_ln74_2_fu_2911_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_1_fu_2905_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_fu_2899_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_18_fu_5331_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_17_fu_5311_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_16_fu_5297_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_26_fu_6384_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_25_fu_6371_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_24_fu_6357_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_6_fu_3468_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_5_fu_3462_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_4_fu_3456_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_10_fu_4025_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_9_fu_4019_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_8_fu_4013_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_22_fu_5858_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_21_fu_5838_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_20_fu_5824_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_14_fu_4582_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_13_fu_4576_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_12_fu_4570_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "icmp_ln887_fu_1950_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "icmp_ln879_fu_2170_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element trunc_ln2_reg_8470_reg was removed.  [/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/hdl/verilog/MatchCalculator.v:2615]
+INFO: [Synth 8-5544] ROM "icmp_ln74_2_fu_2911_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_1_fu_2905_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_fu_2899_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_18_fu_5331_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_17_fu_5311_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_16_fu_5297_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_26_fu_6384_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_25_fu_6371_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_24_fu_6357_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_6_fu_3468_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_5_fu_3462_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_4_fu_3456_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_10_fu_4025_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_9_fu_4019_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_8_fu_4013_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_22_fu_5858_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_21_fu_5838_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_20_fu_5824_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_14_fu_4582_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_13_fu_4576_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_12_fu_4570_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "icmp_ln887_fu_1950_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "icmp_ln879_fu_2170_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "select_ln56_fu_2722_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln57_fu_2695_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln56_8_fu_5134_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln57_8_fu_5107_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln55_fu_6155_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln58_fu_6179_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln56_2_fu_3279_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln57_2_fu_3252_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln56_4_fu_3836_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln57_4_fu_3809_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln56_10_fu_5661_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln57_10_fu_5634_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln56_6_fu_4393_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "select_ln57_6_fu_4366_p3" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "fullmatch7_nentries_0_V" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bestmatch_next_data_s_reg_767" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:59 . Memory (MB): peak = 2463.648 ; gain = 681.113 ; free physical = 5163 ; free virtual = 142573
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     17 Bit       Adders := 1     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     14 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
+	   4 Input      9 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 12    
+	   2 Input      7 Bit       Adders := 9     
++---XORs : 
+	   2 Input      1 Bit         XORs := 84    
++---Registers : 
+	               60 Bit    Registers := 2     
+	               45 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	               14 Bit    Registers := 45    
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 39    
+	                3 Bit    Registers := 7     
+	                1 Bit    Registers := 160   
++---Muxes : 
+	   3 Input     45 Bit        Muxes := 2     
+	   2 Input     45 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 4     
+	   2 Input     14 Bit        Muxes := 68    
+	   4 Input     14 Bit        Muxes := 7     
+	   5 Input     14 Bit        Muxes := 6     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 32    
+	   6 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 13    
+	   3 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 321   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module MatchCalculator_Lbkb_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	                7 Bit    Registers := 1     
+Module MatchCalculator_Lcud_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+Module MatchCalculator 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     17 Bit       Adders := 1     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     14 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
+	   4 Input      9 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 12    
+	   2 Input      7 Bit       Adders := 9     
++---XORs : 
+	   2 Input      1 Bit         XORs := 84    
++---Registers : 
+	               60 Bit    Registers := 2     
+	               45 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	               14 Bit    Registers := 45    
+	                9 Bit    Registers := 4     
+	                7 Bit    Registers := 38    
+	                3 Bit    Registers := 5     
+	                1 Bit    Registers := 158   
++---Muxes : 
+	   3 Input     45 Bit        Muxes := 2     
+	   2 Input     45 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 4     
+	   2 Input     14 Bit        Muxes := 68    
+	   4 Input     14 Bit        Muxes := 7     
+	   5 Input     14 Bit        Muxes := 6     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 32    
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 13    
+	   3 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 14    
+	   2 Input      1 Bit        Muxes := 320   
+Module MatchCalculatorTop 
+Detailed RTL Component Info : 
++---Registers : 
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 4560 (col length:120)
+BRAMs: 2880 (col length: RAMB18 240 RAMB36 120)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5544] ROM "icmp_ln74_10_fu_4025_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_9_fu_4019_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_8_fu_4013_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_14_fu_4582_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_13_fu_4576_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_22_fu_5858_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_21_fu_5838_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_20_fu_5824_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_12_fu_4570_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_2_fu_2911_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_1_fu_2905_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_fu_2899_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_18_fu_5331_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_17_fu_5311_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_16_fu_5297_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_6_fu_3468_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_5_fu_3462_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_4_fu_3456_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_26_fu_6384_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_25_fu_6371_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "icmp_ln74_24_fu_6357_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "icmp_ln887_fu_1950_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "icmp_ln879_fu_2170_p2" won't be mapped to RAM because it is too sparse
+DSP Report: Generating DSP MatchCalculatorTodEe_U1/MatchCalculatorTodEe_DSP48_0_U/p, operation Mode is: (C:0x20)+A*B.
+DSP Report: operator MatchCalculatorTodEe_U1/MatchCalculatorTodEe_DSP48_0_U/p is absorbed into DSP MatchCalculatorTodEe_U1/MatchCalculatorTodEe_DSP48_0_U/p.
+DSP Report: operator MatchCalculatorTodEe_U1/MatchCalculatorTodEe_DSP48_0_U/m is absorbed into DSP MatchCalculatorTodEe_U1/MatchCalculatorTodEe_DSP48_0_U/p.
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/id_V_fu_254_reg[6]' (FDE) to 'inst/grp_MatchCalculator_fu_260/datastream_data_V_reg_8401_reg[13]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/id_V_fu_254_reg[0]' (FDE) to 'inst/grp_MatchCalculator_fu_260/datastream_data_V_reg_8401_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/id_V_fu_254_reg[1]' (FDE) to 'inst/grp_MatchCalculator_fu_260/datastream_data_V_reg_8401_reg[8]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/id_V_fu_254_reg[2]' (FDE) to 'inst/grp_MatchCalculator_fu_260/datastream_data_V_reg_8401_reg[9]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/id_V_fu_254_reg[3]' (FDE) to 'inst/grp_MatchCalculator_fu_260/datastream_data_V_reg_8401_reg[10]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/id_V_fu_254_reg[4]' (FDE) to 'inst/grp_MatchCalculator_fu_260/datastream_data_V_reg_8401_reg[11]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/id_V_fu_254_reg[5]' (FDE) to 'inst/grp_MatchCalculator_fu_260/datastream_data_V_reg_8401_reg[12]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[57]' (FDE) to 'inst/grp_MatchCalculator_fu_260/projseed_next_V_reg_8460_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[58]' (FDE) to 'inst/grp_MatchCalculator_fu_260/projseed_next_V_reg_8460_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[59]' (FDE) to 'inst/grp_MatchCalculator_fu_260/projseed_next_V_reg_8460_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_U/MatchCalculator_Lbkb_rom_U/q0_reg[0]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_U/MatchCalculator_Lbkb_rom_U/q0_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_U/MatchCalculator_Lbkb_rom_U/q0_reg[2]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_U/MatchCalculator_Lbkb_rom_U/q0_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_U/MatchCalculator_Lbkb_rom_U/q0_reg[3]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[32]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[33]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[34]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[35]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[36]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[4]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[37]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[5]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[38]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[6]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[39]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[40]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[8]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[41]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[9]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[42]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[10]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[43]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[11]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[44]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[12]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[45]' (FDE) to 'inst/grp_MatchCalculator_fu_260/proj_phi_V_reg_8465_reg[13]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[2]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[5]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[5]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[6]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[6] )
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[20]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln_reg_8475_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[21]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln_reg_8475_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[22]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln_reg_8475_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[23]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln_reg_8475_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[24]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln_reg_8475_reg[4]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[25]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln_reg_8475_reg[5]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[26]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln_reg_8475_reg[6]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[27]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln_reg_8475_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_reg[28]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln_reg_8475_reg[8]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_pp0_iter7_reg_reg[57]' (FD) to 'inst/grp_MatchCalculator_fu_260/projseed_next_V_reg_8460_pp0_iter7_reg_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_pp0_iter7_reg_reg[58]' (FD) to 'inst/grp_MatchCalculator_fu_260/projseed_next_V_reg_8460_pp0_iter7_reg_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/proj_data_V_reg_8455_pp0_iter7_reg_reg[59]' (FD) to 'inst/grp_MatchCalculator_fu_260/projseed_next_V_reg_8460_pp0_iter7_reg_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_lo_reg_8522_reg[0]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_lo_reg_8522_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_lo_reg_8522_reg[2]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_lo_reg_8522_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\delta_phi_V_reg_8510_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\delta_phi_V_reg_8510_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\delta_phi_V_reg_8510_reg[2] )
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/tmp_14_reg_8517_reg[0]' (FDE) to 'inst/grp_MatchCalculator_fu_260/delta_phi_V_reg_8510_reg[16]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\fullmatch7_dataarray_reg_7478_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\fullmatch7_dataarray_reg_7478_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\fullmatch7_dataarray_reg_7478_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\fullmatch7_dataarray_reg_7478_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\fullmatch7_dataarray_reg_7478_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\fullmatch7_dataarray_reg_7478_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\fullmatch7_dataarray_reg_7478_reg[6] )
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/fullmatch7_dataarray_reg_7478_reg[7]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln209_reg_7416_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/bestmatch_next_data_s_reg_767_reg[9]' (FDRE) to 'inst/grp_MatchCalculator_fu_260/bestmatch_next_data_s_reg_767_reg[10]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/bestmatch_next_data_s_reg_767_reg[10]' (FDRE) to 'inst/grp_MatchCalculator_fu_260/bestmatch_next_data_s_reg_767_reg[11]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/bestmatch_next_data_s_reg_767_reg[28]' (FDRE) to 'inst/grp_MatchCalculator_fu_260/bestmatch_next_data_s_reg_767_reg[30]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\bestmatch_next_data_s_reg_767_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\zext_ln321_1_reg_7468_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\zext_ln321_1_reg_7468_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\zext_ln321_1_reg_7468_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\zext_ln321_1_reg_7468_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\zext_ln321_1_reg_7468_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\zext_ln321_1_reg_7468_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\zext_ln321_1_reg_7468_reg[6] )
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/zext_ln321_1_reg_7468_reg[7]' (FDE) to 'inst/grp_MatchCalculator_fu_260/trunc_ln209_reg_7416_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/grp_MatchCalculator_fu_260/\LUT_matchcut_phi1_lo_reg_8522_reg[3] )
+WARNING: [Synth 8-3332] Sequential element (zext_ln321_1_reg_7468_reg[9]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (zext_ln321_1_reg_7468_reg[8]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (zext_ln321_1_reg_7468_reg[6]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (zext_ln321_1_reg_7468_reg[5]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (zext_ln321_1_reg_7468_reg[4]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (zext_ln321_1_reg_7468_reg[3]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (zext_ln321_1_reg_7468_reg[2]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (zext_ln321_1_reg_7468_reg[1]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (zext_ln321_1_reg_7468_reg[0]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (LUT_matchcut_phi1_lo_reg_8522_reg[3]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (P[6]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (P[5]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (P[4]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (P[3]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (P[2]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (P[1]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (P[0]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[31]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[30]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[29]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[19]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[18]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[17]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[16]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[15]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[14]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[13]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[12]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[11]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[10]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[9]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[8]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[7]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[6]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[5]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[4]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[3]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[2]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[1]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_reg[0]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[45]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[44]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[43]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[42]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[41]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[40]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[39]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[38]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[37]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[36]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[35]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[34]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[33]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[32]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[31]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[30]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[29]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[28]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[27]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[26]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[25]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[24]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[23]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[22]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[21]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[20]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[19]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[18]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[17]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[16]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[15]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[14]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[13]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[12]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[11]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[10]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[9]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[8]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[7]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[6]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[5]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[4]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[3]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[2]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[1]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (proj_data_V_reg_8455_pp0_iter7_reg_reg[0]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (bestmatch_next_data_s_reg_767_reg[30]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (bestmatch_next_data_s_reg_767_reg[11]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[6]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (LUT_matchcut_phi1_U/MatchCalculator_Lbkb_rom_U/q0_reg[1]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (LUT_matchcut_phi1_lo_reg_8522_reg[1]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (best_delta_phi_V_1_fu_258_reg[1]) is unused and will be removed from module MatchCalculator.
+WARNING: [Synth 8-3332] Sequential element (best_delta_phi_V_1_fu_258_reg[0]) is unused and will be removed from module MatchCalculator.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:01:09 . Memory (MB): peak = 2463.648 ; gain = 681.113 ; free physical = 4966 ; free virtual = 142381
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-------------------------+------------+---------------+----------------+
+|Module Name              | RTL Object | Depth x Width | Implemented As | 
++-------------------------+------------+---------------+----------------+
+|MatchCalculator_Lbkb_rom | p_0_out    | 8x7           | LUT            | 
+|MatchCalculator_Lcud_rom | p_0_out    | 8x8           | LUT            | 
+|MatchCalculator          | p_0_out    | 8x8           | LUT            | 
+|MatchCalculator          | p_0_out    | 8x7           | LUT            | 
++-------------------------+------------+---------------+----------------+
+
+
+DSP: Preliminary Mapping  Report (see note below)
++-----------------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name                  | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-----------------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|MatchCalculatorTodEe_DSP48_0 | (C:0x20)+A*B | 10     | 7      | 7      | -      | 15     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
++-----------------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:06 ; elapsed = 00:02:32 . Memory (MB): peak = 2710.988 ; gain = 928.453 ; free physical = 3151 ; free virtual = 140574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:07 ; elapsed = 00:02:33 . Memory (MB): peak = 2733.004 ; gain = 950.469 ; free physical = 3116 ; free virtual = 140539
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (grp_MatchCalculator_fu_260/best_delta_phi_V_1_fu_258_reg[2]) is unused and will be removed from module MatchCalculatorTop.
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_U/MatchCalculator_Lbkb_rom_U/q0_reg[4]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_U/MatchCalculator_Lbkb_rom_U/q0_reg[5]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[0]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[4]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_z2_U/MatchCalculator_Lcud_rom_U/q0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_lo_reg_8522_reg[4]' (FDE) to 'inst/grp_MatchCalculator_fu_260/LUT_matchcut_phi1_lo_reg_8522_reg[5]'
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:09 ; elapsed = 00:02:35 . Memory (MB): peak = 2775.434 ; gain = 992.898 ; free physical = 3074 ; free virtual = 140497
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:10 ; elapsed = 00:02:36 . Memory (MB): peak = 2775.438 ; gain = 992.902 ; free physical = 3064 ; free virtual = 140487
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:10 ; elapsed = 00:02:36 . Memory (MB): peak = 2775.438 ; gain = 992.902 ; free physical = 3063 ; free virtual = 140486
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:10 ; elapsed = 00:02:36 . Memory (MB): peak = 2775.438 ; gain = 992.902 ; free physical = 3064 ; free virtual = 140487
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:10 ; elapsed = 00:02:36 . Memory (MB): peak = 2775.438 ; gain = 992.902 ; free physical = 3071 ; free virtual = 140493
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:10 ; elapsed = 00:02:36 . Memory (MB): peak = 2775.438 ; gain = 992.902 ; free physical = 3070 ; free virtual = 140493
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:10 ; elapsed = 00:02:36 . Memory (MB): peak = 2775.438 ; gain = 992.902 ; free physical = 3070 ; free virtual = 140493
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++-------------------+---------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name        | RTL Name                                                            | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++-------------------+---------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|MatchCalculatorTop | grp_MatchCalculator_fu_260/icmp_ln879_reg_7628_pp0_iter7_reg_reg[0] | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|MatchCalculatorTop | grp_MatchCalculator_fu_260/stubid_V_reg_8431_pp0_iter7_reg_reg[6]   | 3      | 7     | NO           | NO                 | NO                | 7      | 0       | 
++-------------------+---------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------------+------+
+|      |Cell            |Count |
++------+----------------+------+
+|1     |CARRY8          |   102|
+|2     |DSP_ALU         |     1|
+|3     |DSP_A_B_DATA    |     1|
+|4     |DSP_C_DATA      |     1|
+|5     |DSP_MULTIPLIER  |     1|
+|6     |DSP_M_DATA      |     1|
+|7     |DSP_OUTPUT      |     1|
+|8     |DSP_PREADD      |     1|
+|9     |DSP_PREADD_DATA |     1|
+|10    |LUT1            |    34|
+|11    |LUT2            |   246|
+|12    |LUT3            |   356|
+|13    |LUT4            |   292|
+|14    |LUT5            |   536|
+|15    |LUT6            |   439|
+|16    |MUXF7           |    14|
+|17    |SRL16E          |     8|
+|18    |FDRE            |  1334|
+|19    |FDSE            |     5|
++------+----------------+------+
+
+Report Instance Areas: 
++------+---------------------------------------+------------------------------------------------------------------+------+
+|      |Instance                               |Module                                                            |Cells |
++------+---------------------------------------+------------------------------------------------------------------+------+
+|1     |top                                    |                                                                  |  3374|
+|2     |  inst                                 |MatchCalculatorTop                                                |  3374|
+|3     |    grp_MatchCalculator_fu_260         |MatchCalculator                                                   |  3292|
+|4     |      LUT_matchcut_phi1_U              |MatchCalculator_Lbkb                                              |     4|
+|5     |        MatchCalculator_Lbkb_rom_U     |MatchCalculator_Lbkb_rom                                          |     4|
+|6     |      LUT_matchcut_z2_U                |MatchCalculator_Lcud                                              |    13|
+|7     |        MatchCalculator_Lcud_rom_U     |MatchCalculator_Lcud_rom                                          |    13|
+|8     |      MatchCalculatorTodEe_U1          |MatchCalculatorTodEe                                              |    27|
+|9     |        MatchCalculatorTodEe_DSP48_0_U |MatchCalculatorTodEe_DSP48_0                                      |    27|
+|10    |          p                            |\MatchCalculatorTodEe_U1/MatchCalculatorTodEe_DSP48_0_U/p_funnel  |     8|
++------+---------------------------------------+------------------------------------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:10 ; elapsed = 00:02:36 . Memory (MB): peak = 2775.438 ; gain = 992.902 ; free physical = 3070 ; free virtual = 140493
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 245 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:50 ; elapsed = 00:01:49 . Memory (MB): peak = 2775.438 ; gain = 311.805 ; free physical = 3097 ; free virtual = 140520
+Synthesis Optimization Complete : Time (s): cpu = 00:01:10 ; elapsed = 00:02:36 . Memory (MB): peak = 2775.441 ; gain = 992.902 ; free physical = 3101 ; free virtual = 140523
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 117 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'MC_L3PHIC' is not ideal for floorplanning, since the cellview 'MatchCalculator' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD_DATA, DSP_PREADD): 1 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+202 Infos, 296 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:13 ; elapsed = 00:02:40 . Memory (MB): peak = 2820.055 ; gain = 1049.648 ; free physical = 3018 ; free virtual = 140440
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.runs/MC_L3PHIC_synth_1/MC_L3PHIC.dcp' has been generated.
+INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP /mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.srcs/sources_1/ip/MC_L3PHIC/MC_L3PHIC.xci
+INFO: [Coretcl 2-1174] Renamed 8 cell refs.
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/mnt/scratch/rz393/firmware-hls_1/IntegrationTests/PRMEMC_Test/PRMEMC_Test/PRMEMC_Test.runs/MC_L3PHIC_synth_1/MC_L3PHIC.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file MC_L3PHIC_utilization_synth.rpt -pb MC_L3PHIC_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2844.070 ; gain = 0.000 ; free physical = 2940 ; free virtual = 140369
+INFO: [Common 17-206] Exiting Vivado at Tue Feb  4 17:17:41 2020...
