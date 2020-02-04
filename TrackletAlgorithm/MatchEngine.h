@@ -138,7 +138,7 @@ void MatchEngine(BXType bx, BXType& bx_o,
   int ncmatchout = 0;
 
   //Main processing loops starts here  
-  for (ap_uint<kNBits_MemAddr> istep=0;istep<kMaxProc;istep++) {
+  for (ap_uint<kNBits_MemAddr> istep=0;istep<kMaxProc-8;istep++) {
 #pragma HLS PIPELINE II=1
 
     //prefetch and calculate write pointers for buffer
@@ -278,7 +278,7 @@ void MatchEngine(BXType bx, BXType& bx_o,
       
     } // if(buffernotempty)
 
-    if (istep==kMaxProc-1) bx_o = bx;
+    if (istep==kMaxProc-1-8) bx_o = bx;
   } // for (ap_uint<kNBits_MemAddr> istep=0;istep<kMaxProc;istep++) 
 
 } // void MatchEngine()
