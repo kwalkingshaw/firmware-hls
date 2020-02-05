@@ -1,0 +1,25 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../PRME_Test.ip_user_files/ipstatic/hdl/verilog/MatchEngine_3_0_s.v" \
+"../../../../PRME_Test.ip_user_files/ipstatic/hdl/verilog/MatchEngine_3_0_sbkb.v" \
+"../../../../PRME_Test.ip_user_files/ipstatic/hdl/verilog/MatchEngineTopL1_cud.v" \
+"../../../../PRME_Test.ip_user_files/ipstatic/hdl/verilog/MatchEngineTopL1_dEe.v" \
+"../../../../PRME_Test.ip_user_files/ipstatic/hdl/verilog/MatchEngineTopL1.v" \
+"../../../../PRME_Test.srcs/sources_1/ip/MatchEngineTopL3/sim/MatchEngineTopL3.v" \
+"../../../../PRME_Test.ip_user_files/ipstatic/hdl/verilog/ProjectionRouterTbkb.v" \
+"../../../../PRME_Test.ip_user_files/ipstatic/hdl/verilog/read_inmem.v" \
+"../../../../PRME_Test.ip_user_files/ipstatic/hdl/verilog/read_inmem_1.v" \
+"../../../../PRME_Test.ip_user_files/ipstatic/hdl/verilog/ProjectionRouterTop.v" \
+"../../../../PRME_Test.srcs/sources_1/ip/ProjectionRouter_BARRELPS_BARREL_8_3_0_1/sim/ProjectionRouter_BARRELPS_BARREL_8_3_0.v" \
+"../../../../../../../TrackletAlgorithm/Memory.v" \
+"../../../../../../../../firmware-hls/TrackletAlgorithm/MemoryBinned.v" \
+
+sv xil_defaultlib  \
+"../../../../../sourceFiles/SectorProcessor.v" \
+"../../../../../sourceFiles/SectorProcessor_test.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,1 @@
+-wto "eef24673069340cbaec4f095d9672317" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "SectorProcessor_test_behav" "xil_defaultlib.SectorProcessor_test" "xil_defaultlib.glbl" -log "elaborate.log" 
