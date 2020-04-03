@@ -8,9 +8,13 @@ open_project -reset matchengine
 
 # source files
 set CFLAGS {-std=c++11 -I../TrackletAlgorithm}
-set_top MatchEngineTopL3
-add_files ../TrackletAlgorithm/MatchEngineTopL3.cpp -cflags "$CFLAGS"
-add_files -tb ../TestBenches/MatchEngineL3_test.cpp -cflags "$CFLAGS"
+set_top MatchEngineTopL1
+add_files ../TrackletAlgorithm/MatchEngineTopL1.cpp -cflags "$CFLAGS"
+add_files -tb ../TestBenches/MatchEngine_test.cpp -cflags "$CFLAGS"
+
+# set_top MatchEngineTopL3
+# add_files ../TrackletAlgorithm/MatchEngineTopL3.cpp -cflags "$CFLAGS"
+# add_files -tb ../TestBenches/MatchEngineL3_test.cpp -cflags "$CFLAGS"
 
 # data files
 add_files -tb ../emData/ME/
@@ -23,7 +27,7 @@ source settings_hls.tcl
 csim_design -compiler gcc -mflags "-j8"
 csynth_design
 cosim_design 
-export_design -format ip_catalog
+export_design -format ip_catalog 
 # Adding "-flow impl" runs full Vivado implementation, providing accurate resource use numbers (very slow).
 #export_design -format ip_catalog -flow impl
 
