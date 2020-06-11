@@ -88,8 +88,8 @@ unsigned int compareMemWithFile(const MemType& memory, std::ifstream& fout,
   writeMemFromFile<MemType>(memory_ref, fout, ievt, InputBase);
 
   for (int i = 0; i < memory_ref.getDepth(); ++i) {
-    auto data_ref = memory_ref.read_mem(ievt,i).raw();
-    auto data_com = memory.read_mem(ievt,i).raw();
+    auto data_ref = memory_ref.read_mem(ievt,i).raw().range(TrackFit::kTFTrackValidMSB,TrackFit::kTFLMapLSB);
+    auto data_com = memory.read_mem(ievt,i).raw().range(TrackFit::kTFTrackValidMSB,TrackFit::kTFLMapLSB);
     if (i==0) {
       // If both reference and computed memories are completely empty, skip it
       if (data_com == 0 && data_ref == 0) break;
