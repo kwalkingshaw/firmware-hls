@@ -32,6 +32,13 @@ void TrackBuilder(
     TrackFitMemory &tracks
 )
 {
+#pragma HLS inline recursive
+#pragma HLS resource variable=trackletParameters.get_mem() latency=2
+#pragma HLS resource variable=barrelFullMatches.get_mem() latency=2
+#pragma HLS resource variable=diskFullMatches.get_mem() latency=2
+#pragma HLS loop_merge
+#pragma HLS loop_merge
+
   tracks.clear(bx);
   unsigned short nTracks = 0;
 
@@ -49,7 +56,8 @@ void TrackBuilder(
 
     if (!done) {
       barrel_full_match_memories : for (unsigned short j = 0; j < 16; j++) {
-        barrel_full_matches : for (unsigned short k = 0; k < kMemDepth; k++) {
+        barrel_full_matches : for (unsigned short k = 0; k < 16; k++) {
+#pragma HLS loop_flatten
           if (k < barrelFullMatches[j].getEntries(bx)) {
             const FullMatch<BARREL> &fm = barrelFullMatches[j].read_mem(bx, k);
             if (fm.getTCID() == TCID && fm.getTrackletIndex() == iTPAR) {
@@ -71,8 +79,9 @@ void TrackBuilder(
           }
         }
       }
-      disk_full_match_memories : for (unsigned short j = 0; j < 16; j++) {
+      /*disk_full_match_memories : for (unsigned short j = 0; j < 16; j++) {
         disk_full_matches : for (unsigned short k = 0; k < kMemDepth; k++) {
+#pragma HLS loop_flatten
           if (k < diskFullMatches[j].getEntries(bx)) {
             const FullMatch<DISK> &fm = diskFullMatches[j].read_mem(bx, k);
             if (fm.getTCID() == TCID && fm.getTrackletIndex() == iTPAR) {
@@ -93,7 +102,7 @@ void TrackBuilder(
             }
           }
         }
-      }
+      }*/
     }
     if (tf.getNMatches() >= 2)
       tracks.write_mem(bx, tf, nTracks++);
