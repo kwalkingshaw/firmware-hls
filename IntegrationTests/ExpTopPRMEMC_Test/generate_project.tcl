@@ -32,6 +32,11 @@ set files [list \
  [file normalize "${origin_dir}/sourceFiles/mytypes_pkg.vhd"] \
  [file normalize "${origin_dir}/sourceFiles/top_tf.vhd"] \
  [file normalize "${origin_dir}/sourceFiles/prmemc.vhd"] \
+ [file normalize "${origin_dir}/sourceFiles/ME_supermodule/MatchEngine_3_0_3_s_table1.vhd"] \
+ [file normalize "${origin_dir}/sourceFiles/ME_supermodule/MatchEngine_3_0_3_s.vhd"] \
+ [file normalize "${origin_dir}/sourceFiles/ME_supermodule/SuperMatchEngineTop_mux_83_30_1_1.vhd"] \
+ [file normalize "${origin_dir}/sourceFiles/ME_supermodule/SuperMatchEngineTop_mux_326_5_1_1.vhd"] \
+ [file normalize "${origin_dir}/sourceFiles/ME_supermodule/SuperMatchEngineTop.vhd"] \
 ]
 add_files -norecurse -fileset $obj $files
 
@@ -49,7 +54,7 @@ add_files -norecurse -fileset $obj $files
 
 # Create .xci file
 create_ip -name MatchCalculatorTop -vendor xilinx.com -library hls -version 1.0 -module_name MC_L3PHIC
-create_ip -name MatchEngineTop -vendor xilinx.com -library hls -version 1.0 -module_name MatchEngineTopL3_0
+#create_ip -name MatchEngineTop -vendor xilinx.com -library hls -version 1.0 -module_name MatchEngineTopL3_0
 create_ip -name ProjectionRouterTop -vendor xilinx.com -library hls -version 1.0 -module_name PR_L3PHIC
 
 # Make sourcefiles
