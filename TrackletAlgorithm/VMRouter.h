@@ -180,7 +180,7 @@ inline ap_uint<maxvmbits> getFirstMemNumber(const ap_uint<32> mask) {
 template<regionType InType, regionType OutType, int Layer, int Disk>
 inline VMStubME<OutType> createStubME(const InputStub<InType> stub, 
 		const int index, const bool negdisk, const int finebintable[], 
-		const int phicorrtable[], int& ivmPlus, int& ivmMinus, int& bin) {
+		const int phicorrtable[], int& ivmPlus, int& ivmMinus, ap_uint<VMStubMEMemory<OutType>::getNBitsBin()>& bin) {
 	
 	// Values from InputStub
 	auto z = stub.getZ();
@@ -363,7 +363,7 @@ inline VMStubTEInner<OutType> createStubTEInner(const InputStub<InType> stub,
 template<regionType InType, regionType OutType, int Layer, int Disk>
 inline VMStubTEOuter<OutType> createStubTEOuter(const InputStub<InType> stub, 
 		const int index, const bool negdisk, const int rzbitsoutertable[], 
-		const int phicorrtable[], int& ivm, int& bin) {
+		const int phicorrtable[], int& ivm, ap_uint<VMStubTEOuterMemory<OutType>::getNBitsBin()>& bin) {
 	
 	// Values from InputStub
 	auto z = stub.getZ();
@@ -791,7 +791,7 @@ void VMRouter(const BXType bx, const int finebintable[], const int phicorrtable[
 			int ivmPlus;
 			int ivmMinus;
 			
-			int bin; // Coarse z. The bin the stub is going to be put it in the memory
+			ap_uint<VMStubMEMemory<OutType>::getNBitsBin()> bin; // Coarse z. The bin the stub is going to be put it in the memory
 			
 			// Create the ME stub to save
 			VMStubME<OutType> stubme = (disk2S) ? 
@@ -884,7 +884,7 @@ void VMRouter(const BXType bx, const int finebintable[], const int phicorrtable[
 		if ((teomask != 0) && (!disk2S)) {
 			
 			int ivm; // The VM number
-			int bin; // Coarse z. The bin the stub is going to be put it in the memory
+			ap_uint<VMStubTEOuterMemory<OutType>::getNBitsBin()> bin; // Coarse z. The bin the stub is going to be put it in the memory
 			
 			// Create the TE Inner stub to save
 			VMStubTEOuter<OutType> stubte = (disk2S) ? 
