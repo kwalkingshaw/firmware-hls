@@ -74,7 +74,7 @@ public:
 
   NEntryT getEntries(BunchXingT bx) const {
     NEntryT val = 0;
-    for ( auto i = 0; i < getDepth(); ++i ) {
+    for ( auto i = 0; i < getNBins(); ++i ) {
       val += getEntries(bx, i);
     }
     return val;
@@ -143,7 +143,7 @@ public:
 
     std::string datastr = split(line, ' ').back();
 
-    int slot = (int)strtol(split(line, ' ').front().c_str(), nullptr, base); // Convert string (in hexadecimal) to int
+    ap_uint<NBIT_BIN> slot = (int)strtol(split(line, ' ').front().c_str(), nullptr, base); // Convert string (in hexadecimal) to int
     // Originally: atoi(split(line, ' ').front().c_str()); but that didn't work for disks with 16 bins
 
     DataType data(datastr.c_str(), base);

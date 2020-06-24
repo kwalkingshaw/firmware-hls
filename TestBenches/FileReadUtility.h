@@ -249,7 +249,7 @@ unsigned int compareBinnedMemWithFile(const MemType& memory,
       std::cout << std::endl;
     } // loop over single bin
     // in case computed memory has extra contents...
-    if (memory.getEntries(ievt) >  memory_ref.getEntries(ievt)) {
+    if (memory.getEntries(ievt,j) >  memory_ref.getEntries(ievt,j)) {
     
       for (int i = memory_ref.getEntries(ievt,j); i < memory.getEntries(ievt,j); ++i) {
 	auto data_extra = memory.read_mem(ievt,j, i).raw();   
