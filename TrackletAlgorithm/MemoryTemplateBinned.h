@@ -63,9 +63,10 @@ public:
 	}
   }
 
-  unsigned int getDepth() const {return kNMemDepth;}
-  unsigned int getNBX() const {return kNBxBins;}
-  unsigned int getNBins() const {return kNSlots;}
+  static constexpr unsigned int getDepth() {return kNMemDepth;}
+  static constexpr unsigned int getNBX() {return kNBxBins;}
+  static constexpr unsigned int getNBins() {return kNSlots;}
+  static constexpr unsigned int getNBitsBin() {return NBIT_BIN;}
 
   NEntryT getEntries(BunchXingT bx, ap_uint<NBIT_BIN> ibin) const {
 #pragma HLS ARRAY_PARTITION variable=nentries_ complete dim=0

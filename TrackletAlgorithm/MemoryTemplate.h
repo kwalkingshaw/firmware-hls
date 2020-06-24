@@ -49,8 +49,8 @@ public:
     nentries_[bx] = 0;
   }
 
-  unsigned int getDepth() const {return (1<<NBIT_ADDR);}
-  unsigned int getNBX() const {return (1<<NBIT_BX);}
+  static constexpr unsigned int getDepth() {return (1<<NBIT_ADDR);}
+  static constexpr unsigned int getNBX() {return (1<<NBIT_BX);}
 
   NEntryT getEntries(BunchXingT bx) const {
 #pragma HLS ARRAY_PARTITION variable=nentries_ complete dim=0
