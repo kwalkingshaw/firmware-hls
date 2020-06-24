@@ -645,6 +645,18 @@ void VMRouter(const BXType bx, const int finebintable[], const int phicorrtable[
 	// Create variables that keep track of which memory address to read and write to
 
 	ap_uint<kNBits_MemAddr> read_addr(0); // Reading of input stubs
+
+	int addrCountME[nvmme][VMStubMEMemory<OutType>::getNBins()]; // Writing of ME stubs
+	if (memask) {
+		#pragma HLS array_partition variable=addrCountME complete dim=0
+		ADDR_ME:	for (int i = 0; i < nvmme; i++) {
+			#pragma HLS UNROLL
+                        for (int j = 0; j < VMStubMEMemory<OutType>::getNBins(); j++) {
+                                #pragma HLS UNROLL
+                                        addrCountME[i][j] = 0;
+                        }
+		}
+	}
 	
 	int addrCountTEI[nvmte][MaxTEICopies]; // Writing of TE Inner stubs
 	if (teimask) {
@@ -654,6 +666,21 @@ void VMRouter(const BXType bx, const int finebintable[], const int phicorrtable[
 			for (int j = 0; j < MaxTEICopies; j++) {
 				#pragma HLS UNROLL
 					addrCountTEI[i][j] = 0;
+			}
+		}
+	}
+
+	int addrCountTEO[nvmte][MaxTEOCopies][VMStubTEOuterMemory<OutType>::getNBins()]; // Writing of TE Outer stubs
+	if (teomask) {
+		#pragma HLS array_partition variable=addrCountTEO complete dim=0
+		ADDR_TEO:	for (int i = 0; i < nvmte; i++) {
+			#pragma HLS UNROLL
+			for (int j = 0; j < MaxTEOCopies; j++) {
+				#pragma HLS UNROLL
+                                for (int k = 0; k < VMStubTEOuterMemory<OutType>::getNBins(); k++) {
+                                        #pragma HLS UNROLL
+                                                addrCountTEO[i][j][k] = 0;
+                                }
 			}
 		}
 	}
@@ -795,8 +822,10 @@ void VMRouter(const BXType bx, const int finebintable[], const int phicorrtable[
 		for (int n = 0; n < 32; n++) {
 			#pragma HLS UNROLL
 			if (memask[n]) {
-					if ((ivmMinus == n) || (ivmPlus == n))
-						meMemories[n-firstme].write_mem(bx, bin, stubme);
+					if ((ivmMinus == n) || (ivmPlus == n)) {
+						meMemories[n-firstme].write_mem(bx, bin, stubme, addrCountME[n-firstme][bin]);
+                                                addrCountME[n-firstme][bin] += 1; // Count the memory addresses we have written to
+                                        }
 				}
 			}
 		} // End ME memories
@@ -879,7 +908,8 @@ void VMRouter(const BXType bx, const int finebintable[], const int phicorrtable[
 					#pragma HLS UNROLL
 					bool passbend = bendoutertable[bendindex][stubte.getBend()]; // Check if stub passes bend cut
 					if (passbend) {
-						teoMemories[memindex][n].write_mem(bx, bin, stubte);
+						teoMemories[memindex][n].write_mem(bx, bin, stubte, addrCountTEO[memindex][n][bin]);
+						addrCountTEO[memindex][n][bin] += 1; // Count the memory addresses we have written to
 					}
 					bendindex++; // Use next bendcut table for the next memory "copy"
 				}

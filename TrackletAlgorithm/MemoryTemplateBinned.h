@@ -99,18 +99,15 @@ public:
     return dataarray_[ibx][(1<<(NBIT_ADDR-NBIT_BIN))*slot+index];
   }
 
-  bool write_mem(BunchXingT ibx, ap_uint<NBIT_BIN> slot, DataType data)
+  bool write_mem(BunchXingT ibx, ap_uint<NBIT_BIN> slot, DataType data, int addr_index)
   {
 #pragma HLS ARRAY_PARTITION variable=nentries_ complete dim=0
-#pragma HLS dependence variable=nentries_ intra WAR true
 #pragma HLS inline
 
-	NEntryT nentry_ibx = nentries_[ibx][slot];
-
-	if (nentry_ibx <= (1<<(NBIT_ADDR-NBIT_BIN))) {
-	  // write address for slot: 1<<(NBIT_ADDR-NBIT_BIN) * slot + nentry_ibx
-	  dataarray_[ibx][(1<<(NBIT_ADDR-NBIT_BIN))*slot+nentry_ibx] = data;
-	  nentries_[ibx][slot] = nentry_ibx + 1;
+	if (addr_index <= (1<<(NBIT_ADDR-NBIT_BIN))) {
+	  // write address for slot: 1<<(NBIT_ADDR-NBIT_BIN) * slot + addr_index
+	  dataarray_[ibx][(1<<(NBIT_ADDR-NBIT_BIN))*slot+addr_index] = data;
+	  nentries_[ibx][slot] = addr_index + 1;
 	  return true;
 	}
 	else {
@@ -148,8 +145,9 @@ public:
     // Originally: atoi(split(line, ' ').front().c_str()); but that didn't work for disks with 16 bins
 
     DataType data(datastr.c_str(), base);
+    int nent = nentries_[bx][slot];
     //std::cout << "write_mem slot data : " << slot<<" "<<data << std::endl;
-    return write_mem(bx, slot, data);
+    return write_mem(bx, slot, data, nent);
   }
 
 
