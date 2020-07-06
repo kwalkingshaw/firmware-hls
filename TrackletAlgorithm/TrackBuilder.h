@@ -5,28 +5,7 @@
 #include "FullMatchMemory.h"
 #include "TrackFitMemory.h"
 
-void
-getFMIndices(
-    const BXType bx,
-    const FullMatchMemory<BARREL> barrelFullMatches[16],
-    const FullMatchMemory<DISK> diskFullMatches[16],
-    short &iFMMem,
-    short &iFM,
-    bool &done
-);
-
-void
-getTPARIndices(
-    const BXType bx,
-    const TrackletParameterMemory trackletParameters[12],
-    short &iTPARMem,
-    short &iTPAR,
-    bool &done
-);
-
-void mergeTracks (const BXType bx, const TrackFit unmergedTracks[12][kMemDepth], TrackFitMemory &tracks);
-
-void writeTrack (const BXType bx, const TrackFit &track, TrackFitMemory &tracks, unsigned short &nTracks);
+template<regionType RegionType> const unsigned getID(const BXType bx, const FullMatchMemory<RegionType> &fullMatches, const unsigned short i, typename FullMatch<RegionType>::FMSTUBR &stubr, typename FullMatch<RegionType>::FMPHIRES &phires, typename FullMatch<RegionType>::FMZRES &zres);
 
 void TrackBuilder(
     const BXType bx,

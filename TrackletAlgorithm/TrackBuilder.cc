@@ -1,59 +1,23 @@
 #include "TrackBuilder.h"
 
-void
-getFMIndices(
-    const BXType bx,
-    const FullMatchMemory<BARREL> barrelFullMatches[16],
-    const FullMatchMemory<DISK> diskFullMatches[16],
-    unsigned short &iFMMem,
-    unsigned short &iFM,
-    bool &done
-)
+template<regionType RegionType> const unsigned
+getID(const BXType bx, const FullMatchMemory<RegionType> &fullMatches, const unsigned short i, typename FullMatch<RegionType>::FMSTUBR &stubr, typename FullMatch<RegionType>::FMPHIRES &phires, typename FullMatch<RegionType>::FMZRES &zres)
 {
-#pragma HLS loop_merge
-  bool set = false;
-
-  iFMMem = 0;
-  done = false;
-
-  barrel_fm_ndex: for (unsigned short i = 0; i < 16; i++) {
-    if (!set && iFM >= barrelFullMatches[i].getEntries(bx))
-      iFM -= barrelFullMatches[i].getEntries(bx), iFMMem++;
-    else
-      set = true;
+  if (i < fullMatches.getEntries(bx)) {
+    const FullMatch<RegionType> &fm = fullMatches.read_mem(bx, i);
+    const unsigned short &TCID = fm.getTCID();
+    const unsigned short &trackletIndex = fm.getTrackletIndex();
+    stubr = fm.getStubR();
+    phires = fm.getPhiRes();
+    zres = fm.getZRes();
+    return ((TCID << 7) | trackletIndex);
   }
-  disk_fm_ndex: for (unsigned short i = 0; i < 16; i++) {
-    if (!set && iFM >= diskFullMatches[i].getEntries(bx))
-      iFM -= diskFullMatches[i].getEntries(bx), iFMMem++;
-    else
-      set = true;
+  else {
+    stubr = 0;
+    phires = 0;
+    zres = 0;
+    return 0x3FFF;
   }
-
-  done = !set || iFMMem >= 32;
-}
-
-void
-getTPARIndices(
-    const BXType bx,
-    const TrackletParameterMemory trackletParameters[12],
-    unsigned short &iTPARMem,
-    unsigned short &iTPAR,
-    bool &done
-)
-{
-  bool set = false;
-
-  iTPARMem = 0;
-  done = false;
-
-  tpar_index: for (unsigned short i = 0; i < 12; i++) {
-    if (!set && iTPAR >= trackletParameters[i].getEntries(bx))
-      iTPAR -= trackletParameters[i].getEntries(bx), iTPARMem++;
-    else
-      set = true;
-  }
-
-  done = !set || iTPARMem >= 12;
 }
 
 void TrackBuilder(
@@ -64,101 +28,93 @@ void TrackBuilder(
     TrackFitMemory &tracks
 )
 {
-//#pragma HLS inline recursive
+#pragma HLS inline recursive
 #pragma HLS resource variable=trackletParameters.get_mem() latency=2
 #pragma HLS resource variable=barrelFullMatches.get_mem() latency=2
 #pragma HLS resource variable=diskFullMatches.get_mem() latency=2
 
   tracks.clear(bx);
 
-  TrackFit unmergedTracks[12][kMemDepth];
+  unsigned short nTracks = 0;
+  unsigned short barrelFMIndices[16];
+  unsigned short diskFMIndices[16];
+  clear_barrel_indices : for (unsigned short i = 0; i < 16; i++) {
+#pragma HLS unroll
+    barrelFMIndices[i] = 0;
+  }
+  clear_disk_indices : for (unsigned short i = 0; i < 16; i++) {
+#pragma HLS unroll
+    diskFMIndices[i] = 0;
+  }
 
-  full_matches : for (unsigned i = 0; i < kMaxProc; i++) {
+  tracklets : for (unsigned short i = 0; i < kMaxProc; i++) {
 #pragma HLS pipeline II=1
-#pragma HLS dependence variable=unmergedTracks inter false
+    unsigned barrelID[16];
+    unsigned diskID[16];
+    unsigned minID = 0x3FFF;
+    FullMatch<BARREL>::FMSTUBR barrelStubR[16];
+    FullMatch<DISK>::FMSTUBR diskStubR[16];
+    FullMatch<BARREL>::FMPHIRES barrelPhiRes[16];
+    FullMatch<DISK>::FMPHIRES diskPhiRes[16];
+    FullMatch<BARREL>::FMZRES barrelZRes[16];
+    FullMatch<DISK>::FMZRES diskZRes[16];
 
-    if (i < kMaxProc - 1) {
-      unsigned short iFMMem;
-      unsigned short iFM = i;
-      bool done;
-      getFMIndices(bx, barrelFullMatches, diskFullMatches, iFMMem, iFM, done);
-      if (!done) {
-        if (iFMMem < 16) {
-          const FullMatch<BARREL> &fm = barrelFullMatches[iFMMem].read_mem(bx, iFM);
-          const unsigned short &TCID = fm.getTCID();
-          const unsigned short &trackletIndex = fm.getTrackletIndex();
-          const TrackletParameters &tpar = trackletParameters[TCID].read_mem(bx, trackletIndex);
-          TrackFit &track = unmergedTracks[TCID][trackletIndex];
-          track.setTrackValid();
-          track.setSeedType(TCID >> 4);
-          track.setRinv(tpar.getRinv());
-          track.setPhi0(tpar.getPhi0());
-          track.setZ0(tpar.getZ0());
-          track.setT(tpar.getT());
-          switch (iFMMem >> 2) {
+    barrel_id : for (unsigned short j = 0; j < 16; j++) {
+      barrelID[j] = getID<BARREL>(bx, barrelFullMatches[j], barrelFMIndices[j], barrelStubR[j], barrelPhiRes[j], barrelZRes[j]);
+      if (barrelID[j] < minID)
+        minID = barrelID[j];
+    }
+    disk_id : for (unsigned short j = 0; j < 16; j++) {
+      diskID[j] = getID<DISK>(bx, diskFullMatches[j], diskFMIndices[j], diskStubR[j], diskPhiRes[j], diskZRes[j]);
+      if (diskID[j] < minID)
+        minID = diskID[j];
+    }
+
+    if (minID != 0x3FFF) {
+      const unsigned short &TCID = (minID >> 7);
+      const unsigned short &trackletIndex = 0x7F & minID;
+      const TrackletParameters &tpar = trackletParameters[TCID].read_mem(bx, trackletIndex);
+      TrackFit track(TCID >> 4, tpar.getRinv(), tpar.getPhi0(), tpar.getZ0(), tpar.getT());
+      barrel_matches : for (unsigned short j = 0; j < 16; j++) {
+        if (barrelID[j] == minID) {
+          switch (j >> 2) {
             case 0:
-              track.setStub0(fm.getStubR(), fm.getPhiRes(), fm.getZRes());
+              track.setStub0 (barrelStubR[j], barrelPhiRes[j], barrelZRes[j]);
               break;
             case 1:
-              track.setStub1(fm.getStubR(), fm.getPhiRes(), fm.getZRes());
+              track.setStub1 (barrelStubR[j], barrelPhiRes[j], barrelZRes[j]);
               break;
             case 2:
-              track.setStub2(fm.getStubR(), fm.getPhiRes(), fm.getZRes());
+              track.setStub2 (barrelStubR[j], barrelPhiRes[j], barrelZRes[j]);
               break;
             case 3:
-              track.setStub3(fm.getStubR(), fm.getPhiRes(), fm.getZRes());
+              track.setStub3 (barrelStubR[j], barrelPhiRes[j], barrelZRes[j]);
               break;
           }
-        }
-        else {
-          const FullMatch<DISK> &fm = diskFullMatches[iFMMem - 16].read_mem(bx, iFM);
-          const unsigned short &TCID = fm.getTCID();
-          const unsigned short &trackletIndex = fm.getTrackletIndex();
-          const TrackletParameters &tpar = trackletParameters[TCID].read_mem(bx, trackletIndex);
-          TrackFit &track = unmergedTracks[TCID][trackletIndex];
-          track.setTrackValid();
-          track.setSeedType(TCID >> 4);
-          track.setRinv(tpar.getRinv());
-          track.setPhi0(tpar.getPhi0());
-          track.setZ0(tpar.getZ0());
-          track.setT(tpar.getT());
-          switch (iFMMem >> 2) {
-            case 0:
-              track.setStub4(fm.getStubR(), fm.getPhiRes(), fm.getZRes());
-              break;
-            case 1:
-              track.setStub5(fm.getStubR(), fm.getPhiRes(), fm.getZRes());
-              break;
-            case 2:
-              track.setStub6(fm.getStubR(), fm.getPhiRes(), fm.getZRes());
-              break;
-            case 3:
-              track.setStub7(fm.getStubR(), fm.getPhiRes(), fm.getZRes());
-              break;
-          }
+          barrelFMIndices[j]++;
         }
       }
-    }
-    else {
-#pragma HLS occurrence cycle=108
-      mergeTracks (bx, unmergedTracks, tracks);
+      disk_matches : for (unsigned short j = 0; j < 16; j++) {
+        if (diskID[j] == minID) {
+          switch (j >> 2) {
+            case 0:
+              track.setStub4 (diskStubR[j], diskPhiRes[j], diskZRes[j]);
+              break;
+            case 1:
+              track.setStub5 (diskStubR[j], diskPhiRes[j], diskZRes[j]);
+              break;
+            case 2:
+              track.setStub6 (diskStubR[j], diskPhiRes[j], diskZRes[j]);
+              break;
+            case 3:
+              track.setStub7 (diskStubR[j], diskPhiRes[j], diskZRes[j]);
+              break;
+          }
+          diskFMIndices[j]++;
+        }
+      }
+      if (track.getNMatches() >= 2)
+        tracks.write_mem(bx, track, nTracks++);
     }
   }
-}
-
-void
-mergeTracks (const BXType bx, const TrackFit unmergedTracks[12][kMemDepth], TrackFitMemory &tracks)
-{
-  unsigned short nTracks = 0;
-  merge_tracks : for (unsigned j = 0; j < 12 * kMemDepth; j++) {
-#pragma HLS dependence variable=tracks.get_mem() inter false
-    writeTrack (bx, unmergedTracks[j >> kNBits_MemAddr][j & 0x7F], tracks, nTracks);
-  }
-}
-
-void
-writeTrack (const BXType bx, const TrackFit &track, TrackFitMemory &tracks, unsigned short &nTracks)
-{
-  if (track.getNMatches() >= 2)
-    tracks.write_mem(bx, track, nTracks++);
 }
