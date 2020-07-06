@@ -24,6 +24,10 @@ getTPARIndices(
     bool &done
 );
 
+void mergeTracks (const BXType bx, const TrackFit unmergedTracks[12][kMemDepth], TrackFitMemory &tracks);
+
+void writeTrack (const BXType bx, const TrackFit &track, TrackFitMemory &tracks, unsigned short &nTracks);
+
 void TrackBuilder(
     const BXType bx,
     const TrackletParameterMemory trackletParameters[12],
