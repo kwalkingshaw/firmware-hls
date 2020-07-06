@@ -221,8 +221,8 @@ public:
     data_(newdata)
   {}
 
-  TrackFit(const TFVALID trackvalid, const TFSEEDTYPE seedtype, const TFRINV rinv, const TFPHI0 phi0, const TFZ0 z0, const TFT t) :
-    data_( ((((((((((((((((((((((((((((((((((((((((((((((trackvalid,seedtype),rinv),phi0),z0),t),TFLMAP(0)),
+  TrackFit(const TFSEEDTYPE seedtype, const TFRINV rinv, const TFPHI0 phi0, const TFZ0 z0, const TFT t) :
+    data_( ((((((((((((((((((((((((((((((((((((((((((((((1,seedtype),rinv),phi0),z0),t),TFLMAP(0)),
              TFVALID(0)),TFTRACKINDEX(0)),TFSTUB0R(0)),TFSTUB0PHIRESID(0)),TFSTUB0ZRESID(0)),
              TFVALID(0)),TFTRACKINDEX(0)),TFSTUB1R(0)),TFSTUB1PHIRESID(0)),TFSTUB1ZRESID(0)),
              TFVALID(0)),TFTRACKINDEX(0)),TFSTUB2R(0)),TFSTUB2PHIRESID(0)),TFSTUB2ZRESID(0)),
@@ -234,10 +234,9 @@ public:
 
   {}
 
-  /*TrackFit():
+  TrackFit() :
     data_(0)
-  {}*/
-  TrackFit() {}
+  {}
 
   #ifndef __SYNTHESIS__
   TrackFit(const char* datastr, int base = 16)
