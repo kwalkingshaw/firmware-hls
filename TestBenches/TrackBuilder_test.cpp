@@ -225,7 +225,40 @@ int main()
     BXType bx = ievt;
 
     // Unit Under Test
-    TrackBuilder(bx, trackletParameters, barrelFullMatches, diskFullMatches, tracks);
+    TrackBuilder(bx, trackletParameters,
+      barrelFullMatches[0],
+      barrelFullMatches[1],
+      barrelFullMatches[2],
+      barrelFullMatches[3],
+      barrelFullMatches[4],
+      barrelFullMatches[5],
+      barrelFullMatches[6],
+      barrelFullMatches[7],
+      barrelFullMatches[8],
+      barrelFullMatches[9],
+      barrelFullMatches[10],
+      barrelFullMatches[11],
+      barrelFullMatches[12],
+      barrelFullMatches[13],
+      barrelFullMatches[14],
+      barrelFullMatches[15],
+      diskFullMatches[0],
+      diskFullMatches[1],
+      diskFullMatches[2],
+      diskFullMatches[3],
+      diskFullMatches[4],
+      diskFullMatches[5],
+      diskFullMatches[6],
+      diskFullMatches[7],
+      diskFullMatches[8],
+      diskFullMatches[9],
+      diskFullMatches[10],
+      diskFullMatches[11],
+      diskFullMatches[12],
+      diskFullMatches[13],
+      diskFullMatches[14],
+      diskFullMatches[15],
+      tracks);
 
     bool truncate;
 
