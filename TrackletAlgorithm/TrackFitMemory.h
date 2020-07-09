@@ -772,14 +772,14 @@ public:
   }
 
   void setTrackIndex(const TFTRACKINDEX trackIndex) {
-    setStub0TrackIndex(trackIndex);
-    setStub1TrackIndex(trackIndex);
-    setStub2TrackIndex(trackIndex);
-    setStub3TrackIndex(trackIndex);
-    setStub4TrackIndex(trackIndex);
-    setStub5TrackIndex(trackIndex);
-    setStub6TrackIndex(trackIndex);
-    setStub7TrackIndex(trackIndex);
+    if (getStub0Valid() != 0) setStub0TrackIndex(trackIndex);
+    if (getStub1Valid() != 0) setStub1TrackIndex(trackIndex);
+    if (getStub2Valid() != 0) setStub2TrackIndex(trackIndex);
+    if (getStub3Valid() != 0) setStub3TrackIndex(trackIndex);
+    if (getStub4Valid() != 0) setStub4TrackIndex(trackIndex);
+    if (getStub5Valid() != 0) setStub5TrackIndex(trackIndex);
+    if (getStub6Valid() != 0) setStub6TrackIndex(trackIndex);
+    if (getStub7Valid() != 0) setStub7TrackIndex(trackIndex);
   }
 
 private:

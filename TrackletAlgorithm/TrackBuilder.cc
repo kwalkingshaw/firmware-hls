@@ -406,8 +406,10 @@ void TrackBuilder(
         track.setStub7 (diskStubR[15], diskPhiRes[15], diskZRes[15]);
         diskFMIndices[15]++;
       }
-      if (track.getNMatches() >= 2)
+      if (track.getNMatches() >= 2) {
+        track.setTrackIndex(nTracks);
         tracks.write_mem(bx, track, nTracks++);
+      }
     }
   }
 }

@@ -8,7 +8,7 @@
 #include "FileReadUtility.h"
 #include "Constants.h"
 
-const int nevents = 5;  //number of events to run
+const int nevents = 100;  //number of events to run
 
 using namespace std;
 
@@ -261,10 +261,26 @@ int main()
       tracks);
 
     bool truncate;
+    const auto &pos = fout_tracks.tellg();
 
     // compare the computed outputs with the expected ones
-    err += compareMemWithFile<TrackFitMemory,16,16>(tracks, fout_tracks, ievt,
-                                          "\nTracks", truncate);
+    err += compareMemWithFile<TrackFitMemory,16,16,TrackFit::kTFLMapLSB,TrackFit::kTFTrackValidMSB>(tracks, fout_tracks, ievt, "\nTrack word", truncate);
+    fout_tracks.clear(), fout_tracks.seekg(pos);
+    err += compareMemWithFile<TrackFitMemory,16,16,TrackFit::kTFStub0ZResidLSB,TrackFit::kTFStub0ValidMSB>(tracks, fout_tracks, ievt, "\nStub 0 word", truncate);
+    fout_tracks.clear(), fout_tracks.seekg(pos);
+    err += compareMemWithFile<TrackFitMemory,16,16,TrackFit::kTFStub1ZResidLSB,TrackFit::kTFStub1ValidMSB>(tracks, fout_tracks, ievt, "\nStub 1 word", truncate);
+    fout_tracks.clear(), fout_tracks.seekg(pos);
+    err += compareMemWithFile<TrackFitMemory,16,16,TrackFit::kTFStub2ZResidLSB,TrackFit::kTFStub2ValidMSB>(tracks, fout_tracks, ievt, "\nStub 2 word", truncate);
+    fout_tracks.clear(), fout_tracks.seekg(pos);
+    err += compareMemWithFile<TrackFitMemory,16,16,TrackFit::kTFStub3ZResidLSB,TrackFit::kTFStub3ValidMSB>(tracks, fout_tracks, ievt, "\nStub 3 word", truncate);
+    fout_tracks.clear(), fout_tracks.seekg(pos);
+    err += compareMemWithFile<TrackFitMemory,16,16,TrackFit::kTFStub4RResidLSB,TrackFit::kTFStub4ValidMSB>(tracks, fout_tracks, ievt, "\nStub 4 word", truncate);
+    fout_tracks.clear(), fout_tracks.seekg(pos);
+    err += compareMemWithFile<TrackFitMemory,16,16,TrackFit::kTFStub5RResidLSB,TrackFit::kTFStub5ValidMSB>(tracks, fout_tracks, ievt, "\nStub 5 word", truncate);
+    fout_tracks.clear(), fout_tracks.seekg(pos);
+    err += compareMemWithFile<TrackFitMemory,16,16,TrackFit::kTFStub6RResidLSB,TrackFit::kTFStub6ValidMSB>(tracks, fout_tracks, ievt, "\nStub 6 word", truncate);
+    fout_tracks.clear(), fout_tracks.seekg(pos);
+    err += compareMemWithFile<TrackFitMemory,16,16,TrackFit::kTFStub7RResidLSB,TrackFit::kTFStub7ValidMSB>(tracks, fout_tracks, ievt, "\nStub 7 word", truncate);
     cout << endl;
 
   } // end of event loop
