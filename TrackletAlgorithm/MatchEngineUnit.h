@@ -117,7 +117,7 @@ void read(ProjectionRouterBuffer<BARREL>::TCID& trackletid, VMProjection<BARREL>
 
 }
 
-inline bool step(bool *table, const VMStubMEMemory<VMSMEType>* stubmem, ProjectionRouterBuffer<BARREL> *projbuffer) {
+inline bool step(bool *table, const VMStubMEMemory<VMSMEType>* stubmem, ProjectionRouterBufferMemory<BARREL> projbuffer) {
 #pragma HLS inline
 #pragma HLS PIPELINE II=1
 //#pragma HLS resource variable=projbuffer core=RAM_2P_LUTRAM
@@ -167,7 +167,8 @@ inline bool step(bool *table, const VMStubMEMemory<VMSMEType>* stubmem, Projecti
 
         //Need to read the information about the proj in the buffer
         //std::cout << "nproj=" << writeindex1 << std::endl;
-        auto const qdata=projbuffer[readindex];
+        //auto const qdata=projbuffer[readindex];
+        auto const qdata=projbuffer.read_mem(bx, readindex);
         tcid=qdata.getTCID();
         //projbuffer[readindex].Print();
         /*
