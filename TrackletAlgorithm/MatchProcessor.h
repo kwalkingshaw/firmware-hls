@@ -616,15 +616,7 @@ void MatchProcessor(BXType bx,
                       FullMatchMemory<FMTYPE>* fullmatch5,
                       FullMatchMemory<FMTYPE>* fullmatch6,
                       FullMatchMemory<FMTYPE>* fullmatch7,
-                      FullMatchMemory<FMTYPE>* fullmatch8,
-                         VMProjectionMemory<BARREL>* vmprojout1,
-                         VMProjectionMemory<BARREL>* vmprojout2,
-                         VMProjectionMemory<BARREL>* vmprojout3,
-                         VMProjectionMemory<BARREL>* vmprojout4,
-                         VMProjectionMemory<BARREL>* vmprojout5,
-                         VMProjectionMemory<BARREL>* vmprojout6,
-                         VMProjectionMemory<BARREL>* vmprojout7,
-                         VMProjectionMemory<BARREL>* vmprojout8
+                      FullMatchMemory<FMTYPE>* fullmatch8
 ){
 #pragma HLS inline
 
@@ -655,16 +647,6 @@ void MatchProcessor(BXType bx,
   fullmatch7->clear(bx);
   fullmatch8->clear(bx);
 
-  /*
-  vmprojout1->clear(bx);
-  vmprojout2->clear(bx);
-  vmprojout3->clear(bx);
-  vmprojout4->clear(bx);
-  vmprojout5->clear(bx);
-  vmprojout6->clear(bx);
-  vmprojout7->clear(bx);
-  vmprojout8->clear(bx);
-  */
 
   // initialization:
   // check the number of entries in the input memories
@@ -694,17 +676,6 @@ void MatchProcessor(BXType bx,
 //#pragma HLS resource variable=writeindextmp core=RAM_2P_LUTRAM
 #pragma HLS dependence variable=writeindex inter RAW false 
   ap_uint<kNBitsBuffer> readindex=0;
-
-  // declare counters for each of the 8 output VMProj // !!!
-  int nvmprojout1 = 0;
-  int nvmprojout2 = 0;
-  int nvmprojout3 = 0;
-  int nvmprojout4 = 0;
-  int nvmprojout5 = 0;
-  int nvmprojout6 = 0;
-  int nvmprojout7 = 0;
-  int nvmprojout8 = 0;  
-  int nallproj = 0;
 
   // declare counters for each of the 8 output VMProj // !!!
   int nmcout1 = 0;
@@ -1059,36 +1030,6 @@ void MatchProcessor(BXType bx,
         std::cout << std::hex << "projid=" << vmproj.getIndex() << std::endl;
         */
 
-        /*
-        if(savefirst || savelast) {
-          switch(iphi) {
-            case 0: vmprojout1->write_mem(bx, vmproj, nvmprojout1);
-            nvmprojout1++;
-            break;
-            case 1: vmprojout2->write_mem(bx, vmproj, nvmprojout2);
-            nvmprojout2++;
-            break;
-            case 2: vmprojout3->write_mem(bx, vmproj, nvmprojout3);
-            nvmprojout3++;
-            break;
-            case 3: vmprojout4->write_mem(bx, vmproj, nvmprojout4);
-            nvmprojout4++;
-            break;
-            case 4: vmprojout5->write_mem(bx, vmproj, nvmprojout5);
-            nvmprojout5++;
-            break;
-            case 5: vmprojout6->write_mem(bx, vmproj, nvmprojout6);
-            nvmprojout6++;
-            break;
-            case 6: vmprojout7->write_mem(bx, vmproj, nvmprojout7);
-            nvmprojout7++;
-            break;
-            case 7: vmprojout8->write_mem(bx, vmproj, nvmprojout8);
-            nvmprojout8++;
-            break;
-          }
-        }
-        */
         if (savefirst) { //FIXME code needs to be cleaner
           ProjectionRouterBuffer<BARREL>::PRHASSEC sec=0;
             /* FIXME

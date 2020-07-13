@@ -30,14 +30,6 @@ void MatchProcessorTopL3(BXType bx,
                       FullMatchMemory<BARREL>* fullmatch5,
                       FullMatchMemory<BARREL>* fullmatch6,
                       FullMatchMemory<BARREL>* fullmatch7,
-                      FullMatchMemory<BARREL>* fullmatch8,
-                         VMProjectionMemory<BARREL>* vmprojout1,
-                         VMProjectionMemory<BARREL>* vmprojout2,
-                         VMProjectionMemory<BARREL>* vmprojout3,
-                         VMProjectionMemory<BARREL>* vmprojout4,
-                         VMProjectionMemory<BARREL>* vmprojout5,
-                         VMProjectionMemory<BARREL>* vmprojout6,
-                         VMProjectionMemory<BARREL>* vmprojout7,
-                         VMProjectionMemory<BARREL>* vmprojout8);
+                      FullMatchMemory<BARREL>* fullmatch8);
 
 #endif
