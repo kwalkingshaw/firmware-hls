@@ -1059,7 +1059,8 @@ void MatchProcessor(BXType bx,
           }
           projbuffer8[writeindextmp]=new ProjectionRouterBuffer<BARREL>(sec, istep, nstubfirst, zfirst, vmproj.raw(), 0);
         */
-          projbuffermem[iphi].write_mem(bx, projbuffer[iphi][writeindextmp[iphi]], writeindextmp[iphi]);
+          ProjectionRouterBuffer<BARREL> tmpproj(trackletid, sec, istep, nstubfirst, zfirst, vmproj.raw(), 0);
+          projbuffermem[iphi].write_mem(bx, tmpproj, writeindextmp[iphi]);
         //std::cout << std::hex << "proj=" << projbuffer[writeindextmp]->raw() << std::endl;
         //std::cout << "who's proj=" << projbuffer[writeindextmp]->getProjection() << std::endl;
         /* FIXME
@@ -1097,7 +1098,8 @@ void MatchProcessor(BXType bx,
         std::cout << std::hex << "and vmproj=" << vmproj.raw() << std::endl;
         */
           //projbuffermem.write_mem(bx, *projbuffer[writeindextmpplus], writeindextmpplus);
-          projbuffermem[iphi].write_mem(bx, projbuffer[iphi][writeindextmp[iphi]+1], writeindextmp[iphi]+1);
+          ProjectionRouterBuffer<BARREL> tmpproj(trackletid, sec, istep, nstublast, zlast, vmproj.raw(), psseed);
+          projbuffermem[iphi].write_mem(bx, tmpproj, writeindextmp[iphi]+1);
           } else {
             ProjectionRouterBuffer<BARREL>::PRHASSEC sec=1;
             projbuffer[iphi][writeindextmp[iphi]]=ProjectionRouterBuffer<BARREL>(trackletid, sec, istep, nstublast, zlast, vmproj.raw(), psseed);
@@ -1123,7 +1125,8 @@ void MatchProcessor(BXType bx,
             projbuffer8[writeindextmp]=new ProjectionRouterBuffer<BARREL>(sec, istep, nstublast, zlast, vmproj.raw(), psseed);
           */
           //projbuffermem.write_mem(bx, *projbuffer[0][writeindextmp], writeindextmp);
-          projbuffermem[iphi].write_mem(bx, projbuffer[iphi][writeindextmp[iphi]], writeindextmp[iphi]);
+          ProjectionRouterBuffer<BARREL> tmpproj(trackletid, sec, istep, nstublast, zlast, vmproj.raw(), psseed);
+          projbuffermem[iphi].write_mem(bx, tmpproj, writeindextmp[iphi]);
         //std::cout << std::hex << "who's proj=" << projbuffer[writeindextmp]->getProjection() << std::endl;
         //std::cout << std::hex << "writeing proj=" << projbuffer[writeindextmp]->raw() << std::endl;
         /* FIXME
