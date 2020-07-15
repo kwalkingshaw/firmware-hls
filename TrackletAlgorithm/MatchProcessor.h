@@ -1202,19 +1202,20 @@ void MatchProcessor(BXType bx,
       break;
     }
     */
-      if(!matchengine[0].done()) if(matchengine[0].step(table, instubdata1, projbuffermem[0])) { ivmphi=0; ready=true; }
-      if(!matchengine[1].done()) if(matchengine[1].step(table, instubdata2, projbuffermem[1])) { ivmphi=1; ready=true; }
-      if(!matchengine[2].done()) if(matchengine[2].step(table, instubdata3, projbuffermem[2])) { ivmphi=2; ready=true; }
-      if(!matchengine[3].done()) if(matchengine[3].step(table, instubdata4, projbuffermem[3])) { ivmphi=3; ready=true; }
-      if(!matchengine[4].done()) if(matchengine[4].step(table, instubdata5, projbuffermem[4])) { ivmphi=4; ready=true; }
-      if(!matchengine[5].done()) if(matchengine[5].step(table, instubdata6, projbuffermem[5])) { ivmphi=5; ready=true; }
-      if(!matchengine[6].done()) if(matchengine[6].step(table, instubdata7, projbuffermem[6])) { ivmphi=6; ready=true; }
-      if(!matchengine[7].done()) if(matchengine[7].step(table, instubdata8, projbuffermem[7])) { ivmphi=7; ready=true; }
+      if(!matchengine[0].done() && !ready) if(matchengine[0].step(table, instubdata1, projbuffermem[0])) { ivmphi=0; ready=true; }
+      if(!matchengine[1].done() && !ready) if(matchengine[1].step(table, instubdata2, projbuffermem[1])) { ivmphi=1; ready=true; }
+      if(!matchengine[2].done() && !ready) if(matchengine[2].step(table, instubdata3, projbuffermem[2])) { ivmphi=2; ready=true; }
+      if(!matchengine[3].done() && !ready) if(matchengine[3].step(table, instubdata4, projbuffermem[3])) { ivmphi=3; ready=true; }
+      if(!matchengine[4].done() && !ready) if(matchengine[4].step(table, instubdata5, projbuffermem[4])) { ivmphi=4; ready=true; }
+      if(!matchengine[5].done() && !ready) if(matchengine[5].step(table, instubdata6, projbuffermem[5])) { ivmphi=5; ready=true; }
+      if(!matchengine[6].done() && !ready) if(matchengine[6].step(table, instubdata7, projbuffermem[6])) { ivmphi=6; ready=true; }
+      if(!matchengine[7].done() && !ready) if(matchengine[7].step(table, instubdata8, projbuffermem[7])) { ivmphi=7; ready=true; }
       typename VMProjection<BARREL>::VMPID projindex;
       typename MatchEngineUnit<VMSMEType, BARREL, VMPTYPE>::STUBID* stubid;
       typename MatchEngineUnit<VMSMEType, BARREL, VMPTYPE>::NSTUBS nstub;
       //if(matchengine[ivmphi].idle() && !matchengine[ivmphi].done() && !matchengine[ivmphi].empty()) {
       if(ready) {
+        ready = false;
         typename AllProjection<APTYPE>::AProjTCID currentTCID=-1;
         matchengine[ivmphi].read(currentTCID, projindex, stubid, nstub);
         //currentTCID=allproj->read_mem(bx, projindex).getTCID();
