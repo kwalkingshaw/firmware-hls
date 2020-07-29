@@ -1,0 +1,133 @@
+BX = 000 Event : 1
+BX = 001 Event : 2
+BX = 010 Event : 3
+BX = 011 Event : 4
+0x00 0000101|0000010 0x0282
+0x01 0001000|0000110 0x0406
+BX = 100 Event : 5
+BX = 101 Event : 6
+BX = 110 Event : 7
+BX = 111 Event : 8
+BX = 000 Event : 9
+BX = 001 Event : 10
+0x00 0100000|0001101 0x100D
+BX = 010 Event : 11
+0x00 0001100|0000001 0x0601
+BX = 011 Event : 12
+0x00 0100011|0100101 0x11A5
+BX = 100 Event : 13
+BX = 101 Event : 14
+BX = 110 Event : 15
+BX = 111 Event : 16
+BX = 000 Event : 17
+BX = 001 Event : 18
+0x00 0000011|0000111 0x0187
+0x01 0000011|0001000 0x0188
+0x02 0000011|0001001 0x0189
+BX = 010 Event : 19
+0x00 0000110|0000100 0x0304
+0x01 0000111|0000100 0x0384
+BX = 011 Event : 20
+BX = 100 Event : 21
+0x00 0000001|0000001 0x0081
+BX = 101 Event : 22
+0x00 0111001|0100010 0x1CA2
+0x01 0111010|0100010 0x1D22
+0x02 0111101|0100010 0x1EA2
+BX = 110 Event : 23
+BX = 111 Event : 24
+BX = 000 Event : 25
+BX = 001 Event : 26
+BX = 010 Event : 27
+BX = 011 Event : 28
+BX = 100 Event : 29
+BX = 101 Event : 30
+BX = 110 Event : 31
+BX = 111 Event : 32
+BX = 000 Event : 33
+BX = 001 Event : 34
+BX = 010 Event : 35
+BX = 011 Event : 36
+BX = 100 Event : 37
+0x00 0001010|0001000 0x0508
+0x01 0001100|0001000 0x0608
+BX = 101 Event : 38
+0x00 0100001|0011100 0x109C
+BX = 110 Event : 39
+BX = 111 Event : 40
+BX = 000 Event : 41
+BX = 001 Event : 42
+0x00 0001101|0010100 0x0694
+0x01 0001101|0010101 0x0695
+BX = 010 Event : 43
+BX = 011 Event : 44
+BX = 100 Event : 45
+0x00 0000111|0000010 0x0382
+BX = 101 Event : 46
+BX = 110 Event : 47
+BX = 111 Event : 48
+BX = 000 Event : 49
+BX = 001 Event : 50
+0x00 0001000|0000000 0x0400
+0x01 0110100|0001010 0x1A0A
+BX = 010 Event : 51
+BX = 011 Event : 52
+0x00 0001000|0000110 0x0406
+0x01 0001000|0000111 0x0407
+BX = 100 Event : 53
+BX = 101 Event : 54
+BX = 110 Event : 55
+BX = 111 Event : 56
+BX = 000 Event : 57
+BX = 001 Event : 58
+BX = 010 Event : 59
+BX = 011 Event : 60
+BX = 100 Event : 61
+0x00 0011001|0000100 0x0C84
+BX = 101 Event : 62
+BX = 110 Event : 63
+BX = 111 Event : 64
+BX = 000 Event : 65
+0x00 0100110|0000101 0x1305
+BX = 001 Event : 66
+BX = 010 Event : 67
+BX = 011 Event : 68
+BX = 100 Event : 69
+0x00 0100101|0000110 0x1286
+BX = 101 Event : 70
+BX = 110 Event : 71
+0x00 0110100|0010001 0x1A11
+0x01 0110101|0010001 0x1A91
+BX = 111 Event : 72
+BX = 000 Event : 73
+0x00 0100000|0001101 0x100D
+BX = 001 Event : 74
+BX = 010 Event : 75
+BX = 011 Event : 76
+BX = 100 Event : 77
+BX = 101 Event : 78
+BX = 110 Event : 79
+BX = 111 Event : 80
+BX = 000 Event : 81
+BX = 001 Event : 82
+BX = 010 Event : 83
+BX = 011 Event : 84
+BX = 100 Event : 85
+BX = 101 Event : 86
+0x00 0111010|0001001 0x1D09
+BX = 110 Event : 87
+BX = 111 Event : 88
+BX = 000 Event : 89
+BX = 001 Event : 90
+BX = 010 Event : 91
+BX = 011 Event : 92
+BX = 100 Event : 93
+BX = 101 Event : 94
+BX = 110 Event : 95
+BX = 111 Event : 96
+0x00 0000001|0000010 0x0082
+BX = 000 Event : 97
+BX = 001 Event : 98
+BX = 010 Event : 99
+0x00 0010110|0010101 0x0B15
+BX = 011 Event : 100
