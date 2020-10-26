@@ -5,7 +5,7 @@
 #include "FullMatchMemory.h"
 #include "TrackFitMemory.h"
 
-static const unsigned kNBitsTBBuffer = 1;
+static const unsigned kNBitsTBBuffer = 8;
 
 template<regionType RegionType> const unsigned getID(const BXType bx, const FullMatchMemory<RegionType> &fullMatches, const unsigned short i, typename FullMatch<RegionType>::FMSTUBR &stubr, typename FullMatch<RegionType>::FMPHIRES &phires, typename FullMatch<RegionType>::FMZRES &zres);
 
