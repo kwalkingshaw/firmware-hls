@@ -96,30 +96,18 @@ void TrackBuilder(
   tracks.clear(bx);
 
   unsigned short nTracks = 0;
-  unsigned short barrelFMIndices[16];
-  unsigned short diskFMIndices[16];
-#pragma HLS array_partition variable=barrelFMIndices complete dim=0
-#pragma HLS array_partition variable=diskFMIndices complete dim=0
-  clear_barrel_indices : for (unsigned short i = 0; i < 16; i++) {
-#pragma HLS unroll
-    barrelFMIndices[i] = 0;
-  }
-  clear_disk_indices : for (unsigned short i = 0; i < 16; i++) {
-#pragma HLS unroll
-    diskFMIndices[i] = 0;
-  }
-
-  tracklets : for (unsigned short i = 0; i < kMaxProc; i++) {
-#pragma HLS pipeline II=1
-    unsigned barrelID[16];
-    unsigned diskID[16];
-    unsigned minID = 0x3FFF;
-    FullMatch<BARREL>::FMSTUBR barrelStubR[16];
-    FullMatch<DISK>::FMSTUBR diskStubR[16];
-    FullMatch<BARREL>::FMPHIRES barrelPhiRes[16];
-    FullMatch<DISK>::FMPHIRES diskPhiRes[16];
-    FullMatch<BARREL>::FMZRES barrelZRes[16];
-    FullMatch<DISK>::FMZRES diskZRes[16];
+  unsigned barrelID[1<<kNBitsTBBuffer][16];
+  unsigned diskID[1<<kNBitsTBBuffer][16];
+  FullMatch<BARREL>::FMSTUBR barrelStubR[1<<kNBitsTBBuffer][16];
+  FullMatch<DISK>::FMSTUBR diskStubR[1<<kNBitsTBBuffer][16];
+  FullMatch<BARREL>::FMPHIRES barrelPhiRes[1<<kNBitsTBBuffer][16];
+  FullMatch<DISK>::FMPHIRES diskPhiRes[1<<kNBitsTBBuffer][16];
+  FullMatch<BARREL>::FMZRES barrelZRes[1<<kNBitsTBBuffer][16];
+  FullMatch<DISK>::FMZRES diskZRes[1<<kNBitsTBBuffer][16];
+  ap_uint<kNBitsTBBuffer> barrel_read_index[16];
+  ap_uint<kNBitsTBBuffer> disk_read_index[16];
+  ap_uint<kNBitsTBBuffer> barrel_write_index[16];
+  ap_uint<kNBitsTBBuffer> disk_write_index[16];
 #pragma HLS array_partition variable=barrelID complete dim=0
 #pragma HLS array_partition variable=diskID complete dim=0
 #pragma HLS array_partition variable=barrelStubR complete dim=0
@@ -128,206 +116,257 @@ void TrackBuilder(
 #pragma HLS array_partition variable=diskPhiRes complete dim=0
 #pragma HLS array_partition variable=barrelZRes complete dim=0
 #pragma HLS array_partition variable=diskZRes complete dim=0
+#pragma HLS array_partition variable=barrel_read_index complete dim=0
+#pragma HLS array_partition variable=disk_read_index complete dim=0
+#pragma HLS array_partition variable=barrel_write_index complete dim=0
+#pragma HLS array_partition variable=disk_write_index complete dim=0
 
-    barrelID[0] = getID<BARREL>(bx, barrelFullMatches_0, barrelFMIndices[0], barrelStubR[0], barrelPhiRes[0], barrelZRes[0]);
-    minID = std::min(minID, barrelID[0]);
-    barrelID[1] = getID<BARREL>(bx, barrelFullMatches_1, barrelFMIndices[1], barrelStubR[1], barrelPhiRes[1], barrelZRes[1]);
-    minID = std::min(minID, barrelID[1]);
-    barrelID[2] = getID<BARREL>(bx, barrelFullMatches_2, barrelFMIndices[2], barrelStubR[2], barrelPhiRes[2], barrelZRes[2]);
-    minID = std::min(minID, barrelID[2]);
-    barrelID[3] = getID<BARREL>(bx, barrelFullMatches_3, barrelFMIndices[3], barrelStubR[3], barrelPhiRes[3], barrelZRes[3]);
-    minID = std::min(minID, barrelID[3]);
-    barrelID[4] = getID<BARREL>(bx, barrelFullMatches_4, barrelFMIndices[4], barrelStubR[4], barrelPhiRes[4], barrelZRes[4]);
-    minID = std::min(minID, barrelID[4]);
-    barrelID[5] = getID<BARREL>(bx, barrelFullMatches_5, barrelFMIndices[5], barrelStubR[5], barrelPhiRes[5], barrelZRes[5]);
-    minID = std::min(minID, barrelID[5]);
-    barrelID[6] = getID<BARREL>(bx, barrelFullMatches_6, barrelFMIndices[6], barrelStubR[6], barrelPhiRes[6], barrelZRes[6]);
-    minID = std::min(minID, barrelID[6]);
-    barrelID[7] = getID<BARREL>(bx, barrelFullMatches_7, barrelFMIndices[7], barrelStubR[7], barrelPhiRes[7], barrelZRes[7]);
-    minID = std::min(minID, barrelID[7]);
-    barrelID[8] = getID<BARREL>(bx, barrelFullMatches_8, barrelFMIndices[8], barrelStubR[8], barrelPhiRes[8], barrelZRes[8]);
-    minID = std::min(minID, barrelID[8]);
-    barrelID[9] = getID<BARREL>(bx, barrelFullMatches_9, barrelFMIndices[9], barrelStubR[9], barrelPhiRes[9], barrelZRes[9]);
-    minID = std::min(minID, barrelID[9]);
-    barrelID[10] = getID<BARREL>(bx, barrelFullMatches_10, barrelFMIndices[10], barrelStubR[10], barrelPhiRes[10], barrelZRes[10]);
-    minID = std::min(minID, barrelID[10]);
-    barrelID[11] = getID<BARREL>(bx, barrelFullMatches_11, barrelFMIndices[11], barrelStubR[11], barrelPhiRes[11], barrelZRes[11]);
-    minID = std::min(minID, barrelID[11]);
-    barrelID[12] = getID<BARREL>(bx, barrelFullMatches_12, barrelFMIndices[12], barrelStubR[12], barrelPhiRes[12], barrelZRes[12]);
-    minID = std::min(minID, barrelID[12]);
-    barrelID[13] = getID<BARREL>(bx, barrelFullMatches_13, barrelFMIndices[13], barrelStubR[13], barrelPhiRes[13], barrelZRes[13]);
-    minID = std::min(minID, barrelID[13]);
-    barrelID[14] = getID<BARREL>(bx, barrelFullMatches_14, barrelFMIndices[14], barrelStubR[14], barrelPhiRes[14], barrelZRes[14]);
-    minID = std::min(minID, barrelID[14]);
-    barrelID[15] = getID<BARREL>(bx, barrelFullMatches_15, barrelFMIndices[15], barrelStubR[15], barrelPhiRes[15], barrelZRes[15]);
-    minID = std::min(minID, barrelID[15]);
+  for (unsigned i = 0; i < 16; i++) {
+#pragma HLS unroll
+    barrel_read_index[i] = 0;
+    disk_read_index[i] = 0;
+    barrel_write_index[i] = 0;
+    disk_write_index[i] = 0;
+  }
 
-    diskID[0] = getID<DISK>(bx, diskFullMatches_0, diskFMIndices[0], diskStubR[0], diskPhiRes[0], diskZRes[0]);
-    minID = std::min(minID, diskID[0]);
-    diskID[1] = getID<DISK>(bx, diskFullMatches_1, diskFMIndices[1], diskStubR[1], diskPhiRes[1], diskZRes[1]);
-    minID = std::min(minID, diskID[1]);
-    diskID[2] = getID<DISK>(bx, diskFullMatches_2, diskFMIndices[2], diskStubR[2], diskPhiRes[2], diskZRes[2]);
-    minID = std::min(minID, diskID[2]);
-    diskID[3] = getID<DISK>(bx, diskFullMatches_3, diskFMIndices[3], diskStubR[3], diskPhiRes[3], diskZRes[3]);
-    minID = std::min(minID, diskID[3]);
-    diskID[4] = getID<DISK>(bx, diskFullMatches_4, diskFMIndices[4], diskStubR[4], diskPhiRes[4], diskZRes[4]);
-    minID = std::min(minID, diskID[4]);
-    diskID[5] = getID<DISK>(bx, diskFullMatches_5, diskFMIndices[5], diskStubR[5], diskPhiRes[5], diskZRes[5]);
-    minID = std::min(minID, diskID[5]);
-    diskID[6] = getID<DISK>(bx, diskFullMatches_6, diskFMIndices[6], diskStubR[6], diskPhiRes[6], diskZRes[6]);
-    minID = std::min(minID, diskID[6]);
-    diskID[7] = getID<DISK>(bx, diskFullMatches_7, diskFMIndices[7], diskStubR[7], diskPhiRes[7], diskZRes[7]);
-    minID = std::min(minID, diskID[7]);
-    diskID[8] = getID<DISK>(bx, diskFullMatches_8, diskFMIndices[8], diskStubR[8], diskPhiRes[8], diskZRes[8]);
-    minID = std::min(minID, diskID[8]);
-    diskID[9] = getID<DISK>(bx, diskFullMatches_9, diskFMIndices[9], diskStubR[9], diskPhiRes[9], diskZRes[9]);
-    minID = std::min(minID, diskID[9]);
-    diskID[10] = getID<DISK>(bx, diskFullMatches_10, diskFMIndices[10], diskStubR[10], diskPhiRes[10], diskZRes[10]);
-    minID = std::min(minID, diskID[10]);
-    diskID[11] = getID<DISK>(bx, diskFullMatches_11, diskFMIndices[11], diskStubR[11], diskPhiRes[11], diskZRes[11]);
-    minID = std::min(minID, diskID[11]);
-    diskID[12] = getID<DISK>(bx, diskFullMatches_12, diskFMIndices[12], diskStubR[12], diskPhiRes[12], diskZRes[12]);
-    minID = std::min(minID, diskID[12]);
-    diskID[13] = getID<DISK>(bx, diskFullMatches_13, diskFMIndices[13], diskStubR[13], diskPhiRes[13], diskZRes[13]);
-    minID = std::min(minID, diskID[13]);
-    diskID[14] = getID<DISK>(bx, diskFullMatches_14, diskFMIndices[14], diskStubR[14], diskPhiRes[14], diskZRes[14]);
-    minID = std::min(minID, diskID[14]);
-    diskID[15] = getID<DISK>(bx, diskFullMatches_15, diskFMIndices[15], diskStubR[15], diskPhiRes[15], diskZRes[15]);
-    minID = std::min(minID, diskID[15]);
+  tracklets : for (unsigned short i = 0; i < kMaxProc; i++) {
+#pragma HLS pipeline II=1 rewind
+
+    unsigned minID = 0x3FFF;
+
+    barrelID[barrel_write_index[0]][0] = getID<BARREL>(bx, barrelFullMatches_0, i, barrelStubR[barrel_write_index[0]][0], barrelPhiRes[barrel_write_index[0]][0], barrelZRes[barrel_write_index[0]][0]);
+    barrel_write_index[0]++;
+    barrelID[barrel_write_index[1]][1] = getID<BARREL>(bx, barrelFullMatches_1, i, barrelStubR[barrel_write_index[1]][1], barrelPhiRes[barrel_write_index[1]][1], barrelZRes[barrel_write_index[1]][1]);
+    barrel_write_index[1]++;
+    barrelID[barrel_write_index[2]][2] = getID<BARREL>(bx, barrelFullMatches_2, i, barrelStubR[barrel_write_index[2]][2], barrelPhiRes[barrel_write_index[2]][2], barrelZRes[barrel_write_index[2]][2]);
+    barrel_write_index[2]++;
+    barrelID[barrel_write_index[3]][3] = getID<BARREL>(bx, barrelFullMatches_3, i, barrelStubR[barrel_write_index[3]][3], barrelPhiRes[barrel_write_index[3]][3], barrelZRes[barrel_write_index[3]][3]);
+    barrel_write_index[3]++;
+    barrelID[barrel_write_index[4]][4] = getID<BARREL>(bx, barrelFullMatches_4, i, barrelStubR[barrel_write_index[4]][4], barrelPhiRes[barrel_write_index[4]][4], barrelZRes[barrel_write_index[4]][4]);
+    barrel_write_index[4]++;
+    barrelID[barrel_write_index[5]][5] = getID<BARREL>(bx, barrelFullMatches_5, i, barrelStubR[barrel_write_index[5]][5], barrelPhiRes[barrel_write_index[5]][5], barrelZRes[barrel_write_index[5]][5]);
+    barrel_write_index[5]++;
+    barrelID[barrel_write_index[6]][6] = getID<BARREL>(bx, barrelFullMatches_6, i, barrelStubR[barrel_write_index[6]][6], barrelPhiRes[barrel_write_index[6]][6], barrelZRes[barrel_write_index[6]][6]);
+    barrel_write_index[6]++;
+    barrelID[barrel_write_index[7]][7] = getID<BARREL>(bx, barrelFullMatches_7, i, barrelStubR[barrel_write_index[7]][7], barrelPhiRes[barrel_write_index[7]][7], barrelZRes[barrel_write_index[7]][7]);
+    barrel_write_index[7]++;
+    barrelID[barrel_write_index[8]][8] = getID<BARREL>(bx, barrelFullMatches_8, i, barrelStubR[barrel_write_index[8]][8], barrelPhiRes[barrel_write_index[8]][8], barrelZRes[barrel_write_index[8]][8]);
+    barrel_write_index[8]++;
+    barrelID[barrel_write_index[9]][9] = getID<BARREL>(bx, barrelFullMatches_9, i, barrelStubR[barrel_write_index[9]][9], barrelPhiRes[barrel_write_index[9]][9], barrelZRes[barrel_write_index[9]][9]);
+    barrel_write_index[9]++;
+    barrelID[barrel_write_index[10]][10] = getID<BARREL>(bx, barrelFullMatches_10, i, barrelStubR[barrel_write_index[10]][10], barrelPhiRes[barrel_write_index[10]][10], barrelZRes[barrel_write_index[10]][10]);
+    barrel_write_index[10]++;
+    barrelID[barrel_write_index[11]][11] = getID<BARREL>(bx, barrelFullMatches_11, i, barrelStubR[barrel_write_index[11]][11], barrelPhiRes[barrel_write_index[11]][11], barrelZRes[barrel_write_index[11]][11]);
+    barrel_write_index[11]++;
+    barrelID[barrel_write_index[12]][12] = getID<BARREL>(bx, barrelFullMatches_12, i, barrelStubR[barrel_write_index[12]][12], barrelPhiRes[barrel_write_index[12]][12], barrelZRes[barrel_write_index[12]][12]);
+    barrel_write_index[12]++;
+    barrelID[barrel_write_index[13]][13] = getID<BARREL>(bx, barrelFullMatches_13, i, barrelStubR[barrel_write_index[13]][13], barrelPhiRes[barrel_write_index[13]][13], barrelZRes[barrel_write_index[13]][13]);
+    barrel_write_index[13]++;
+    barrelID[barrel_write_index[14]][14] = getID<BARREL>(bx, barrelFullMatches_14, i, barrelStubR[barrel_write_index[14]][14], barrelPhiRes[barrel_write_index[14]][14], barrelZRes[barrel_write_index[14]][14]);
+    barrel_write_index[14]++;
+    barrelID[barrel_write_index[15]][15] = getID<BARREL>(bx, barrelFullMatches_15, i, barrelStubR[barrel_write_index[15]][15], barrelPhiRes[barrel_write_index[15]][15], barrelZRes[barrel_write_index[15]][15]);
+    barrel_write_index[15]++;
+
+    diskID[disk_write_index[0]][0] = getID<DISK>(bx, diskFullMatches_0, i, diskStubR[disk_write_index[0]][0], diskPhiRes[disk_write_index[0]][0], diskZRes[disk_write_index[0]][0]);
+    disk_write_index[0]++;
+    diskID[disk_write_index[1]][1] = getID<DISK>(bx, diskFullMatches_1, i, diskStubR[disk_write_index[1]][1], diskPhiRes[disk_write_index[1]][1], diskZRes[disk_write_index[1]][1]);
+    disk_write_index[1]++;
+    diskID[disk_write_index[2]][2] = getID<DISK>(bx, diskFullMatches_2, i, diskStubR[disk_write_index[2]][2], diskPhiRes[disk_write_index[2]][2], diskZRes[disk_write_index[2]][2]);
+    disk_write_index[2]++;
+    diskID[disk_write_index[3]][3] = getID<DISK>(bx, diskFullMatches_3, i, diskStubR[disk_write_index[3]][3], diskPhiRes[disk_write_index[3]][3], diskZRes[disk_write_index[3]][3]);
+    disk_write_index[3]++;
+    diskID[disk_write_index[4]][4] = getID<DISK>(bx, diskFullMatches_4, i, diskStubR[disk_write_index[4]][4], diskPhiRes[disk_write_index[4]][4], diskZRes[disk_write_index[4]][4]);
+    disk_write_index[4]++;
+    diskID[disk_write_index[5]][5] = getID<DISK>(bx, diskFullMatches_5, i, diskStubR[disk_write_index[5]][5], diskPhiRes[disk_write_index[5]][5], diskZRes[disk_write_index[5]][5]);
+    disk_write_index[5]++;
+    diskID[disk_write_index[6]][6] = getID<DISK>(bx, diskFullMatches_6, i, diskStubR[disk_write_index[6]][6], diskPhiRes[disk_write_index[6]][6], diskZRes[disk_write_index[6]][6]);
+    disk_write_index[6]++;
+    diskID[disk_write_index[7]][7] = getID<DISK>(bx, diskFullMatches_7, i, diskStubR[disk_write_index[7]][7], diskPhiRes[disk_write_index[7]][7], diskZRes[disk_write_index[7]][7]);
+    disk_write_index[7]++;
+    diskID[disk_write_index[8]][8] = getID<DISK>(bx, diskFullMatches_8, i, diskStubR[disk_write_index[8]][8], diskPhiRes[disk_write_index[8]][8], diskZRes[disk_write_index[8]][8]);
+    disk_write_index[8]++;
+    diskID[disk_write_index[9]][9] = getID<DISK>(bx, diskFullMatches_9, i, diskStubR[disk_write_index[9]][9], diskPhiRes[disk_write_index[9]][9], diskZRes[disk_write_index[9]][9]);
+    disk_write_index[9]++;
+    diskID[disk_write_index[10]][10] = getID<DISK>(bx, diskFullMatches_10, i, diskStubR[disk_write_index[10]][10], diskPhiRes[disk_write_index[10]][10], diskZRes[disk_write_index[10]][10]);
+    disk_write_index[10]++;
+    diskID[disk_write_index[11]][11] = getID<DISK>(bx, diskFullMatches_11, i, diskStubR[disk_write_index[11]][11], diskPhiRes[disk_write_index[11]][11], diskZRes[disk_write_index[11]][11]);
+    disk_write_index[11]++;
+    diskID[disk_write_index[12]][12] = getID<DISK>(bx, diskFullMatches_12, i, diskStubR[disk_write_index[12]][12], diskPhiRes[disk_write_index[12]][12], diskZRes[disk_write_index[12]][12]);
+    disk_write_index[12]++;
+    diskID[disk_write_index[13]][13] = getID<DISK>(bx, diskFullMatches_13, i, diskStubR[disk_write_index[13]][13], diskPhiRes[disk_write_index[13]][13], diskZRes[disk_write_index[13]][13]);
+    disk_write_index[13]++;
+    diskID[disk_write_index[14]][14] = getID<DISK>(bx, diskFullMatches_14, i, diskStubR[disk_write_index[14]][14], diskPhiRes[disk_write_index[14]][14], diskZRes[disk_write_index[14]][14]);
+    disk_write_index[14]++;
+    diskID[disk_write_index[15]][15] = getID<DISK>(bx, diskFullMatches_15, i, diskStubR[disk_write_index[15]][15], diskPhiRes[disk_write_index[15]][15], diskZRes[disk_write_index[15]][15]);
+    disk_write_index[15]++;
+
+    minID = std::min(minID, barrelID[barrel_read_index[0]][0]);
+    minID = std::min(minID, barrelID[barrel_read_index[1]][1]);
+    minID = std::min(minID, barrelID[barrel_read_index[2]][2]);
+    minID = std::min(minID, barrelID[barrel_read_index[3]][3]);
+    minID = std::min(minID, barrelID[barrel_read_index[4]][4]);
+    minID = std::min(minID, barrelID[barrel_read_index[5]][5]);
+    minID = std::min(minID, barrelID[barrel_read_index[6]][6]);
+    minID = std::min(minID, barrelID[barrel_read_index[7]][7]);
+    minID = std::min(minID, barrelID[barrel_read_index[8]][8]);
+    minID = std::min(minID, barrelID[barrel_read_index[9]][9]);
+    minID = std::min(minID, barrelID[barrel_read_index[10]][10]);
+    minID = std::min(minID, barrelID[barrel_read_index[11]][11]);
+    minID = std::min(minID, barrelID[barrel_read_index[12]][12]);
+    minID = std::min(minID, barrelID[barrel_read_index[13]][13]);
+    minID = std::min(minID, barrelID[barrel_read_index[14]][14]);
+    minID = std::min(minID, barrelID[barrel_read_index[15]][15]);
+
+    minID = std::min(minID, diskID[disk_read_index[0]][0]);
+    minID = std::min(minID, diskID[disk_read_index[1]][1]);
+    minID = std::min(minID, diskID[disk_read_index[2]][2]);
+    minID = std::min(minID, diskID[disk_read_index[3]][3]);
+    minID = std::min(minID, diskID[disk_read_index[4]][4]);
+    minID = std::min(minID, diskID[disk_read_index[5]][5]);
+    minID = std::min(minID, diskID[disk_read_index[6]][6]);
+    minID = std::min(minID, diskID[disk_read_index[7]][7]);
+    minID = std::min(minID, diskID[disk_read_index[8]][8]);
+    minID = std::min(minID, diskID[disk_read_index[9]][9]);
+    minID = std::min(minID, diskID[disk_read_index[10]][10]);
+    minID = std::min(minID, diskID[disk_read_index[11]][11]);
+    minID = std::min(minID, diskID[disk_read_index[12]][12]);
+    minID = std::min(minID, diskID[disk_read_index[13]][13]);
+    minID = std::min(minID, diskID[disk_read_index[14]][14]);
+    minID = std::min(minID, diskID[disk_read_index[15]][15]);
 
     if (minID != 0x3FFF) {
       const unsigned short &TCID = (minID >> 7);
       const unsigned short &trackletIndex = 0x7F & minID;
       const TrackletParameters &tpar = trackletParameters[TCID].read_mem(bx, trackletIndex);
       TrackFit track(TCID >> 4, tpar.getRinv(), tpar.getPhi0(), tpar.getZ0(), tpar.getT());
-      if (barrelID[0] == minID) {
-        track.setStub0 (barrelStubR[0], barrelPhiRes[0], barrelZRes[0]);
-        barrelFMIndices[0]++;
+      if (barrelID[barrel_read_index[0]][0] == minID) {
+        track.setStub0 (barrelStubR[barrel_read_index[0]][0], barrelPhiRes[barrel_read_index[0]][0], barrelZRes[barrel_read_index[0]][0]);
+        barrel_read_index[0]++;
       }
-      if (barrelID[1] == minID) {
-        track.setStub0 (barrelStubR[1], barrelPhiRes[1], barrelZRes[1]);
-        barrelFMIndices[1]++;
+      if (barrelID[barrel_read_index[1]][1] == minID) {
+        track.setStub0 (barrelStubR[barrel_read_index[1]][1], barrelPhiRes[barrel_read_index[1]][1], barrelZRes[barrel_read_index[1]][1]);
+        barrel_read_index[1]++;
       }
-      if (barrelID[2] == minID) {
-        track.setStub0 (barrelStubR[2], barrelPhiRes[2], barrelZRes[2]);
-        barrelFMIndices[2]++;
+      if (barrelID[barrel_read_index[2]][2] == minID) {
+        track.setStub0 (barrelStubR[barrel_read_index[2]][2], barrelPhiRes[barrel_read_index[2]][2], barrelZRes[barrel_read_index[2]][2]);
+        barrel_read_index[2]++;
       }
-      if (barrelID[3] == minID) {
-        track.setStub0 (barrelStubR[3], barrelPhiRes[3], barrelZRes[3]);
-        barrelFMIndices[3]++;
+      if (barrelID[barrel_read_index[3]][3] == minID) {
+        track.setStub0 (barrelStubR[barrel_read_index[3]][3], barrelPhiRes[barrel_read_index[3]][3], barrelZRes[barrel_read_index[3]][3]);
+        barrel_read_index[3]++;
       }
-      if (barrelID[4] == minID) {
-        track.setStub1 (barrelStubR[4], barrelPhiRes[4], barrelZRes[4]);
-        barrelFMIndices[4]++;
+      if (barrelID[barrel_read_index[4]][4] == minID) {
+        track.setStub1 (barrelStubR[barrel_read_index[4]][4], barrelPhiRes[barrel_read_index[4]][4], barrelZRes[barrel_read_index[4]][4]);
+        barrel_read_index[4]++;
       }
-      if (barrelID[5] == minID) {
-        track.setStub1 (barrelStubR[5], barrelPhiRes[5], barrelZRes[5]);
-        barrelFMIndices[5]++;
+      if (barrelID[barrel_read_index[5]][5] == minID) {
+        track.setStub1 (barrelStubR[barrel_read_index[5]][5], barrelPhiRes[barrel_read_index[5]][5], barrelZRes[barrel_read_index[5]][5]);
+        barrel_read_index[5]++;
       }
-      if (barrelID[6] == minID) {
-        track.setStub1 (barrelStubR[6], barrelPhiRes[6], barrelZRes[6]);
-        barrelFMIndices[6]++;
+      if (barrelID[barrel_read_index[6]][6] == minID) {
+        track.setStub1 (barrelStubR[barrel_read_index[6]][6], barrelPhiRes[barrel_read_index[6]][6], barrelZRes[barrel_read_index[6]][6]);
+        barrel_read_index[6]++;
       }
-      if (barrelID[7] == minID) {
-        track.setStub1 (barrelStubR[7], barrelPhiRes[7], barrelZRes[7]);
-        barrelFMIndices[7]++;
+      if (barrelID[barrel_read_index[7]][7] == minID) {
+        track.setStub1 (barrelStubR[barrel_read_index[7]][7], barrelPhiRes[barrel_read_index[7]][7], barrelZRes[barrel_read_index[7]][7]);
+        barrel_read_index[7]++;
       }
-      if (barrelID[8] == minID) {
-        track.setStub2 (barrelStubR[8], barrelPhiRes[8], barrelZRes[8]);
-        barrelFMIndices[8]++;
+      if (barrelID[barrel_read_index[8]][8] == minID) {
+        track.setStub2 (barrelStubR[barrel_read_index[8]][8], barrelPhiRes[barrel_read_index[8]][8], barrelZRes[barrel_read_index[8]][8]);
+        barrel_read_index[8]++;
       }
-      if (barrelID[9] == minID) {
-        track.setStub2 (barrelStubR[9], barrelPhiRes[9], barrelZRes[9]);
-        barrelFMIndices[9]++;
+      if (barrelID[barrel_read_index[9]][9] == minID) {
+        track.setStub2 (barrelStubR[barrel_read_index[9]][9], barrelPhiRes[barrel_read_index[9]][9], barrelZRes[barrel_read_index[9]][9]);
+        barrel_read_index[9]++;
       }
-      if (barrelID[10] == minID) {
-        track.setStub2 (barrelStubR[10], barrelPhiRes[10], barrelZRes[10]);
-        barrelFMIndices[10]++;
+      if (barrelID[barrel_read_index[10]][10] == minID) {
+        track.setStub2 (barrelStubR[barrel_read_index[10]][10], barrelPhiRes[barrel_read_index[10]][10], barrelZRes[barrel_read_index[10]][10]);
+        barrel_read_index[10]++;
       }
-      if (barrelID[11] == minID) {
-        track.setStub2 (barrelStubR[11], barrelPhiRes[11], barrelZRes[11]);
-        barrelFMIndices[11]++;
+      if (barrelID[barrel_read_index[11]][11] == minID) {
+        track.setStub2 (barrelStubR[barrel_read_index[11]][11], barrelPhiRes[barrel_read_index[11]][11], barrelZRes[barrel_read_index[11]][11]);
+        barrel_read_index[11]++;
       }
-      if (barrelID[12] == minID) {
-        track.setStub3 (barrelStubR[12], barrelPhiRes[12], barrelZRes[12]);
-        barrelFMIndices[12]++;
+      if (barrelID[barrel_read_index[12]][12] == minID) {
+        track.setStub3 (barrelStubR[barrel_read_index[12]][12], barrelPhiRes[barrel_read_index[12]][12], barrelZRes[barrel_read_index[12]][12]);
+        barrel_read_index[12]++;
       }
-      if (barrelID[13] == minID) {
-        track.setStub3 (barrelStubR[13], barrelPhiRes[13], barrelZRes[13]);
-        barrelFMIndices[13]++;
+      if (barrelID[barrel_read_index[13]][13] == minID) {
+        track.setStub3 (barrelStubR[barrel_read_index[13]][13], barrelPhiRes[barrel_read_index[13]][13], barrelZRes[barrel_read_index[13]][13]);
+        barrel_read_index[13]++;
       }
-      if (barrelID[14] == minID) {
-        track.setStub3 (barrelStubR[14], barrelPhiRes[14], barrelZRes[14]);
-        barrelFMIndices[14]++;
+      if (barrelID[barrel_read_index[14]][14] == minID) {
+        track.setStub3 (barrelStubR[barrel_read_index[14]][14], barrelPhiRes[barrel_read_index[14]][14], barrelZRes[barrel_read_index[14]][14]);
+        barrel_read_index[14]++;
       }
-      if (barrelID[15] == minID) {
-        track.setStub3 (barrelStubR[15], barrelPhiRes[15], barrelZRes[15]);
-        barrelFMIndices[15]++;
+      if (barrelID[barrel_read_index[15]][15] == minID) {
+        track.setStub3 (barrelStubR[barrel_read_index[15]][15], barrelPhiRes[barrel_read_index[15]][15], barrelZRes[barrel_read_index[15]][15]);
+        barrel_read_index[15]++;
       }
 
-      if (diskID[0] == minID) {
-        track.setStub4 (diskStubR[0], diskPhiRes[0], diskZRes[0]);
-        diskFMIndices[0]++;
+      if (diskID[disk_read_index[0]][0] == minID) {
+        track.setStub4 (diskStubR[disk_read_index[0]][0], diskPhiRes[disk_read_index[0]][0], diskZRes[disk_read_index[0]][0]);
+        disk_read_index[0]++;
       }
-      if (diskID[1] == minID) {
-        track.setStub4 (diskStubR[1], diskPhiRes[1], diskZRes[1]);
-        diskFMIndices[1]++;
+      if (diskID[disk_read_index[1]][1] == minID) {
+        track.setStub4 (diskStubR[disk_read_index[1]][1], diskPhiRes[disk_read_index[1]][1], diskZRes[disk_read_index[1]][1]);
+        disk_read_index[1]++;
       }
-      if (diskID[2] == minID) {
-        track.setStub4 (diskStubR[2], diskPhiRes[2], diskZRes[2]);
-        diskFMIndices[2]++;
+      if (diskID[disk_read_index[2]][2] == minID) {
+        track.setStub4 (diskStubR[disk_read_index[2]][2], diskPhiRes[disk_read_index[2]][2], diskZRes[disk_read_index[2]][2]);
+        disk_read_index[2]++;
       }
-      if (diskID[3] == minID) {
-        track.setStub4 (diskStubR[3], diskPhiRes[3], diskZRes[3]);
-        diskFMIndices[3]++;
+      if (diskID[disk_read_index[3]][3] == minID) {
+        track.setStub4 (diskStubR[disk_read_index[3]][3], diskPhiRes[disk_read_index[3]][3], diskZRes[disk_read_index[3]][3]);
+        disk_read_index[3]++;
       }
-      if (diskID[4] == minID) {
-        track.setStub5 (diskStubR[4], diskPhiRes[4], diskZRes[4]);
-        diskFMIndices[4]++;
+      if (diskID[disk_read_index[4]][4] == minID) {
+        track.setStub5 (diskStubR[disk_read_index[4]][4], diskPhiRes[disk_read_index[4]][4], diskZRes[disk_read_index[4]][4]);
+        disk_read_index[4]++;
       }
-      if (diskID[5] == minID) {
-        track.setStub5 (diskStubR[5], diskPhiRes[5], diskZRes[5]);
-        diskFMIndices[5]++;
+      if (diskID[disk_read_index[5]][5] == minID) {
+        track.setStub5 (diskStubR[disk_read_index[5]][5], diskPhiRes[disk_read_index[5]][5], diskZRes[disk_read_index[5]][5]);
+        disk_read_index[5]++;
       }
-      if (diskID[6] == minID) {
-        track.setStub5 (diskStubR[6], diskPhiRes[6], diskZRes[6]);
-        diskFMIndices[6]++;
+      if (diskID[disk_read_index[6]][6] == minID) {
+        track.setStub5 (diskStubR[disk_read_index[6]][6], diskPhiRes[disk_read_index[6]][6], diskZRes[disk_read_index[6]][6]);
+        disk_read_index[6]++;
       }
-      if (diskID[7] == minID) {
-        track.setStub5 (diskStubR[7], diskPhiRes[7], diskZRes[7]);
-        diskFMIndices[7]++;
+      if (diskID[disk_read_index[7]][7] == minID) {
+        track.setStub5 (diskStubR[disk_read_index[7]][7], diskPhiRes[disk_read_index[7]][7], diskZRes[disk_read_index[7]][7]);
+        disk_read_index[7]++;
       }
-      if (diskID[8] == minID) {
-        track.setStub6 (diskStubR[8], diskPhiRes[8], diskZRes[8]);
-        diskFMIndices[8]++;
+      if (diskID[disk_read_index[8]][8] == minID) {
+        track.setStub6 (diskStubR[disk_read_index[8]][8], diskPhiRes[disk_read_index[8]][8], diskZRes[disk_read_index[8]][8]);
+        disk_read_index[8]++;
       }
-      if (diskID[9] == minID) {
-        track.setStub6 (diskStubR[9], diskPhiRes[9], diskZRes[9]);
-        diskFMIndices[9]++;
+      if (diskID[disk_read_index[9]][9] == minID) {
+        track.setStub6 (diskStubR[disk_read_index[9]][9], diskPhiRes[disk_read_index[9]][9], diskZRes[disk_read_index[9]][9]);
+        disk_read_index[9]++;
       }
-      if (diskID[10] == minID) {
-        track.setStub6 (diskStubR[10], diskPhiRes[10], diskZRes[10]);
-        diskFMIndices[10]++;
+      if (diskID[disk_read_index[10]][10] == minID) {
+        track.setStub6 (diskStubR[disk_read_index[10]][10], diskPhiRes[disk_read_index[10]][10], diskZRes[disk_read_index[10]][10]);
+        disk_read_index[10]++;
       }
-      if (diskID[11] == minID) {
-        track.setStub6 (diskStubR[11], diskPhiRes[11], diskZRes[11]);
-        diskFMIndices[11]++;
+      if (diskID[disk_read_index[11]][11] == minID) {
+        track.setStub6 (diskStubR[disk_read_index[11]][11], diskPhiRes[disk_read_index[11]][11], diskZRes[disk_read_index[11]][11]);
+        disk_read_index[11]++;
       }
-      if (diskID[12] == minID) {
-        track.setStub7 (diskStubR[12], diskPhiRes[12], diskZRes[12]);
-        diskFMIndices[12]++;
+      if (diskID[disk_read_index[12]][12] == minID) {
+        track.setStub7 (diskStubR[disk_read_index[12]][12], diskPhiRes[disk_read_index[12]][12], diskZRes[disk_read_index[12]][12]);
+        disk_read_index[12]++;
       }
-      if (diskID[13] == minID) {
-        track.setStub7 (diskStubR[13], diskPhiRes[13], diskZRes[13]);
-        diskFMIndices[13]++;
+      if (diskID[disk_read_index[13]][13] == minID) {
+        track.setStub7 (diskStubR[disk_read_index[13]][13], diskPhiRes[disk_read_index[13]][13], diskZRes[disk_read_index[13]][13]);
+        disk_read_index[13]++;
       }
-      if (diskID[14] == minID) {
-        track.setStub7 (diskStubR[14], diskPhiRes[14], diskZRes[14]);
-        diskFMIndices[14]++;
+      if (diskID[disk_read_index[14]][14] == minID) {
+        track.setStub7 (diskStubR[disk_read_index[14]][14], diskPhiRes[disk_read_index[14]][14], diskZRes[disk_read_index[14]][14]);
+        disk_read_index[14]++;
       }
-      if (diskID[15] == minID) {
-        track.setStub7 (diskStubR[15], diskPhiRes[15], diskZRes[15]);
-        diskFMIndices[15]++;
+      if (diskID[disk_read_index[15]][15] == minID) {
+        track.setStub7 (diskStubR[disk_read_index[15]][15], diskPhiRes[disk_read_index[15]][15], diskZRes[disk_read_index[15]][15]);
+        disk_read_index[15]++;
       }
       if (track.getNMatches() >= 2) {
         track.setTrackIndex(nTracks);
