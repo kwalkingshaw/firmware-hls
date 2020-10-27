@@ -175,6 +175,9 @@ int main()
   for (unsigned int ievt = 0; ievt < nevents; ++ievt) {
     cout << "Event: " << dec << ievt << endl;
 
+    // Clear all output memories before starting.
+    tracks.clear();
+
     // read event and write to memories
     writeMemFromFile<TrackletParameterMemory>(trackletParameters[0], fin_tpar0, ievt);
     writeMemFromFile<TrackletParameterMemory>(trackletParameters[1], fin_tpar1, ievt);
@@ -260,7 +263,7 @@ int main()
       diskFullMatches[15],
       tracks);
 
-    bool truncate;
+    bool truncate = true;
     const auto &pos = fout_tracks.tellg();
 
     // compare the computed outputs with the expected ones
@@ -285,6 +288,8 @@ int main()
 
   } // end of event loop
 
+  // This is necessary because HLS seems to only return an 8-bit error count, so if err%256==0, the test bench can falsely pass
+  if (err > 255) err = 255;
   return err;
 
 }
