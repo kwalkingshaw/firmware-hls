@@ -13,3 +13,5 @@ find -mindepth 1 -maxdepth 1 \
   ! -regex "^\.\/download\.sh$" \
   ! -regex "^\.\/clean\.sh$" \
   -exec rm -rfv {} \;
+
+git checkout -- TB
