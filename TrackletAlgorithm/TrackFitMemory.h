@@ -547,8 +547,8 @@ public:
     data_.range(kTFDisk4CountMSB,kTFDisk4CountLSB) = stubcount;
   }
 
-  void setStub0Valid() {
-    data_.range(kTFStub0ValidMSB,kTFStub0ValidLSB) = 1;
+  void setStub0Valid(const TFVALID valid) {
+    data_.range(kTFStub0ValidMSB,kTFStub0ValidLSB) = valid;
   }
 
   void setStub0TrackIndex(const TFTRACKINDEX stub0trackindex) {
@@ -567,8 +567,8 @@ public:
     data_.range(kTFStub0ZResidMSB,kTFStub0ZResidLSB) = stub0zresid;
   }
 
-  void setStub1Valid() {
-    data_.range(kTFStub1ValidMSB,kTFStub1ValidLSB) = 1;
+  void setStub1Valid(const TFVALID valid) {
+    data_.range(kTFStub1ValidMSB,kTFStub1ValidLSB) = valid;
   }
 
   void setStub1TrackIndex(const TFTRACKINDEX stub1trackindex) {
@@ -587,8 +587,8 @@ public:
     data_.range(kTFStub1ZResidMSB,kTFStub1ZResidLSB) = stub1zresid;
   }
 
-  void setStub2Valid() {
-    data_.range(kTFStub2ValidMSB,kTFStub2ValidLSB) = 1;
+  void setStub2Valid(const TFVALID valid) {
+    data_.range(kTFStub2ValidMSB,kTFStub2ValidLSB) = valid;
   }
 
   void setStub2TrackIndex(const TFTRACKINDEX stub2trackindex) {
@@ -607,8 +607,8 @@ public:
     data_.range(kTFStub2ZResidMSB,kTFStub2ZResidLSB) = stub2zresid;
   }
 
-  void setStub3Valid() {
-    data_.range(kTFStub3ValidMSB,kTFStub3ValidLSB) = 1;
+  void setStub3Valid(const TFVALID valid) {
+    data_.range(kTFStub3ValidMSB,kTFStub3ValidLSB) = valid;
   }
 
   void setStub3TrackIndex(const TFTRACKINDEX stub3trackindex) {
@@ -627,8 +627,8 @@ public:
     data_.range(kTFStub3ZResidMSB,kTFStub3ZResidLSB) = stub3zresid;
   }
 
-  void setStub4Valid() {
-    data_.range(kTFStub4ValidMSB,kTFStub4ValidLSB) = 1;
+  void setStub4Valid(const TFVALID valid) {
+    data_.range(kTFStub4ValidMSB,kTFStub4ValidLSB) = valid;
   }
 
   void setStub4TrackIndex(const TFTRACKINDEX stub4trackindex) {
@@ -647,8 +647,8 @@ public:
     data_.range(kTFStub4RResidMSB,kTFStub4RResidLSB) = stub4rresid;
   }
 
-  void setStub5Valid() {
-    data_.range(kTFStub5ValidMSB,kTFStub5ValidLSB) = 1;
+  void setStub5Valid(const TFVALID valid) {
+    data_.range(kTFStub5ValidMSB,kTFStub5ValidLSB) = valid;
   }
 
   void setStub5TrackIndex(const TFTRACKINDEX stub5trackindex) {
@@ -667,8 +667,8 @@ public:
     data_.range(kTFStub5RResidMSB,kTFStub5RResidLSB) = stub5rresid;
   }
 
-  void setStub6Valid() {
-    data_.range(kTFStub6ValidMSB,kTFStub6ValidLSB) = 1;
+  void setStub6Valid(const TFVALID valid) {
+    data_.range(kTFStub6ValidMSB,kTFStub6ValidLSB) = valid;
   }
 
   void setStub6TrackIndex(const TFTRACKINDEX stub6trackindex) {
@@ -687,8 +687,8 @@ public:
     data_.range(kTFStub6RResidMSB,kTFStub6RResidLSB) = stub6rresid;
   }
 
-  void setStub7Valid() {
-    data_.range(kTFStub7ValidMSB,kTFStub7ValidLSB) = 1;
+  void setStub7Valid(const TFVALID valid) {
+    data_.range(kTFStub7ValidMSB,kTFStub7ValidLSB) = valid;
   }
 
   void setStub7TrackIndex(const TFTRACKINDEX stub7trackindex) {
@@ -707,79 +707,95 @@ public:
     data_.range(kTFStub7RResidMSB,kTFStub7RResidLSB) = stub7rresid;
   }
 
-  void setStub0(const TFSTUB0R r, const TFSTUB0PHIRESID phiresid, const TFSTUB0ZRESID zresid) {
-    setStub0Valid();
-    setStub0R(r);
-    setStub0PhiResid(phiresid);
-    setStub0ZResid(zresid);
-    setLayer3Count(1);
+  void setStub0(const TFVALID valid, const TFSTUB0R r, const TFSTUB0PHIRESID phiresid, const TFSTUB0ZRESID zresid) {
+    setStub0Valid(valid);
+    if (valid) {
+      setStub0R(r);
+      setStub0PhiResid(phiresid);
+      setStub0ZResid(zresid);
+      setLayer3Count(1);
+    }
   }
 
-  void setStub1(const TFSTUB1R r, const TFSTUB1PHIRESID phiresid, const TFSTUB1ZRESID zresid) {
-    setStub1Valid();
-    setStub1R(r);
-    setStub1PhiResid(phiresid);
-    setStub1ZResid(zresid);
-    setLayer4Count(1);
+  void setStub1(const TFVALID valid, const TFSTUB1R r, const TFSTUB1PHIRESID phiresid, const TFSTUB1ZRESID zresid) {
+    setStub1Valid(valid);
+    if (valid) {
+      setStub1R(r);
+      setStub1PhiResid(phiresid);
+      setStub1ZResid(zresid);
+      setLayer4Count(1);
+    }
   }
 
-  void setStub2(const TFSTUB2R r, const TFSTUB2PHIRESID phiresid, const TFSTUB2ZRESID zresid) {
-    setStub2Valid();
-    setStub2R(r);
-    setStub2PhiResid(phiresid);
-    setStub2ZResid(zresid);
-    setLayer5Count(1);
+  void setStub2(const TFVALID valid, const TFSTUB2R r, const TFSTUB2PHIRESID phiresid, const TFSTUB2ZRESID zresid) {
+    setStub2Valid(valid);
+    if (valid) {
+      setStub2R(r);
+      setStub2PhiResid(phiresid);
+      setStub2ZResid(zresid);
+      setLayer5Count(1);
+    }
   }
 
-  void setStub3(const TFSTUB3R r, const TFSTUB3PHIRESID phiresid, const TFSTUB3ZRESID zresid) {
-    setStub3Valid();
-    setStub3R(r);
-    setStub3PhiResid(phiresid);
-    setStub3ZResid(zresid);
-    setLayer6Count(1);
+  void setStub3(const TFVALID valid, const TFSTUB3R r, const TFSTUB3PHIRESID phiresid, const TFSTUB3ZRESID zresid) {
+    setStub3Valid(valid);
+    if (valid) {
+      setStub3R(r);
+      setStub3PhiResid(phiresid);
+      setStub3ZResid(zresid);
+      setLayer6Count(1);
+    }
   }
 
-  void setStub4(const TFSTUB4R r, const TFSTUB4PHIRESID phiresid, const TFSTUB4RRESID rresid) {
-    setStub4Valid();
-    setStub4R(r);
-    setStub4PhiResid(phiresid);
-    setStub4RResid(rresid);
-    setDisk1Count(1);
+  void setStub4(const TFVALID valid, const TFSTUB4R r, const TFSTUB4PHIRESID phiresid, const TFSTUB4RRESID rresid) {
+    setStub4Valid(valid);
+    if (valid) {
+      setStub4R(r);
+      setStub4PhiResid(phiresid);
+      setStub4RResid(rresid);
+      setDisk1Count(1);
+    }
   }
 
-  void setStub5(const TFSTUB5R r, const TFSTUB5PHIRESID phiresid, const TFSTUB5RRESID rresid) {
-    setStub5Valid();
-    setStub5R(r);
-    setStub5PhiResid(phiresid);
-    setStub5RResid(rresid);
-    setDisk2Count(1);
+  void setStub5(const TFVALID valid, const TFSTUB5R r, const TFSTUB5PHIRESID phiresid, const TFSTUB5RRESID rresid) {
+    setStub5Valid(valid);
+    if (valid) {
+      setStub5R(r);
+      setStub5PhiResid(phiresid);
+      setStub5RResid(rresid);
+      setDisk2Count(1);
+    }
   }
 
-  void setStub6(const TFSTUB6R r, const TFSTUB6PHIRESID phiresid, const TFSTUB6RRESID rresid) {
-    setStub6Valid();
-    setStub6R(r);
-    setStub6PhiResid(phiresid);
-    setStub6RResid(rresid);
-    setDisk3Count(1);
+  void setStub6(const TFVALID valid, const TFSTUB6R r, const TFSTUB6PHIRESID phiresid, const TFSTUB6RRESID rresid) {
+    setStub6Valid(valid);
+    if (valid) {
+      setStub6R(r);
+      setStub6PhiResid(phiresid);
+      setStub6RResid(rresid);
+      setDisk3Count(1);
+    }
   }
 
-  void setStub7(const TFSTUB7R r, const TFSTUB7PHIRESID phiresid, const TFSTUB7RRESID rresid) {
-    setStub7Valid();
-    setStub7R(r);
-    setStub7PhiResid(phiresid);
-    setStub7RResid(rresid);
-    setDisk4Count(1);
+  void setStub7(const TFVALID valid, const TFSTUB7R r, const TFSTUB7PHIRESID phiresid, const TFSTUB7RRESID rresid) {
+    setStub7Valid(valid);
+    if (valid) {
+      setStub7R(r);
+      setStub7PhiResid(phiresid);
+      setStub7RResid(rresid);
+      setDisk4Count(1);
+    }
   }
 
   void setTrackIndex(const TFTRACKINDEX trackIndex) {
-    if (getStub0Valid() != 0) setStub0TrackIndex(trackIndex);
-    if (getStub1Valid() != 0) setStub1TrackIndex(trackIndex);
-    if (getStub2Valid() != 0) setStub2TrackIndex(trackIndex);
-    if (getStub3Valid() != 0) setStub3TrackIndex(trackIndex);
-    if (getStub4Valid() != 0) setStub4TrackIndex(trackIndex);
-    if (getStub5Valid() != 0) setStub5TrackIndex(trackIndex);
-    if (getStub6Valid() != 0) setStub6TrackIndex(trackIndex);
-    if (getStub7Valid() != 0) setStub7TrackIndex(trackIndex);
+    setStub0TrackIndex(trackIndex);
+    setStub1TrackIndex(trackIndex);
+    setStub2TrackIndex(trackIndex);
+    setStub3TrackIndex(trackIndex);
+    setStub4TrackIndex(trackIndex);
+    setStub5TrackIndex(trackIndex);
+    setStub6TrackIndex(trackIndex);
+    setStub7TrackIndex(trackIndex);
   }
 
 private:
