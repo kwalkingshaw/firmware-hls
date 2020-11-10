@@ -84,8 +84,8 @@ LOOP_ProcessIR:
     if (hStub == 0)
       continue;
 
-    ap_uint<3> hEncLyr = ap_uint<3>(hStub.range(kNBits_DTC - 1, kNBits_DTC - 2) & 0x3);
-    ap_uint<kBRAMwidth> hStbWrd = hStub.range(kBRAMwidth - 1, 0);
+    ap_uint<3> hEncLyr = ap_uint<3>(hStub.range(2, 1) & 0x3);
+    ap_uint<kBRAMwidth> hStbWrd = hStub.range(kBRAMwidth + 3 - 1, 3);
     // get memory word
     DTCStub hMemWord(hStbWrd);
     
@@ -120,6 +120,8 @@ LOOP_ProcessIR:
     
     // write to memory
     unsigned int cMemIndx = cIndx + hPhiBn;
+    // std::cout << "Indices : " << cMemIndx << " " << cNMemories << " " << cIndx << " " << hPhiBn << std::endl;
+    // if ( cMemIndx >= cNMemories ) continue;
     assert(cMemIndx < cNMemories);
     ap_uint<8> hEntries = hNStubs[cMemIndx];
 #ifndef __SYNTHESIS__

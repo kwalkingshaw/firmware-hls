@@ -84,12 +84,12 @@ void GetPhiBinBrl(const ap_uint<kNBits_DTC> inStub
 	#pragma HLS pipeline II=1 
 	#pragma HLS inline 
 
-	ap_uint<8> hPhiMSB = AllStub<ASType>::kASPhiMSB;
+	ap_uint<8> hPhiMSB = AllStub<ASType>::kASPhiMSB+3;
 	ap_uint<8> hPhiLSB;
 	if( pLyrId == 1 && ASType == BARRELPS ) 
-		hPhiLSB = AllStub<ASType>::kASPhiMSB-(kNbitsPhiBinsPSL1-1);
+		hPhiLSB = AllStub<ASType>::kASPhiMSB+3-(kNbitsPhiBinsPSL1-1);
 	else
-		hPhiLSB = AllStub<ASType>::kASPhiMSB-(kNbitsPhiBinsTkr-1);
+		hPhiLSB = AllStub<ASType>::kASPhiMSB+3-(kNbitsPhiBinsTkr-1);
 
 	AllStub<ASType> hStub(inStub.range(kBRAMwidth-1,0));
 	ap_uint<3> phiBnRaw = hStub.raw().range(hPhiMSB,hPhiLSB) & 0x7;
@@ -119,7 +119,16 @@ void GetPhiBinBrl(const ap_uint<kNBits_DTC> inStub
 		hPhiCorrected = getPhiCorr<ASType>(hStub.getPhi(), hStub.getR(), hStub.getBend(), kPhiCorrtable_L3); 
 	}
 	hStub.setPhi(hPhiCorrected);
-	phiBn = hStub.raw().range(hPhiMSB,hPhiLSB) & 0x7;
+	// std::cout << "Getting phi bin" << std::endl;
+	// std::cout << hPhiMSB << " " << hPhiLSB << " " << hStub.raw().range(hPhiMSB,hPhiLSB) << std::endl;
+	phiBn = hStub.raw().range(hPhiMSB,hPhiLSB) & 0x7 ;
+	// std::cout << "Phi bin : " << phiBn << std::endl;
+	// std::cout << phiBn + 4 << std::endl;
+	if ( pLyrId == 1 ) phiBn += 4;
+	else phiBn += (phiBn > 1) ? -2 : 2;
+	// phiBn += (pLyrId == 1) ? 4 : 2;
+	// std::cout << "Shifted bin : " << phiBn << std::endl;
+
 	#ifndef __SYNTHESIS__
 			if( IR_DEBUG )
 			{
@@ -138,14 +147,17 @@ void GetPhiBinDsk(const ap_uint<kNBits_DTC> inStub
 {
 	#pragma HLS pipeline II=1 
 	#pragma HLS inline 
-	ap_uint<5> hPhiMSB = AllStub<ASType>::kASPhiMSB;
+	ap_uint<5> hPhiMSB = AllStub<ASType>::kASPhiMSB+3;
 	ap_uint<5> hPhiLSB;
 	if( pLyrId == 1 && ASType == BARRELPS ) 
-		hPhiLSB = AllStub<ASType>::kASPhiMSB-(kNbitsPhiBinsPSL1-1);
+		hPhiLSB = AllStub<ASType>::kASPhiMSB+3-(kNbitsPhiBinsPSL1-1);
 	else
-		hPhiLSB = AllStub<ASType>::kASPhiMSB-(kNbitsPhiBinsTkr-1);
+		hPhiLSB = AllStub<ASType>::kASPhiMSB+3-(kNbitsPhiBinsTkr-1);
 
-	phiBn = inStub.range(hPhiMSB,hPhiLSB) & 0x7;
+ 	// std::cout << "Disk phi bin : " << ( inStub.range(hPhiMSB,hPhiLSB) & 0x7 ) << " " << ( inStub.range(hPhiMSB,hPhiLSB) & 0x7 ) + 2 << std::endl;
+ 	phiBn = ( inStub.range(hPhiMSB,hPhiLSB) & 0x7 ) ;
+ 	phiBn += (phiBn > 1) ? -2 : +2;
+ 	// std::cout << "New phi bin : " << phiBn << std::endl;
 }
 
 #endif
