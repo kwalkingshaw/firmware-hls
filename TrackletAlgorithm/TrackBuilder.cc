@@ -237,81 +237,79 @@ void TrackBuilder(
 
     minID = std::min(mID[28], mID[29]);
 
-    const unsigned short &TCID = (minID >> 7);
-    const unsigned short &trackletIndex = 0x7F & minID;
+    const unsigned short &TCID = (minID != 0x3FFF) ? (minID >> 7) : 0;
+    const unsigned short &trackletIndex = (minID != 0x3FFF) ? (0x7F & minID) : 0;
     const TrackletParameters &tpar = trackletParameters[TCID].read_mem(bx, trackletIndex);
     TrackFit track(TCID >> 4, tpar.getRinv(), tpar.getPhi0(), tpar.getZ0(), tpar.getT());
-    track.setStub0 (barrelID[barrel_read_index[0]][0] == minID, barrelStubR[barrel_read_index[0]][0], barrelPhiRes[barrel_read_index[0]][0], barrelZRes[barrel_read_index[0]][0]);
-    track.setStub0 (barrelID[barrel_read_index[1]][1] == minID, barrelStubR[barrel_read_index[1]][1], barrelPhiRes[barrel_read_index[1]][1], barrelZRes[barrel_read_index[1]][1]);
-    track.setStub0 (barrelID[barrel_read_index[2]][2] == minID, barrelStubR[barrel_read_index[2]][2], barrelPhiRes[barrel_read_index[2]][2], barrelZRes[barrel_read_index[2]][2]);
-    track.setStub0 (barrelID[barrel_read_index[3]][3] == minID, barrelStubR[barrel_read_index[3]][3], barrelPhiRes[barrel_read_index[3]][3], barrelZRes[barrel_read_index[3]][3]);
-    track.setStub1 (barrelID[barrel_read_index[4]][4] == minID, barrelStubR[barrel_read_index[4]][4], barrelPhiRes[barrel_read_index[4]][4], barrelZRes[barrel_read_index[4]][4]);
-    track.setStub1 (barrelID[barrel_read_index[5]][5] == minID, barrelStubR[barrel_read_index[5]][5], barrelPhiRes[barrel_read_index[5]][5], barrelZRes[barrel_read_index[5]][5]);
-    track.setStub1 (barrelID[barrel_read_index[6]][6] == minID, barrelStubR[barrel_read_index[6]][6], barrelPhiRes[barrel_read_index[6]][6], barrelZRes[barrel_read_index[6]][6]);
-    track.setStub1 (barrelID[barrel_read_index[7]][7] == minID, barrelStubR[barrel_read_index[7]][7], barrelPhiRes[barrel_read_index[7]][7], barrelZRes[barrel_read_index[7]][7]);
-    track.setStub2 (barrelID[barrel_read_index[8]][8] == minID, barrelStubR[barrel_read_index[8]][8], barrelPhiRes[barrel_read_index[8]][8], barrelZRes[barrel_read_index[8]][8]);
-    track.setStub2 (barrelID[barrel_read_index[9]][9] == minID, barrelStubR[barrel_read_index[9]][9], barrelPhiRes[barrel_read_index[9]][9], barrelZRes[barrel_read_index[9]][9]);
-    track.setStub2 (barrelID[barrel_read_index[10]][10] == minID, barrelStubR[barrel_read_index[10]][10], barrelPhiRes[barrel_read_index[10]][10], barrelZRes[barrel_read_index[10]][10]);
-    track.setStub2 (barrelID[barrel_read_index[11]][11] == minID, barrelStubR[barrel_read_index[11]][11], barrelPhiRes[barrel_read_index[11]][11], barrelZRes[barrel_read_index[11]][11]);
-    track.setStub3 (barrelID[barrel_read_index[12]][12] == minID, barrelStubR[barrel_read_index[12]][12], barrelPhiRes[barrel_read_index[12]][12], barrelZRes[barrel_read_index[12]][12]);
-    track.setStub3 (barrelID[barrel_read_index[13]][13] == minID, barrelStubR[barrel_read_index[13]][13], barrelPhiRes[barrel_read_index[13]][13], barrelZRes[barrel_read_index[13]][13]);
-    track.setStub3 (barrelID[barrel_read_index[14]][14] == minID, barrelStubR[barrel_read_index[14]][14], barrelPhiRes[barrel_read_index[14]][14], barrelZRes[barrel_read_index[14]][14]);
-    track.setStub3 (barrelID[barrel_read_index[15]][15] == minID, barrelStubR[barrel_read_index[15]][15], barrelPhiRes[barrel_read_index[15]][15], barrelZRes[barrel_read_index[15]][15]);
 
-    track.setStub4 (diskID[disk_read_index[0]][0] == minID, diskStubR[disk_read_index[0]][0], diskPhiRes[disk_read_index[0]][0], diskZRes[disk_read_index[0]][0]);
-    track.setStub4 (diskID[disk_read_index[1]][1] == minID, diskStubR[disk_read_index[1]][1], diskPhiRes[disk_read_index[1]][1], diskZRes[disk_read_index[1]][1]);
-    track.setStub4 (diskID[disk_read_index[2]][2] == minID, diskStubR[disk_read_index[2]][2], diskPhiRes[disk_read_index[2]][2], diskZRes[disk_read_index[2]][2]);
-    track.setStub4 (diskID[disk_read_index[3]][3] == minID, diskStubR[disk_read_index[3]][3], diskPhiRes[disk_read_index[3]][3], diskZRes[disk_read_index[3]][3]);
-    track.setStub5 (diskID[disk_read_index[4]][4] == minID, diskStubR[disk_read_index[4]][4], diskPhiRes[disk_read_index[4]][4], diskZRes[disk_read_index[4]][4]);
-    track.setStub5 (diskID[disk_read_index[5]][5] == minID, diskStubR[disk_read_index[5]][5], diskPhiRes[disk_read_index[5]][5], diskZRes[disk_read_index[5]][5]);
-    track.setStub5 (diskID[disk_read_index[6]][6] == minID, diskStubR[disk_read_index[6]][6], diskPhiRes[disk_read_index[6]][6], diskZRes[disk_read_index[6]][6]);
-    track.setStub5 (diskID[disk_read_index[7]][7] == minID, diskStubR[disk_read_index[7]][7], diskPhiRes[disk_read_index[7]][7], diskZRes[disk_read_index[7]][7]);
-    track.setStub6 (diskID[disk_read_index[8]][8] == minID, diskStubR[disk_read_index[8]][8], diskPhiRes[disk_read_index[8]][8], diskZRes[disk_read_index[8]][8]);
-    track.setStub6 (diskID[disk_read_index[9]][9] == minID, diskStubR[disk_read_index[9]][9], diskPhiRes[disk_read_index[9]][9], diskZRes[disk_read_index[9]][9]);
-    track.setStub6 (diskID[disk_read_index[10]][10] == minID, diskStubR[disk_read_index[10]][10], diskPhiRes[disk_read_index[10]][10], diskZRes[disk_read_index[10]][10]);
-    track.setStub6 (diskID[disk_read_index[11]][11] == minID, diskStubR[disk_read_index[11]][11], diskPhiRes[disk_read_index[11]][11], diskZRes[disk_read_index[11]][11]);
-    track.setStub7 (diskID[disk_read_index[12]][12] == minID, diskStubR[disk_read_index[12]][12], diskPhiRes[disk_read_index[12]][12], diskZRes[disk_read_index[12]][12]);
-    track.setStub7 (diskID[disk_read_index[13]][13] == minID, diskStubR[disk_read_index[13]][13], diskPhiRes[disk_read_index[13]][13], diskZRes[disk_read_index[13]][13]);
-    track.setStub7 (diskID[disk_read_index[14]][14] == minID, diskStubR[disk_read_index[14]][14], diskPhiRes[disk_read_index[14]][14], diskZRes[disk_read_index[14]][14]);
-    track.setStub7 (diskID[disk_read_index[15]][15] == minID, diskStubR[disk_read_index[15]][15], diskPhiRes[disk_read_index[15]][15], diskZRes[disk_read_index[15]][15]);
+    unsigned short stub0_i[2];
+    unsigned short stub1_i[2];
+    unsigned short stub2_i[2];
+    unsigned short stub3_i[2];
+    unsigned short stub4_i[2];
+    unsigned short stub5_i[2];
+    unsigned short stub6_i[2];
+    unsigned short stub7_i[2];
 
-    if (track.getNMatches() >= 2) {
-      track.setTrackIndex(nTracks);
+    unsigned short stub0_index = 0;
+    unsigned short stub1_index = 0;
+    unsigned short stub2_index = 0;
+    unsigned short stub3_index = 0;
+    unsigned short stub4_index = 0;
+    unsigned short stub5_index = 0;
+    unsigned short stub6_index = 0;
+    unsigned short stub7_index = 0;
+
+    stub0_i[0] = (barrelID[barrel_read_index[0]][0] < barrelID[barrel_read_index[1]][1]) ? 0 : 1;
+    stub0_i[1] = (barrelID[barrel_read_index[2]][2] < barrelID[barrel_read_index[3]][3]) ? 2 : 3;
+    stub1_i[0] = (barrelID[barrel_read_index[4]][4] < barrelID[barrel_read_index[5]][5]) ? 4 : 5;
+    stub1_i[1] = (barrelID[barrel_read_index[6]][6] < barrelID[barrel_read_index[7]][7]) ? 6 : 7;
+    stub2_i[0] = (barrelID[barrel_read_index[8]][8] < barrelID[barrel_read_index[9]][9]) ? 8 : 9;
+    stub2_i[1] = (barrelID[barrel_read_index[10]][10] < barrelID[barrel_read_index[11]][11]) ? 10 : 11;
+    stub3_i[0] = (barrelID[barrel_read_index[12]][12] < barrelID[barrel_read_index[13]][13]) ? 12 : 13;
+    stub3_i[1] = (barrelID[barrel_read_index[14]][14] < barrelID[barrel_read_index[15]][15]) ? 14 : 15;
+
+    stub4_i[0] = (diskID[disk_read_index[0]][0] < diskID[disk_read_index[1]][1]) ? 0 : 1;
+    stub4_i[1] = (diskID[disk_read_index[2]][2] < diskID[disk_read_index[3]][3]) ? 2 : 3;
+    stub5_i[0] = (diskID[disk_read_index[4]][4] < diskID[disk_read_index[5]][5]) ? 4 : 5;
+    stub5_i[1] = (diskID[disk_read_index[6]][6] < diskID[disk_read_index[7]][7]) ? 6 : 7;
+    stub6_i[0] = (diskID[disk_read_index[8]][8] < diskID[disk_read_index[9]][9]) ? 8 : 9;
+    stub6_i[1] = (diskID[disk_read_index[10]][10] < diskID[disk_read_index[11]][11]) ? 10 : 11;
+    stub7_i[0] = (diskID[disk_read_index[12]][12] < diskID[disk_read_index[13]][13]) ? 12 : 13;
+    stub7_i[1] = (diskID[disk_read_index[14]][14] < diskID[disk_read_index[15]][15]) ? 14 : 15;
+
+    stub0_index = (barrelID[barrel_read_index[stub0_i[0]]][stub0_i[0]] < barrelID[barrel_read_index[stub0_i[1]]][stub0_i[1]]) ? stub0_i[0] : stub0_i[1];
+    stub1_index = (barrelID[barrel_read_index[stub1_i[0]]][stub1_i[0]] < barrelID[barrel_read_index[stub1_i[1]]][stub1_i[1]]) ? stub1_i[0] : stub1_i[1];
+    stub2_index = (barrelID[barrel_read_index[stub2_i[0]]][stub2_i[0]] < barrelID[barrel_read_index[stub2_i[1]]][stub2_i[1]]) ? stub2_i[0] : stub2_i[1];
+    stub3_index = (barrelID[barrel_read_index[stub3_i[0]]][stub3_i[0]] < barrelID[barrel_read_index[stub3_i[1]]][stub3_i[1]]) ? stub3_i[0] : stub3_i[1];
+
+    stub4_index = (diskID[disk_read_index[stub4_i[0]]][stub4_i[0]] < diskID[disk_read_index[stub4_i[1]]][stub4_i[1]]) ? stub4_i[0] : stub4_i[1];
+    stub5_index = (diskID[disk_read_index[stub5_i[0]]][stub5_i[0]] < diskID[disk_read_index[stub5_i[1]]][stub5_i[1]]) ? stub5_i[0] : stub5_i[1];
+    stub6_index = (diskID[disk_read_index[stub6_i[0]]][stub6_i[0]] < diskID[disk_read_index[stub6_i[1]]][stub6_i[1]]) ? stub6_i[0] : stub6_i[1];
+    stub7_index = (diskID[disk_read_index[stub7_i[0]]][stub7_i[0]] < diskID[disk_read_index[stub7_i[1]]][stub7_i[1]]) ? stub7_i[0] : stub7_i[1];
+
+    track.setStub0 (minID != 0x3FFF && barrelID[barrel_read_index[stub0_index]][stub0_index] == minID, barrelStubR[barrel_read_index[stub0_index]][stub0_index], barrelPhiRes[barrel_read_index[stub0_index]][stub0_index], barrelZRes[barrel_read_index[stub0_index]][stub0_index]);
+    track.setStub1 (minID != 0x3FFF && barrelID[barrel_read_index[stub1_index]][stub1_index] == minID, barrelStubR[barrel_read_index[stub1_index]][stub1_index], barrelPhiRes[barrel_read_index[stub1_index]][stub1_index], barrelZRes[barrel_read_index[stub1_index]][stub1_index]);
+    track.setStub2 (minID != 0x3FFF && barrelID[barrel_read_index[stub2_index]][stub2_index] == minID, barrelStubR[barrel_read_index[stub2_index]][stub2_index], barrelPhiRes[barrel_read_index[stub2_index]][stub2_index], barrelZRes[barrel_read_index[stub2_index]][stub2_index]);
+    track.setStub3 (minID != 0x3FFF && barrelID[barrel_read_index[stub3_index]][stub3_index] == minID, barrelStubR[barrel_read_index[stub3_index]][stub3_index], barrelPhiRes[barrel_read_index[stub3_index]][stub3_index], barrelZRes[barrel_read_index[stub3_index]][stub3_index]);
+    track.setStub4 (minID != 0x3FFF && diskID[disk_read_index[stub4_index]][stub4_index] == minID, diskStubR[disk_read_index[stub4_index]][stub4_index], diskPhiRes[disk_read_index[stub4_index]][stub4_index], diskZRes[disk_read_index[stub4_index]][stub4_index]);
+    track.setStub5 (minID != 0x3FFF && diskID[disk_read_index[stub5_index]][stub5_index] == minID, diskStubR[disk_read_index[stub5_index]][stub5_index], diskPhiRes[disk_read_index[stub5_index]][stub5_index], diskZRes[disk_read_index[stub5_index]][stub5_index]);
+    track.setStub6 (minID != 0x3FFF && diskID[disk_read_index[stub6_index]][stub6_index] == minID, diskStubR[disk_read_index[stub6_index]][stub6_index], diskPhiRes[disk_read_index[stub6_index]][stub6_index], diskZRes[disk_read_index[stub6_index]][stub6_index]);
+    track.setStub7 (minID != 0x3FFF && diskID[disk_read_index[stub7_index]][stub7_index] == minID, diskStubR[disk_read_index[stub7_index]][stub7_index], diskPhiRes[disk_read_index[stub7_index]][stub7_index], diskZRes[disk_read_index[stub7_index]][stub7_index]);
+
+    track.setTrackIndex(nTracks);
+
+    if (track.getNMatches() >= 2)
       tracks.write_mem(bx, track, nTracks++);
-    }
 
-    barrel_read_index[0] += (barrelID[barrel_read_index[0]][0] == minID) ? 1 : 0;
-    barrel_read_index[1] += (barrelID[barrel_read_index[1]][1] == minID) ? 1 : 0;
-    barrel_read_index[2] += (barrelID[barrel_read_index[2]][2] == minID) ? 1 : 0;
-    barrel_read_index[3] += (barrelID[barrel_read_index[3]][3] == minID) ? 1 : 0;
-    barrel_read_index[4] += (barrelID[barrel_read_index[4]][4] == minID) ? 1 : 0;
-    barrel_read_index[5] += (barrelID[barrel_read_index[5]][5] == minID) ? 1 : 0;
-    barrel_read_index[6] += (barrelID[barrel_read_index[6]][6] == minID) ? 1 : 0;
-    barrel_read_index[7] += (barrelID[barrel_read_index[7]][7] == minID) ? 1 : 0;
-    barrel_read_index[8] += (barrelID[barrel_read_index[8]][8] == minID) ? 1 : 0;
-    barrel_read_index[9] += (barrelID[barrel_read_index[9]][9] == minID) ? 1 : 0;
-    barrel_read_index[10] += (barrelID[barrel_read_index[10]][10] == minID) ? 1 : 0;
-    barrel_read_index[11] += (barrelID[barrel_read_index[11]][11] == minID) ? 1 : 0;
-    barrel_read_index[12] += (barrelID[barrel_read_index[12]][12] == minID) ? 1 : 0;
-    barrel_read_index[13] += (barrelID[barrel_read_index[13]][13] == minID) ? 1 : 0;
-    barrel_read_index[14] += (barrelID[barrel_read_index[14]][14] == minID) ? 1 : 0;
-    barrel_read_index[15] += (barrelID[barrel_read_index[15]][15] == minID) ? 1 : 0;
+    barrel_read_index[stub0_index] += (barrelID[barrel_read_index[stub0_index]][stub0_index] == minID) ? 1 : 0;
+    barrel_read_index[stub1_index] += (barrelID[barrel_read_index[stub1_index]][stub1_index] == minID) ? 1 : 0;
+    barrel_read_index[stub2_index] += (barrelID[barrel_read_index[stub2_index]][stub2_index] == minID) ? 1 : 0;
+    barrel_read_index[stub3_index] += (barrelID[barrel_read_index[stub3_index]][stub3_index] == minID) ? 1 : 0;
 
-    disk_read_index[0] += (diskID[disk_read_index[0]][0] == minID) ? 1 : 0;
-    disk_read_index[1] += (diskID[disk_read_index[1]][1] == minID) ? 1 : 0;
-    disk_read_index[2] += (diskID[disk_read_index[2]][2] == minID) ? 1 : 0;
-    disk_read_index[3] += (diskID[disk_read_index[3]][3] == minID) ? 1 : 0;
-    disk_read_index[4] += (diskID[disk_read_index[4]][4] == minID) ? 1 : 0;
-    disk_read_index[5] += (diskID[disk_read_index[5]][5] == minID) ? 1 : 0;
-    disk_read_index[6] += (diskID[disk_read_index[6]][6] == minID) ? 1 : 0;
-    disk_read_index[7] += (diskID[disk_read_index[7]][7] == minID) ? 1 : 0;
-    disk_read_index[8] += (diskID[disk_read_index[8]][8] == minID) ? 1 : 0;
-    disk_read_index[9] += (diskID[disk_read_index[9]][9] == minID) ? 1 : 0;
-    disk_read_index[10] += (diskID[disk_read_index[10]][10] == minID) ? 1 : 0;
-    disk_read_index[11] += (diskID[disk_read_index[11]][11] == minID) ? 1 : 0;
-    disk_read_index[12] += (diskID[disk_read_index[12]][12] == minID) ? 1 : 0;
-    disk_read_index[13] += (diskID[disk_read_index[13]][13] == minID) ? 1 : 0;
-    disk_read_index[14] += (diskID[disk_read_index[14]][14] == minID) ? 1 : 0;
-    disk_read_index[15] += (diskID[disk_read_index[15]][15] == minID) ? 1 : 0;
+    disk_read_index[stub4_index] += (diskID[disk_read_index[stub4_index]][stub4_index] == minID) ? 1 : 0;
+    disk_read_index[stub5_index] += (diskID[disk_read_index[stub5_index]][stub5_index] == minID) ? 1 : 0;
+    disk_read_index[stub6_index] += (diskID[disk_read_index[stub6_index]][stub6_index] == minID) ? 1 : 0;
+    disk_read_index[stub7_index] += (diskID[disk_read_index[stub7_index]][stub7_index] == minID) ? 1 : 0;
   }
 }
