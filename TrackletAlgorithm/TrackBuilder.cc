@@ -128,7 +128,7 @@ void TrackBuilder(
   }
 
   tracklets : for (unsigned short i = 0; i < kMaxProc; i++) {
-#pragma HLS pipeline II=1
+#pragma HLS pipeline II=1 rewind
 
     unsigned short minID = 0x3FFF;
     unsigned short mID[30];
