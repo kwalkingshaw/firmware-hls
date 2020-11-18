@@ -6,6 +6,7 @@
 #include "Constants.h"
 #include "AllStubMemory.h"
 
+#include "VMRouter.h"
 
 // link map
 constexpr int kLINKMAPwidth = 20;
@@ -42,6 +43,7 @@ constexpr int kNbitsPhiBinsTkr = 2;
 //
 #define IR_DEBUG false
 
+/*
 // Get the corrected phi, i.e. phi at the average radius of the barrel
 // Corrected phi is used by ME and TE memories in the barrel
 template<regionType InType>
@@ -71,7 +73,7 @@ inline typename AllStub<InType>::ASPHI getPhiCorr(
 
 	return phicorr;
 }
-
+*/
 
 template<regionType ASType, unsigned int nCorrBns> 
 void GetPhiBinBrl(const ap_uint<kNBits_DTC> inStub
