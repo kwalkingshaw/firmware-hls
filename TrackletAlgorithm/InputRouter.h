@@ -121,16 +121,18 @@ void GetPhiBinBrl(const ap_uint<kNBits_DTC> inStub
 		hPhiCorrected = getPhiCorr<ASType>(hStub.getPhi(), hStub.getR(), hStub.getBend(), kPhiCorrtable_L3); 
 	}
 	hStub.setPhi(hPhiCorrected);
-	// std::cout << "Getting phi bin" << std::endl;
-	// std::cout << hPhiMSB << " " << hPhiLSB << " " << hStub.raw().range(hPhiMSB,hPhiLSB) << std::endl;
-	phiBn = hStub.raw().range(hPhiMSB,hPhiLSB) & 0x7 ;
-	// std::cout << "Phi bin : " << phiBn << std::endl;
-	// std::cout << phiBn + 4 << std::endl;
-	if ( pLyrId == 1 ) phiBn += 4;
-	else phiBn += (phiBn > 1) ? -2 : 2;
-	// phiBn += (pLyrId == 1) ? 4 : 2;
-	// std::cout << "Shifted bin : " << phiBn << std::endl;
-
+	phiBn = hStub.raw().range(hPhiMSB,hPhiLSB) & 0x7;
+	/*
+		// std::cout << "Getting phi bin" << std::endl;
+		// std::cout << hPhiMSB << " " << hPhiLSB << " " << hStub.raw().range(hPhiMSB,hPhiLSB) << std::endl;
+		phiBn = hStub.raw().range(hPhiMSB,hPhiLSB) & 0x7 ;
+		// std::cout << "Phi bin : " << phiBn << std::endl;
+		// std::cout << phiBn + 4 << std::endl;
+		if ( pLyrId == 1 ) phiBn += 4;
+		else phiBn += (phiBn > 1) ? -2 : 2;
+		// phiBn += (pLyrId == 1) ? 4 : 2;
+		// std::cout << "Shifted bin : " << phiBn << std::endl;
+	*/
 	#ifndef __SYNTHESIS__
 			if( IR_DEBUG )
 			{
@@ -156,10 +158,13 @@ void GetPhiBinDsk(const ap_uint<kNBits_DTC> inStub
 	else
 		hPhiLSB = AllStub<ASType>::kASPhiMSB+3-(kNbitsPhiBinsTkr-1);
 
- 	// std::cout << "Disk phi bin : " << ( inStub.range(hPhiMSB,hPhiLSB) & 0x7 ) << " " << ( inStub.range(hPhiMSB,hPhiLSB) & 0x7 ) + 2 << std::endl;
- 	phiBn = ( inStub.range(hPhiMSB,hPhiLSB) & 0x7 ) ;
- 	phiBn += (phiBn > 1) ? -2 : +2;
- 	// std::cout << "New phi bin : " << phiBn << std::endl;
+	phiBn = inStub.range(hPhiMSB,hPhiLSB) & 0x7;
+ 	/*
+		// std::cout << "Disk phi bin : " << ( inStub.range(hPhiMSB,hPhiLSB) & 0x7 ) << " " << ( inStub.range(hPhiMSB,hPhiLSB) & 0x7 ) + 2 << std::endl;
+		phiBn = ( inStub.range(hPhiMSB,hPhiLSB) & 0x7 ) ;
+		phiBn += (phiBn > 1) ? -2 : +2;
+		// std::cout << "New phi bin : " << phiBn << std::endl;
+	*/
 }
 
 #endif

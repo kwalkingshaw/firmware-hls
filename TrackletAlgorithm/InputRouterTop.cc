@@ -84,15 +84,49 @@ LOOP_ProcessIR:
     if (hStub == 0)
       continue;
 
-    ap_uint<3> hEncLyr = ap_uint<3>(hStub.range(2, 1) & 0x3);
-    ap_uint<kBRAMwidth> hStbWrd = hStub.range(kBRAMwidth + 3 - 1, 3);
-    // get memory word
-    DTCStub hMemWord(hStbWrd);
-    
     // decode link wrd for this layer
+    ap_uint<3> hEncLyr = ap_uint<3>(hStub.range(2, 1) & 0x3);
     ap_uint<4> hWrd = hLinkWord.range(4 * hEncLyr + 3, 4 * hEncLyr);
     ap_uint<1> hIsBrl = hWrd.range(1, 0);
     ap_uint<3> hLyrId = hWrd.range(3, 1);
+
+    ap_uint<8> hPhiMSB = AllStub<BARRELPS>::kASPhiMSB+3;
+    ap_uint<8> hPhiLSB = AllStub<BARRELPS>::kASPhiLSB+3;
+    if (hIsBrl == 1) {
+        if (hIs2S == 0) {
+          hPhiMSB = AllStub<BARRELPS>::kASPhiMSB+3;
+          hPhiLSB = AllStub<BARRELPS>::kASPhiLSB+3;
+          ap_uint<AllStub<BARRELPS>::kASPhiSize> hPhi = hStub.range(hPhiMSB, hPhiLSB) + (1 << (AllStub<BARRELPS>::kASPhiSize- 1) );
+          hStub.range(hPhiMSB, hPhiLSB) = hPhi;
+        }
+        else{
+          hPhiMSB = AllStub<BARREL2S>::kASPhiMSB+3;
+          hPhiLSB = AllStub<BARREL2S>::kASPhiLSB+3;
+          ap_uint<AllStub<BARREL2S>::kASPhiSize> hPhi = hStub.range(hPhiMSB, hPhiLSB) + (1 << (AllStub<BARREL2S>::kASPhiSize- 1) );
+          hStub.range(hPhiMSB, hPhiLSB) = hPhi;
+        }
+    }
+    else {
+        if (hIs2S == 0) {
+          hPhiMSB = AllStub<DISKPS>::kASPhiMSB+3;
+          hPhiLSB = AllStub<DISKPS>::kASPhiLSB+3;
+          ap_uint<AllStub<DISKPS>::kASPhiSize> hPhi = hStub.range(hPhiMSB, hPhiLSB) + (1 << (AllStub<DISKPS>::kASPhiSize- 1) );
+          hStub.range(hPhiMSB, hPhiLSB) = hPhi;
+        }
+        else{
+          hPhiMSB = AllStub<DISK2S>::kASPhiMSB+3;
+          hPhiLSB = AllStub<DISK2S>::kASPhiLSB+3;
+          ap_uint<AllStub<DISK2S>::kASPhiSize> hPhi = hStub.range(hPhiMSB, hPhiLSB) + (1 << (AllStub<DISK2S>::kASPhiSize- 1) );
+          hStub.range(hPhiMSB, hPhiLSB) = hPhi;
+        }
+    }
+
+
+    ap_uint<kBRAMwidth> hStbWrd = hStub.range(kBRAMwidth + 3 - 1, 3);
+
+    // get memory word
+    DTCStub hMemWord(hStbWrd);
+    
     // get phi bin
     ap_uint<3> hPhiBn;
     if (hIsBrl == 1) {
@@ -120,7 +154,7 @@ LOOP_ProcessIR:
     
     // write to memory
     unsigned int cMemIndx = cIndx + hPhiBn;
-    // std::cout << "Indices : " << cMemIndx << " " << cNMemories << " " << cIndx << " " << hPhiBn << std::endl;
+    // std::cout << "Indices : " << cMemIndx << " " << cNMemories << " " << cIndx << " " << hPhiBn << " " << hIsBrl << " " << hIs2S << std::endl;
     // if ( cMemIndx >= cNMemories ) continue;
     assert(cMemIndx < cNMemories);
     ap_uint<8> hEntries = hNStubs[cMemIndx];

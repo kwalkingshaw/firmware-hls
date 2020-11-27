@@ -671,7 +671,7 @@ void VMRouter(const BXType bx, const int finebintable[], const int phicorrtable[
 /////////////////////////////////////
 // Main Loop
 
-TOPLEVEL: for (auto i = 0; i < kMaxProc - (Layer ? kMaxProcOffset(module::VMR_LAYER) : kMaxProcOffset(module::VMR_DISK)); ++i) {
+TOPLEVEL: for (auto i = 0; i < int( kMaxProc - (Layer ? kMaxProcOffset(module::VMR_LAYER) : kMaxProcOffset(module::VMR_DISK)) ); ++i) {
 #pragma HLS PIPELINE II=1
 
 		// Stop processing stubs if we have gone through all data

@@ -74,7 +74,7 @@ public:
 
   NEntryT getEntries(BunchXingT bx) const {
     NEntryT val = 0;
-    for ( auto i = 0; i < getDepth(); ++i ) {
+    for ( unsigned int i = 0; i < getDepth(); ++i ) {
       val += getEntries(bx, i);
     }
     return val;
