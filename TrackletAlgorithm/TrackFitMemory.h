@@ -20,6 +20,7 @@ public:
     kTFStubCountSize = 3,
     // Bit size for stub word fields
     kTFTrackIndexSize = 7,
+    kTFStubIndexSize = 10,
     kTFBarrelStubRSize = 7,
     kTFDiskStubRSize = 12,
     kTFPhiResidSize = 12,
@@ -28,21 +29,21 @@ public:
     // Bit size for full TrackFitMemory
     kTrackFitSize = kTFValidSize + kTFSeedTypeSize + kTFRinvSize + kTFPhi0Size + kTFZ0Size + kTFTSize + kTFLMapSize
                   // L3 stub word
-                  + kTFValidSize + kTFTrackIndexSize + kTFBarrelStubRSize + kTFPhiResidSize + kTFZResidSize
+                  + kTFValidSize + kTFTrackIndexSize + kTFStubIndexSize + kTFBarrelStubRSize + kTFPhiResidSize + kTFZResidSize
                   // L4 stub word
-                  + kTFValidSize + kTFTrackIndexSize + kTFBarrelStubRSize + kTFPhiResidSize + kTFZResidSize
+                  + kTFValidSize + kTFTrackIndexSize + kTFStubIndexSize + kTFBarrelStubRSize + kTFPhiResidSize + kTFZResidSize
                   // L5 stub word
-                  + kTFValidSize + kTFTrackIndexSize + kTFBarrelStubRSize + kTFPhiResidSize + kTFZResidSize
+                  + kTFValidSize + kTFTrackIndexSize + kTFStubIndexSize + kTFBarrelStubRSize + kTFPhiResidSize + kTFZResidSize
                   // L6 stub word
-                  + kTFValidSize + kTFTrackIndexSize + kTFBarrelStubRSize + kTFPhiResidSize + kTFZResidSize
+                  + kTFValidSize + kTFTrackIndexSize + kTFStubIndexSize + kTFBarrelStubRSize + kTFPhiResidSize + kTFZResidSize
                   // D1 stub word
-                  + kTFValidSize + kTFTrackIndexSize + kTFDiskStubRSize + kTFPhiResidSize + kTFRResidSize
+                  + kTFValidSize + kTFTrackIndexSize + kTFStubIndexSize + kTFDiskStubRSize + kTFPhiResidSize + kTFRResidSize
                   // D2 stub word
-                  + kTFValidSize + kTFTrackIndexSize + kTFDiskStubRSize + kTFPhiResidSize + kTFRResidSize
+                  + kTFValidSize + kTFTrackIndexSize + kTFStubIndexSize + kTFDiskStubRSize + kTFPhiResidSize + kTFRResidSize
                   // D3 stub word
-                  + kTFValidSize + kTFTrackIndexSize + kTFDiskStubRSize + kTFPhiResidSize + kTFRResidSize
+                  + kTFValidSize + kTFTrackIndexSize + kTFStubIndexSize + kTFDiskStubRSize + kTFPhiResidSize + kTFRResidSize
                   // D4 stub word
-                  + kTFValidSize + kTFTrackIndexSize + kTFDiskStubRSize + kTFPhiResidSize + kTFRResidSize
+                  + kTFValidSize + kTFTrackIndexSize + kTFStubIndexSize + kTFDiskStubRSize + kTFPhiResidSize + kTFRResidSize
   };
 };
 
@@ -58,7 +59,9 @@ public:
     kTFStub7PhiResidMSB = kTFStub7PhiResidLSB + TrackFitBase::kTFPhiResidSize - 1,
     kTFStub7RLSB = kTFStub7PhiResidMSB + 1,
     kTFStub7RMSB = kTFStub7RLSB + TrackFitBase::kTFDiskStubRSize - 1,
-    kTFStub7TrackIndexLSB = kTFStub7RMSB + 1,
+    kTFStub7StubIndexLSB = kTFStub7RMSB + 1,
+    kTFStub7StubIndexMSB = kTFStub7StubIndexLSB + TrackFitBase::kTFStubIndexSize - 1,
+    kTFStub7TrackIndexLSB = kTFStub7StubIndexMSB + 1,
     kTFStub7TrackIndexMSB = kTFStub7TrackIndexLSB + TrackFitBase::kTFTrackIndexSize - 1,
     kTFStub7ValidLSB = kTFStub7TrackIndexMSB + 1,
     kTFStub7ValidMSB = kTFStub7ValidLSB + TrackFitBase::kTFValidSize - 1,
@@ -69,7 +72,9 @@ public:
     kTFStub6PhiResidMSB = kTFStub6PhiResidLSB + TrackFitBase::kTFPhiResidSize - 1,
     kTFStub6RLSB = kTFStub6PhiResidMSB + 1,
     kTFStub6RMSB = kTFStub6RLSB + TrackFitBase::kTFDiskStubRSize - 1,
-    kTFStub6TrackIndexLSB = kTFStub6RMSB + 1,
+    kTFStub6StubIndexLSB = kTFStub6RMSB + 1,
+    kTFStub6StubIndexMSB = kTFStub6StubIndexLSB + TrackFitBase::kTFStubIndexSize - 1,
+    kTFStub6TrackIndexLSB = kTFStub6StubIndexMSB + 1,
     kTFStub6TrackIndexMSB = kTFStub6TrackIndexLSB + TrackFitBase::kTFTrackIndexSize - 1,
     kTFStub6ValidLSB = kTFStub6TrackIndexMSB + 1,
     kTFStub6ValidMSB = kTFStub6ValidLSB + TrackFitBase::kTFValidSize - 1,
@@ -80,7 +85,9 @@ public:
     kTFStub5PhiResidMSB = kTFStub5PhiResidLSB + TrackFitBase::kTFPhiResidSize - 1,
     kTFStub5RLSB = kTFStub5PhiResidMSB + 1,
     kTFStub5RMSB = kTFStub5RLSB + TrackFitBase::kTFDiskStubRSize - 1,
-    kTFStub5TrackIndexLSB = kTFStub5RMSB + 1,
+    kTFStub5StubIndexLSB = kTFStub5RMSB + 1,
+    kTFStub5StubIndexMSB = kTFStub5StubIndexLSB + TrackFitBase::kTFStubIndexSize - 1,
+    kTFStub5TrackIndexLSB = kTFStub5StubIndexMSB + 1,
     kTFStub5TrackIndexMSB = kTFStub5TrackIndexLSB + TrackFitBase::kTFTrackIndexSize - 1,
     kTFStub5ValidLSB = kTFStub5TrackIndexMSB + 1,
     kTFStub5ValidMSB = kTFStub5ValidLSB + TrackFitBase::kTFValidSize - 1,
@@ -91,7 +98,9 @@ public:
     kTFStub4PhiResidMSB = kTFStub4PhiResidLSB + TrackFitBase::kTFPhiResidSize - 1,
     kTFStub4RLSB = kTFStub4PhiResidMSB + 1,
     kTFStub4RMSB = kTFStub4RLSB + TrackFitBase::kTFDiskStubRSize - 1,
-    kTFStub4TrackIndexLSB = kTFStub4RMSB + 1,
+    kTFStub4StubIndexLSB = kTFStub4RMSB + 1,
+    kTFStub4StubIndexMSB = kTFStub4StubIndexLSB + TrackFitBase::kTFStubIndexSize - 1,
+    kTFStub4TrackIndexLSB = kTFStub4StubIndexMSB + 1,
     kTFStub4TrackIndexMSB = kTFStub4TrackIndexLSB + TrackFitBase::kTFTrackIndexSize - 1,
     kTFStub4ValidLSB = kTFStub4TrackIndexMSB + 1,
     kTFStub4ValidMSB = kTFStub4ValidLSB + TrackFitBase::kTFValidSize - 1,
@@ -102,7 +111,9 @@ public:
     kTFStub3PhiResidMSB = kTFStub3PhiResidLSB + TrackFitBase::kTFPhiResidSize - 1,
     kTFStub3RLSB = kTFStub3PhiResidMSB + 1,
     kTFStub3RMSB = kTFStub3RLSB + TrackFitBase::kTFBarrelStubRSize - 1,
-    kTFStub3TrackIndexLSB = kTFStub3RMSB + 1,
+    kTFStub3StubIndexLSB = kTFStub3RMSB + 1,
+    kTFStub3StubIndexMSB = kTFStub3StubIndexLSB + TrackFitBase::kTFStubIndexSize - 1,
+    kTFStub3TrackIndexLSB = kTFStub3StubIndexMSB + 1,
     kTFStub3TrackIndexMSB = kTFStub3TrackIndexLSB + TrackFitBase::kTFTrackIndexSize - 1,
     kTFStub3ValidLSB = kTFStub3TrackIndexMSB + 1,
     kTFStub3ValidMSB = kTFStub3ValidLSB + TrackFitBase::kTFValidSize - 1,
@@ -113,7 +124,9 @@ public:
     kTFStub2PhiResidMSB = kTFStub2PhiResidLSB + TrackFitBase::kTFPhiResidSize - 1,
     kTFStub2RLSB = kTFStub2PhiResidMSB + 1,
     kTFStub2RMSB = kTFStub2RLSB + TrackFitBase::kTFBarrelStubRSize - 1,
-    kTFStub2TrackIndexLSB = kTFStub2RMSB + 1,
+    kTFStub2StubIndexLSB = kTFStub2RMSB + 1,
+    kTFStub2StubIndexMSB = kTFStub2StubIndexLSB + TrackFitBase::kTFStubIndexSize - 1,
+    kTFStub2TrackIndexLSB = kTFStub2StubIndexMSB + 1,
     kTFStub2TrackIndexMSB = kTFStub2TrackIndexLSB + TrackFitBase::kTFTrackIndexSize - 1,
     kTFStub2ValidLSB = kTFStub2TrackIndexMSB + 1,
     kTFStub2ValidMSB = kTFStub2ValidLSB + TrackFitBase::kTFValidSize - 1,
@@ -124,7 +137,9 @@ public:
     kTFStub1PhiResidMSB = kTFStub1PhiResidLSB + TrackFitBase::kTFPhiResidSize - 1,
     kTFStub1RLSB = kTFStub1PhiResidMSB + 1,
     kTFStub1RMSB = kTFStub1RLSB + TrackFitBase::kTFBarrelStubRSize - 1,
-    kTFStub1TrackIndexLSB = kTFStub1RMSB + 1,
+    kTFStub1StubIndexLSB = kTFStub1RMSB + 1,
+    kTFStub1StubIndexMSB = kTFStub1StubIndexLSB + TrackFitBase::kTFStubIndexSize - 1,
+    kTFStub1TrackIndexLSB = kTFStub1StubIndexMSB + 1,
     kTFStub1TrackIndexMSB = kTFStub1TrackIndexLSB + TrackFitBase::kTFTrackIndexSize - 1,
     kTFStub1ValidLSB = kTFStub1TrackIndexMSB + 1,
     kTFStub1ValidMSB = kTFStub1ValidLSB + TrackFitBase::kTFValidSize - 1,
@@ -135,7 +150,9 @@ public:
     kTFStub0PhiResidMSB = kTFStub0PhiResidLSB + TrackFitBase::kTFPhiResidSize - 1,
     kTFStub0RLSB = kTFStub0PhiResidMSB + 1,
     kTFStub0RMSB = kTFStub0RLSB + TrackFitBase::kTFBarrelStubRSize - 1,
-    kTFStub0TrackIndexLSB = kTFStub0RMSB + 1,
+    kTFStub0StubIndexLSB = kTFStub0RMSB + 1,
+    kTFStub0StubIndexMSB = kTFStub0StubIndexLSB + TrackFitBase::kTFStubIndexSize - 1,
+    kTFStub0TrackIndexLSB = kTFStub0StubIndexMSB + 1,
     kTFStub0TrackIndexMSB = kTFStub0TrackIndexLSB + TrackFitBase::kTFTrackIndexSize - 1,
     kTFStub0ValidLSB = kTFStub0TrackIndexMSB + 1,
     kTFStub0ValidMSB = kTFStub0ValidLSB + TrackFitBase::kTFValidSize - 1,
@@ -181,6 +198,7 @@ public:
   typedef ap_uint<TrackFitBase::kTFLMapSize> TFLMAP;
   typedef ap_uint<TrackFitBase::kTFStubCountSize> TFSTUBCOUNT;
   typedef ap_uint<TrackFitBase::kTFTrackIndexSize> TFTRACKINDEX;
+  typedef ap_uint<TrackFitBase::kTFStubIndexSize> TFSTUBINDEX;
 
   typedef ap_uint<TrackFitBase::kTFBarrelStubRSize> TFSTUB0R;
   typedef ap_int<TrackFitBase::kTFPhiResidSize> TFSTUB0PHIRESID;
@@ -222,15 +240,15 @@ public:
   {}
 
   TrackFit(const TFSEEDTYPE seedtype, const TFRINV rinv, const TFPHI0 phi0, const TFZ0 z0, const TFT t) :
-    data_( ((((((((((((((((((((((((((((((((((((((((((((((1,seedtype),rinv),phi0),z0),t),TFLMAP(0)),
-             TFVALID(0)),TFTRACKINDEX(0)),TFSTUB0R(0)),TFSTUB0PHIRESID(0)),TFSTUB0ZRESID(0)),
-             TFVALID(0)),TFTRACKINDEX(0)),TFSTUB1R(0)),TFSTUB1PHIRESID(0)),TFSTUB1ZRESID(0)),
-             TFVALID(0)),TFTRACKINDEX(0)),TFSTUB2R(0)),TFSTUB2PHIRESID(0)),TFSTUB2ZRESID(0)),
-             TFVALID(0)),TFTRACKINDEX(0)),TFSTUB3R(0)),TFSTUB3PHIRESID(0)),TFSTUB3ZRESID(0)),
-             TFVALID(0)),TFTRACKINDEX(0)),TFSTUB4R(0)),TFSTUB4PHIRESID(0)),TFSTUB4RRESID(0)),
-             TFVALID(0)),TFTRACKINDEX(0)),TFSTUB5R(0)),TFSTUB5PHIRESID(0)),TFSTUB5RRESID(0)),
-             TFVALID(0)),TFTRACKINDEX(0)),TFSTUB6R(0)),TFSTUB6PHIRESID(0)),TFSTUB6RRESID(0)),
-             TFVALID(0)),TFTRACKINDEX(0)),TFSTUB7R(0)),TFSTUB7PHIRESID(0)),TFSTUB7RRESID(0)) )
+    data_( ((((((((((((((((((((((((((((((((((((((((((((((((((((((1,seedtype),rinv),phi0),z0),t),TFLMAP(0)),
+             TFVALID(0)),TFTRACKINDEX(0)),TFSTUBINDEX(0)),TFSTUB0R(0)),TFSTUB0PHIRESID(0)),TFSTUB0ZRESID(0)),
+             TFVALID(0)),TFTRACKINDEX(0)),TFSTUBINDEX(0)),TFSTUB1R(0)),TFSTUB1PHIRESID(0)),TFSTUB1ZRESID(0)),
+             TFVALID(0)),TFTRACKINDEX(0)),TFSTUBINDEX(0)),TFSTUB2R(0)),TFSTUB2PHIRESID(0)),TFSTUB2ZRESID(0)),
+             TFVALID(0)),TFTRACKINDEX(0)),TFSTUBINDEX(0)),TFSTUB3R(0)),TFSTUB3PHIRESID(0)),TFSTUB3ZRESID(0)),
+             TFVALID(0)),TFTRACKINDEX(0)),TFSTUBINDEX(0)),TFSTUB4R(0)),TFSTUB4PHIRESID(0)),TFSTUB4RRESID(0)),
+             TFVALID(0)),TFTRACKINDEX(0)),TFSTUBINDEX(0)),TFSTUB5R(0)),TFSTUB5PHIRESID(0)),TFSTUB5RRESID(0)),
+             TFVALID(0)),TFTRACKINDEX(0)),TFSTUBINDEX(0)),TFSTUB6R(0)),TFSTUB6PHIRESID(0)),TFSTUB6RRESID(0)),
+             TFVALID(0)),TFTRACKINDEX(0)),TFSTUBINDEX(0)),TFSTUB7R(0)),TFSTUB7PHIRESID(0)),TFSTUB7RRESID(0)) )
 
   {}
 
@@ -319,6 +337,10 @@ public:
     return data_.range(kTFStub0TrackIndexMSB,kTFStub0TrackIndexLSB);
   }
 
+  TFSTUBINDEX getStub0StubIndex() const {
+    return data_.range(kTFStub0StubIndexMSB,kTFStub0StubIndexLSB);
+  }
+
   TFSTUB0R getStub0R() const {
     return data_.range(kTFStub0RMSB,kTFStub0RLSB);
   }
@@ -337,6 +359,10 @@ public:
 
   TFTRACKINDEX getStub1TrackIndex() const {
     return data_.range(kTFStub1TrackIndexMSB,kTFStub1TrackIndexLSB);
+  }
+
+  TFSTUBINDEX getStub1StubIndex() const {
+    return data_.range(kTFStub1StubIndexMSB,kTFStub1StubIndexLSB);
   }
 
   TFSTUB1R getStub1R() const {
@@ -359,6 +385,10 @@ public:
     return data_.range(kTFStub2TrackIndexMSB,kTFStub2TrackIndexLSB);
   }
 
+  TFSTUBINDEX getStub2StubIndex() const {
+    return data_.range(kTFStub2StubIndexMSB,kTFStub2StubIndexLSB);
+  }
+
   TFSTUB2R getStub2R() const {
     return data_.range(kTFStub2RMSB,kTFStub2RLSB);
   }
@@ -377,6 +407,10 @@ public:
 
   TFTRACKINDEX getStub3TrackIndex() const {
     return data_.range(kTFStub3TrackIndexMSB,kTFStub3TrackIndexLSB);
+  }
+
+  TFSTUBINDEX getStub3StubIndex() const {
+    return data_.range(kTFStub3StubIndexMSB,kTFStub3StubIndexLSB);
   }
 
   TFSTUB3R getStub3R() const {
@@ -399,6 +433,10 @@ public:
     return data_.range(kTFStub4TrackIndexMSB,kTFStub4TrackIndexLSB);
   }
 
+  TFSTUBINDEX getStub4StubIndex() const {
+    return data_.range(kTFStub4StubIndexMSB,kTFStub4StubIndexLSB);
+  }
+
   TFSTUB4R getStub4R() const {
     return data_.range(kTFStub4RMSB,kTFStub4RLSB);
   }
@@ -417,6 +455,10 @@ public:
 
   TFTRACKINDEX getStub5TrackIndex() const {
     return data_.range(kTFStub5TrackIndexMSB,kTFStub5TrackIndexLSB);
+  }
+
+  TFSTUBINDEX getStub5StubIndex() const {
+    return data_.range(kTFStub5StubIndexMSB,kTFStub5StubIndexLSB);
   }
 
   TFSTUB5R getStub5R() const {
@@ -439,6 +481,10 @@ public:
     return data_.range(kTFStub6TrackIndexMSB,kTFStub6TrackIndexLSB);
   }
 
+  TFSTUBINDEX getStub6StubIndex() const {
+    return data_.range(kTFStub6StubIndexMSB,kTFStub6StubIndexLSB);
+  }
+
   TFSTUB6R getStub6R() const {
     return data_.range(kTFStub6RMSB,kTFStub6RLSB);
   }
@@ -457,6 +503,10 @@ public:
 
   TFTRACKINDEX getStub7TrackIndex() const {
     return data_.range(kTFStub7TrackIndexMSB,kTFStub7TrackIndexLSB);
+  }
+
+  TFSTUBINDEX getStub7StubIndex() const {
+    return data_.range(kTFStub7StubIndexMSB,kTFStub7StubIndexLSB);
   }
 
   TFSTUB7R getStub7R() const {
@@ -555,6 +605,10 @@ public:
     data_.range(kTFStub0TrackIndexMSB,kTFStub0TrackIndexLSB) = stub0trackindex;
   }
 
+  void setStub0StubIndex(const TFSTUBINDEX stub0stubindex) {
+    data_.range(kTFStub0StubIndexMSB,kTFStub0StubIndexLSB) = stub0stubindex;
+  }
+
   void setStub0R(const TFSTUB0R stub0r) {
     data_.range(kTFStub0RMSB,kTFStub0RLSB) = stub0r;
   }
@@ -573,6 +627,10 @@ public:
 
   void setStub1TrackIndex(const TFTRACKINDEX stub1trackindex) {
     data_.range(kTFStub1TrackIndexMSB,kTFStub1TrackIndexLSB) = stub1trackindex;
+  }
+
+  void setStub1StubIndex(const TFSTUBINDEX stub1stubindex) {
+    data_.range(kTFStub1StubIndexMSB,kTFStub1StubIndexLSB) = stub1stubindex;
   }
 
   void setStub1R(const TFSTUB1R stub1r) {
@@ -595,6 +653,10 @@ public:
     data_.range(kTFStub2TrackIndexMSB,kTFStub2TrackIndexLSB) = stub2trackindex;
   }
 
+  void setStub2StubIndex(const TFSTUBINDEX stub2stubindex) {
+    data_.range(kTFStub2StubIndexMSB,kTFStub2StubIndexLSB) = stub2stubindex;
+  }
+
   void setStub2R(const TFSTUB2R stub2r) {
     data_.range(kTFStub2RMSB,kTFStub2RLSB) = stub2r;
   }
@@ -613,6 +675,10 @@ public:
 
   void setStub3TrackIndex(const TFTRACKINDEX stub3trackindex) {
     data_.range(kTFStub3TrackIndexMSB,kTFStub3TrackIndexLSB) = stub3trackindex;
+  }
+
+  void setStub3StubIndex(const TFSTUBINDEX stub3stubindex) {
+    data_.range(kTFStub3StubIndexMSB,kTFStub3StubIndexLSB) = stub3stubindex;
   }
 
   void setStub3R(const TFSTUB3R stub3r) {
@@ -635,6 +701,10 @@ public:
     data_.range(kTFStub4TrackIndexMSB,kTFStub4TrackIndexLSB) = stub4trackindex;
   }
 
+  void setStub4StubIndex(const TFSTUBINDEX stub4stubindex) {
+    data_.range(kTFStub4StubIndexMSB,kTFStub4StubIndexLSB) = stub4stubindex;
+  }
+
   void setStub4R(const TFSTUB4R stub4r) {
     data_.range(kTFStub4RMSB,kTFStub4RLSB) = stub4r;
   }
@@ -653,6 +723,10 @@ public:
 
   void setStub5TrackIndex(const TFTRACKINDEX stub5trackindex) {
     data_.range(kTFStub5TrackIndexMSB,kTFStub5TrackIndexLSB) = stub5trackindex;
+  }
+
+  void setStub5StubIndex(const TFSTUBINDEX stub5stubindex) {
+    data_.range(kTFStub5StubIndexMSB,kTFStub5StubIndexLSB) = stub5stubindex;
   }
 
   void setStub5R(const TFSTUB5R stub5r) {
@@ -675,6 +749,10 @@ public:
     data_.range(kTFStub6TrackIndexMSB,kTFStub6TrackIndexLSB) = stub6trackindex;
   }
 
+  void setStub6StubIndex(const TFSTUBINDEX stub6stubindex) {
+    data_.range(kTFStub6StubIndexMSB,kTFStub6StubIndexLSB) = stub6stubindex;
+  }
+
   void setStub6R(const TFSTUB6R stub6r) {
     data_.range(kTFStub6RMSB,kTFStub6RLSB) = stub6r;
   }
@@ -695,6 +773,10 @@ public:
     data_.range(kTFStub7TrackIndexMSB,kTFStub7TrackIndexLSB) = stub7trackindex;
   }
 
+  void setStub7StubIndex(const TFSTUBINDEX stub7stubindex) {
+    data_.range(kTFStub7StubIndexMSB,kTFStub7StubIndexLSB) = stub7stubindex;
+  }
+
   void setStub7R(const TFSTUB7R stub7r) {
     data_.range(kTFStub7RMSB,kTFStub7RLSB) = stub7r;
   }
@@ -707,64 +789,72 @@ public:
     data_.range(kTFStub7RResidMSB,kTFStub7RResidLSB) = stub7rresid;
   }
 
-  void setStub0(const TFVALID valid, const TFSTUB0R r, const TFSTUB0PHIRESID phiresid, const TFSTUB0ZRESID zresid) {
+  void setStub0(const TFVALID valid, const TFSTUBINDEX stubindex, const TFSTUB0R r, const TFSTUB0PHIRESID phiresid, const TFSTUB0ZRESID zresid) {
     setStub0Valid(valid);
+    setStub0StubIndex(stubindex);
     setStub0R(r);
     setStub0PhiResid(phiresid);
     setStub0ZResid(zresid);
     setLayer3Count(valid ? 1 : 0);
   }
 
-  void setStub1(const TFVALID valid, const TFSTUB1R r, const TFSTUB1PHIRESID phiresid, const TFSTUB1ZRESID zresid) {
+  void setStub1(const TFVALID valid, const TFSTUBINDEX stubindex, const TFSTUB1R r, const TFSTUB1PHIRESID phiresid, const TFSTUB1ZRESID zresid) {
     setStub1Valid(valid);
+    setStub1StubIndex(stubindex);
     setStub1R(r);
     setStub1PhiResid(phiresid);
     setStub1ZResid(zresid);
     setLayer4Count(valid ? 1 : 0);
   }
 
-  void setStub2(const TFVALID valid, const TFSTUB2R r, const TFSTUB2PHIRESID phiresid, const TFSTUB2ZRESID zresid) {
+  void setStub2(const TFVALID valid, const TFSTUBINDEX stubindex, const TFSTUB2R r, const TFSTUB2PHIRESID phiresid, const TFSTUB2ZRESID zresid) {
     setStub2Valid(valid);
+    setStub2StubIndex(stubindex);
     setStub2R(r);
     setStub2PhiResid(phiresid);
     setStub2ZResid(zresid);
     setLayer5Count(valid ? 1 : 0);
   }
 
-  void setStub3(const TFVALID valid, const TFSTUB3R r, const TFSTUB3PHIRESID phiresid, const TFSTUB3ZRESID zresid) {
+  void setStub3(const TFVALID valid, const TFSTUBINDEX stubindex, const TFSTUB3R r, const TFSTUB3PHIRESID phiresid, const TFSTUB3ZRESID zresid) {
     setStub3Valid(valid);
+    setStub3StubIndex(stubindex);
     setStub3R(r);
     setStub3PhiResid(phiresid);
     setStub3ZResid(zresid);
     setLayer6Count(valid ? 1 : 0);
   }
 
-  void setStub4(const TFVALID valid, const TFSTUB4R r, const TFSTUB4PHIRESID phiresid, const TFSTUB4RRESID rresid) {
+  void setStub4(const TFVALID valid, const TFSTUBINDEX stubindex, const TFSTUB4R r, const TFSTUB4PHIRESID phiresid, const TFSTUB4RRESID rresid) {
     setStub4Valid(valid);
+    setStub4StubIndex(stubindex);
     setStub4R(r);
     setStub4PhiResid(phiresid);
     setStub4RResid(rresid);
     setDisk1Count(valid ? 1 : 0);
   }
 
-  void setStub5(const TFVALID valid, const TFSTUB5R r, const TFSTUB5PHIRESID phiresid, const TFSTUB5RRESID rresid) {
+  void setStub5(const TFVALID valid, const TFSTUBINDEX stubindex, const TFSTUB5R r, const TFSTUB5PHIRESID phiresid, const TFSTUB5RRESID rresid) {
     setStub5Valid(valid);
+    setStub5StubIndex(stubindex);
     setStub5R(r);
     setStub5PhiResid(phiresid);
     setStub5RResid(rresid);
     setDisk2Count(valid ? 1 : 0);
   }
 
-  void setStub6(const TFVALID valid, const TFSTUB6R r, const TFSTUB6PHIRESID phiresid, const TFSTUB6RRESID rresid) {
+  void setStub6(const TFVALID valid, const TFSTUBINDEX stubindex, const TFSTUB6R r, const TFSTUB6PHIRESID phiresid, const TFSTUB6RRESID rresid) {
     setStub6Valid(valid);
+    setStub6StubIndex(stubindex);
     setStub6R(r);
     setStub6PhiResid(phiresid);
     setStub6RResid(rresid);
     setDisk3Count(valid ? 1 : 0);
   }
 
-  void setStub7(const TFVALID valid, const TFSTUB7R r, const TFSTUB7PHIRESID phiresid, const TFSTUB7RRESID rresid) {
+  void setStub7(const TFVALID valid, const TFSTUBINDEX stubindex, const TFSTUB7R r, const TFSTUB7PHIRESID phiresid, const TFSTUB7RRESID rresid) {
     setStub7Valid(valid);
+    setStub7StubIndex(stubindex);
     setStub7R(r);
     setStub7PhiResid(phiresid);
     setStub7RResid(rresid);
