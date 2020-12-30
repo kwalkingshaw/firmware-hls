@@ -167,7 +167,7 @@ int main()
   ///////////////////////////
   // open output files
   ifstream fout_tracks;
-  if (not openDataFile(fout_tracks, dir + "/TrackFit_TF_L1L2_04.dat")) return -1;
+  if (not openDataFile(fout_tracks, dir + "/TrackFit_BT_L1L2_04.dat")) return -1;
 
   ///////////////////////////
   // loop over events
