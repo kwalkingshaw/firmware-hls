@@ -26,7 +26,7 @@ int main(){
   // Open input files
   ifstream fin_inputTracks("../../../../../emData/TM/TM_L1L2/TrackFit_BT_L1L2_04.dat");
   assert(fin_inputTracks.good());
-  ifstream fin_outputTracks("../../../../../emData/TM/TM_L1L2/TrackFit_PT_L1L2_04.dat");
+  ifstream fout_outputTracks("../../../../../emData/TM/TM_L1L2/TrackFit_PT_L1L2_04.dat");
   assert(fout_outputTracks.good());
 
   // Loop over events
@@ -36,7 +36,7 @@ int main(){
     outputTracks.clear();
 
     // Read in next event from input
-    writeMemFromFile<TrackFitMemory> (outputTracks, fout_outputTracks, ievt);
+    writeMemFromFile<TrackFitMemory> (inputTracks, fin_inputTracks, ievt);
 
     // Set bunch crossing
     ap_uint<3> bx=ievt&0x7;
