@@ -27,7 +27,7 @@ int main(){
   ifstream fin_inputTracks("../../../../../emData/TM/TM_L1L2/TrackFit_BT_L1L2_04.dat");
   assert(fin_inputTracks.good());
   ifstream fin_outputTracks("../../../../../emData/TM/TM_L1L2/TrackFit_PT_L1L2_04.dat");
-  assert(fin_outputTracks.good());
+  assert(fout_outputTracks.good());
 
   // Loop over events
   for (int ievt = 0; ievt < nevents; ++ievt) {
@@ -36,7 +36,7 @@ int main(){
     outputTracks.clear();
 
     // Read in next event from input
-    writeMemFromFile<TrackFitMemory> (outputTracks, fin_outputTracks, ievt);
+    writeMemFromFile<TrackFitMemory> (outputTracks, fout_outputTracks, ievt);
 
     // Set bunch crossing
     ap_uint<3> bx=ievt&0x7;
@@ -45,7 +45,7 @@ int main(){
     TrackMergerTop(bx, inputTracks, outputTracks);
 
     // Comparing outputs
-    err_count += compareMemWithFile<TrackFitMemory>(outputTracks, fin_outputTracks, ievt, "Tracks")
+    err_count += compareMemWithFile<TrackFitMemory>(outputTracks, fout_outputTracks, ievt, "Tracks")
 
   }
 
