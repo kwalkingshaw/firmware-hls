@@ -18,10 +18,10 @@ int main(){
     int err_count = 0;
     
   // Input memories
-  static TrackFitMemory inputTracks;
+  TrackFitMemory inputTracks;
 
   // Output memories
-  static TrackFitMemory outputTracks;
+  TrackFitMemory outputTracks;
 
   // Open input files
   ifstream fin_inputTracks("../../../../../emData/TM/TM_L1L2/TrackFit_BT_L1L2_04.dat");
@@ -39,7 +39,7 @@ int main(){
     writeMemFromFile<TrackFitMemory> (inputTracks, fin_inputTracks, ievt);
 
     // Set bunch crossing
-    ap_uint<3> bx=ievt&0x7;
+    BXType bx = ievt;
 
     // Unit under test
     TrackMergerTop(bx, inputTracks, outputTracks);
