@@ -1,9 +1,11 @@
 #include "TrackMerger.h"
 
-void TrackMerger(const BXType bx, TrackFitMemory inputTracks, TrackFitMemory outputTracks){
-    for(int i =0; i < inputTracks.getEntries(bx); i++){
-        auto inputTrack = inputTracks.read_mem(bx, read_addr);
-         outputTracks.write_mem(bx, inputTrack, read_addr);
+void TrackMerger(const BXType bx, TrackFitMemory inputTracks, TrackFitMemory &outputTracks){
+    ap_uint<kNBits_MemAddr> addr;
+    for(ap_uint<kNBits_MemAddr> addr = 0; addr < inputTracks.getEntries(bx); addr++){
+        auto track = inputTracks.read_mem(bx, addr);
+         outputTracks.write_mem(bx, track, addr);
+         
     }
 
 

@@ -26,7 +26,8 @@ int main(){
   // Open input files
   ifstream fin_inputTracks("../../../../../emData/TM/TM_L1L2/TrackFit_BT_L1L2_04.dat");
   assert(fin_inputTracks.good());
-  ifstream fout_outputTracks("../../../../../emData/TM/TM_L1L2/TrackFit_PT_L1L2_04.dat");
+  ifstream fout_outputTracks("../../../../../emData/TM/TM_L1L2/TrackFit_BT_L1L2_04.dat");
+  //ifstream fout_outputTracks("../../../../../emData/TM/TM_L1L2/TrackFit_PT_L1L2_04.dat");
   assert(fout_outputTracks.good());
 
   // Loop over events
@@ -45,13 +46,13 @@ int main(){
     TrackMergerTop(bx, inputTracks, outputTracks);
 
     // Comparing outputs
-    err_count += compareMemWithFile<TrackFitMemory>(outputTracks, fout_outputTracks, ievt, "Tracks")
+    err_count += compareMemWithFile<TrackFitMemory>(outputTracks, fout_outputTracks, ievt, "Tracks");
 
   }
 
   // Close files
   fin_inputTracks.close();
-  fin_outputTracks.close();
+  fout_outputTracks.close();
 
   // Handling case of err%256 == 0 
   if (err_count > 255) err_count = 255;
